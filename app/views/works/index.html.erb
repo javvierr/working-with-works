@@ -1,0 +1,64 @@
+<h1 class="page-title">Works</h1>
+<p class="lede">Imported MEI catalogue records with simple search and filters.</p>
+
+<%= form_with url: works_path, method: :get, local: true, class: "filter-form" do %>
+  <div class="field">
+    <%= label_tag :q, "Search" %>
+    <%= text_field_tag :q, @filters[:q], placeholder: "Title, composer, catalogue" %>
+  </div>
+  <div class="field">
+    <%= label_tag :catalogue_number, "Catalogue number" %>
+    <%= text_field_tag :catalogue_number, @filters[:catalogue_number], placeholder: "CNW 29" %>
+  </div>
+  <div class="field">
+    <%= label_tag :instrumentation, "Instrumentation" %>
+    <%= text_field_tag :instrumentation, @filters[:instrumentation], placeholder: "strings" %>
+  </div>
+  <div class="field">
+    <%= label_tag :genre, "Genre" %>
+    <%= text_field_tag :genre, @filters[:genre], placeholder: "Symphony" %>
+  </div>
+  <div class="field">
+    <%= label_tag :year_from, "Year from" %>
+    <%= number_field_tag :year_from, @filters[:year_from] %>
+  </div>
+  <div class="field">
+    <%= label_tag :year_to, "Year to" %>
+    <%= number_field_tag :year_to, @filters[:year_to] %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Filter", class: "button" %>
+    <%= link_to "Clear", works_path, class: "button secondary" %>
+  </div>
+<% end %>
+
+<p class="muted"><%= pluralize(@works.size, "work") %> found</p>
+
+<% if @works.any? %>
+  <table class="works-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Composer</th>
+        <th>Catalogue</th>
+        <th>Year</th>
+        <th>Genre</th>
+        <th>Instrumentation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @works.each do |work| %>
+        <tr>
+          <td><%= link_to work.title, work_path(work) %></td>
+          <td><%= work.composer.name %></td>
+          <td><%= work.catalogue_number.presence || "Unknown" %></td>
+          <td><%= work.composition_year.presence || work.composition_date.presence || "Unknown" %></td>
+          <td><%= work.genre.presence || "Unknown" %></td>
+          <td><%= work.instrumentations.map(&:name).join(", ").presence || "Unknown" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No works match the current filters.</p>
+<% end %>

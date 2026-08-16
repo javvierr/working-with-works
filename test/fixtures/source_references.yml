@@ -1,0 +1,13 @@
+one:
+  work: one
+  label: Autograph score
+  source_type: manuscript
+  description: Full score manuscript source.
+  repository: Royal Danish Library
+
+two:
+  work: two
+  label: Early printed orchestral score
+  source_type: printed edition
+  description: Printed score source.
+  repository: Sample fixture repository

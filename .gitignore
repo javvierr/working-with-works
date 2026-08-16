@@ -1,0 +1,28 @@
+# Rails runtime files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Local environment and credentials
+/config/master.key
+/config/credentials.yml.enc
+/.env*
+
+# Private audit evidence
+/docs/report_evidence/verification_results.md
+
+# Local databases
+/db/*.sqlite3
+/db/*.sqlite3-*
+
+# Bundler and editor metadata
+/.bundle
+/.vscode
+/.idea
+
+# OS metadata
+.DS_Store
+
+# Test artifacts
+/coverage

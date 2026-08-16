@@ -1,0 +1,19 @@
+one:
+  composer: one
+  title: Symphony No. 4, The Inextinguishable
+  catalogue_number: CNW 29
+  composition_date: 1914-1916
+  composition_year: 1914
+  genre: Symphony
+  source_file: test/fixtures/files/cnw_29.mei
+  source_identifier: cnw-29
+
+two:
+  composer: one
+  title: Helios Overture
+  catalogue_number: CNW 34
+  composition_date: 1903
+  composition_year: 1903
+  genre: Overture
+  source_file: test/fixtures/files/cnw_34.mei
+  source_identifier: cnw-34

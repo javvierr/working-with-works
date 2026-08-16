@@ -1,0 +1,9 @@
+one:
+  work: one
+  label: Royal Danish Library
+  url: https://www.kb.dk/
+
+two:
+  work: two
+  label: LOAR dataset context
+  url: https://loar.kb.dk/

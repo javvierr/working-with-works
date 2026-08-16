@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prototype sample fixture, not an authoritative catalogue record. -->
+<mei xmlns="http://www.music-encoding.org/ns/mei">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Helios Overture</title>
+        <composer>
+          <persName>Carl Nielsen</persName>
+        </composer>
+      </titleStmt>
+      <sourceDesc>
+        <source type="printed edition">
+          <identifier type="publisher-number">WH 1103</identifier>
+          <title>Early printed orchestral score</title>
+          <repository>Sample source derived for prototype testing</repository>
+        </source>
+      </sourceDesc>
+    </fileDesc>
+    <workList>
+      <work xml:id="cnw-34">
+        <title type="main">Helios Overture</title>
+        <identifier type="CNW">CNW 34</identifier>
+        <identifier type="FS">FS 32</identifier>
+        <classification>
+          <term type="genre">Overture</term>
+        </classification>
+        <creation>
+          <date isodate="1903">1903</date>
+        </creation>
+        <perfMedium>
+          <perfResList>
+            <perfRes section="woodwind" count="3">flutes</perfRes>
+            <perfRes section="woodwind" count="2">clarinets</perfRes>
+            <perfRes section="brass" count="4">horns</perfRes>
+            <perfRes section="brass" count="3">trombones</perfRes>
+            <perfRes section="strings">strings</perfRes>
+          </perfResList>
+        </perfMedium>
+        <contents>
+          <mdiv n="1">
+            <head>Andante tranquillo - Allegro ma non troppo</head>
+          </mdiv>
+        </contents>
+        <history>
+          <eventList>
+            <event type="firstPerformance">
+              <date isodate="1903-10-08">8 October 1903</date>
+              <geogName>Copenhagen</geogName>
+              <corpName>Royal Danish Orchestra</corpName>
+            </event>
+          </eventList>
+        </history>
+        <relationList>
+          <relation rel="catalogue" target="https://loar.kb.dk/">
+            <label>LOAR thematic catalogue dataset context</label>
+          </relation>
+        </relationList>
+      </work>
+    </workList>
+  </meiHead>
+</mei>

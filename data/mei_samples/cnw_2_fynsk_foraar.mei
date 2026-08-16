@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prototype sample fixture, not an authoritative catalogue record. -->
+<mei xmlns="http://www.music-encoding.org/ns/mei">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Fynsk Foraar</title>
+        <composer>
+          <persName>Carl Nielsen</persName>
+        </composer>
+      </titleStmt>
+      <sourceDesc>
+        <source type="vocal score">
+          <identifier type="shelfmark">Sample vocal score source</identifier>
+          <title>Vocal score with piano reduction</title>
+          <repository>Sample fixture repository</repository>
+          <physDesc>Representative choral source entry for testing source extraction.</physDesc>
+        </source>
+      </sourceDesc>
+    </fileDesc>
+    <workList>
+      <work xml:id="cnw-2">
+        <title type="main">Fynsk Foraar</title>
+        <identifier type="CNW">CNW 2</identifier>
+        <identifier type="FS">FS 96</identifier>
+        <classification>
+          <term type="genre">Cantata</term>
+        </classification>
+        <creation>
+          <date isodate="1921">1921</date>
+        </creation>
+        <perfMedium>
+          <perfResList>
+            <perfRes section="voices">soloists</perfRes>
+            <perfRes section="voices">mixed choir</perfRes>
+            <perfRes section="orchestra">small orchestra</perfRes>
+          </perfResList>
+        </perfMedium>
+        <contents>
+          <mdiv n="1">
+            <head>Den milde dag er lys og lang</head>
+          </mdiv>
+          <mdiv n="2">
+            <head>Der dukker af disen</head>
+          </mdiv>
+          <mdiv n="3">
+            <head>Nu lyser loftet</head>
+          </mdiv>
+        </contents>
+        <history>
+          <eventList>
+            <event type="performance">
+              <date isodate="1922-07-08">8 July 1922</date>
+              <geogName>Odense</geogName>
+              <corpName>Sample choral society</corpName>
+            </event>
+          </eventList>
+        </history>
+        <relationList>
+          <relation rel="catalogue" target="https://www.kb.dk/en">
+            <label>Royal Danish Library</label>
+          </relation>
+        </relationList>
+      </work>
+    </workList>
+  </meiHead>
+</mei>

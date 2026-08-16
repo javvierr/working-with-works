@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prototype sample fixture, not an authoritative catalogue record. -->
+<mei xmlns="http://www.music-encoding.org/ns/mei">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Maskarade</title>
+        <composer>
+          <persName>Carl Nielsen</persName>
+        </composer>
+      </titleStmt>
+      <sourceDesc>
+        <source type="opera score">
+          <identifier type="shelfmark">Sample opera score source</identifier>
+          <title>Full score source entry</title>
+          <repository>Sample fixture repository</repository>
+        </source>
+      </sourceDesc>
+    </fileDesc>
+    <workList>
+      <work xml:id="cnw-18">
+        <title type="main">Maskarade</title>
+        <identifier type="CNW">CNW 18</identifier>
+        <identifier type="FS">FS 39</identifier>
+        <classification>
+          <term type="genre">Opera</term>
+        </classification>
+        <creation>
+          <date isodate="1905/1906">1905-1906</date>
+        </creation>
+        <perfMedium>
+          <perfResList>
+            <perfRes section="voices">soloists</perfRes>
+            <perfRes section="voices">chorus</perfRes>
+            <perfRes section="orchestra">orchestra</perfRes>
+          </perfResList>
+        </perfMedium>
+        <contents>
+          <mdiv n="1">
+            <head>Act I</head>
+          </mdiv>
+          <mdiv n="2">
+            <head>Act II</head>
+          </mdiv>
+          <mdiv n="3">
+            <head>Act III</head>
+          </mdiv>
+        </contents>
+        <history>
+          <eventList>
+            <event type="firstPerformance">
+              <date isodate="1906-11-11">11 November 1906</date>
+              <geogName>Copenhagen</geogName>
+              <corpName>Royal Danish Theatre</corpName>
+            </event>
+          </eventList>
+        </history>
+        <relationList>
+          <relation rel="catalogue" target="https://loar.kb.dk/">
+            <label>LOAR dataset context</label>
+          </relation>
+        </relationList>
+      </work>
+    </workList>
+  </meiHead>
+</mei>

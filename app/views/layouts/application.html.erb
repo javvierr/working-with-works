@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working with works</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav class="site-nav">
+        <%= link_to "Working with works", root_path, class: "brand" %>
+        <%= link_to "Works", works_path %>
+        <%= link_to "API", api_works_path(format: :json) %>
+      </nav>
+    </header>
+    <main class="page">
+      <%= yield %>
+    </main>
+  </body>
+</html>

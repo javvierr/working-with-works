@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Prototype sample fixture, not an authoritative catalogue record. -->
+<mei xmlns="http://www.music-encoding.org/ns/mei" xml:id="sample-cnw-29">
+  <meiHead>
+    <fileDesc>
+      <titleStmt>
+        <title type="main">Symphony No. 4, The Inextinguishable</title>
+        <composer>
+          <persName>Carl Nielsen</persName>
+        </composer>
+      </titleStmt>
+      <sourceDesc>
+        <source type="manuscript">
+          <identifier type="shelfmark">DK-Kk CNS 29</identifier>
+          <title>Autograph score</title>
+          <repository>Royal Danish Library</repository>
+          <physDesc>Full score manuscript used as source evidence in the prototype fixture.</physDesc>
+        </source>
+      </sourceDesc>
+    </fileDesc>
+    <workList>
+      <work xml:id="cnw-29">
+        <title type="main">Symphony No. 4, The Inextinguishable</title>
+        <identifier type="CNW">CNW 29</identifier>
+        <identifier type="FS">FS 76</identifier>
+        <classification>
+          <term type="genre">Symphony</term>
+        </classification>
+        <creation>
+          <date isodate="1914/1916">1914-1916</date>
+        </creation>
+        <perfMedium>
+          <perfResList>
+            <perfRes section="woodwind" count="2">flutes</perfRes>
+            <perfRes section="woodwind" count="2">oboes</perfRes>
+            <perfRes section="brass" count="4">horns</perfRes>
+            <perfRes section="percussion">two timpani sets</perfRes>
+            <perfRes section="strings">strings</perfRes>
+          </perfResList>
+        </perfMedium>
+        <contents>
+          <mdiv n="1">
+            <head>Allegro</head>
+          </mdiv>
+          <mdiv n="2">
+            <head>Poco allegretto</head>
+          </mdiv>
+          <mdiv n="3">
+            <head>Poco adagio quasi andante</head>
+          </mdiv>
+          <mdiv n="4">
+            <head>Allegro</head>
+          </mdiv>
+        </contents>
+        <history>
+          <eventList>
+            <event type="firstPerformance">
+              <date isodate="1916-02-01">1 February 1916</date>
+              <geogName>Copenhagen</geogName>
+              <corpName>Musikforeningen</corpName>
+            </event>
+          </eventList>
+        </history>
+        <relationList>
+          <relation rel="catalogue" target="https://www.kb.dk/">
+            <label>Royal Danish Library catalogue context</label>
+          </relation>
+        </relationList>
+      </work>
+    </workList>
+  </meiHead>
+</mei>

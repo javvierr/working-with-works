@@ -1,0 +1,118 @@
+<p><%= link_to "Back to works", works_path %></p>
+
+<h1 class="page-title"><%= @work.title %></h1>
+<p class="lede"><%= @work.composer.name %></p>
+
+<dl class="metadata">
+  <div>
+    <dt>Catalogue number</dt>
+    <dd><%= @work.catalogue_number.presence || "Unknown" %></dd>
+  </div>
+  <div>
+    <dt>Composition date</dt>
+    <dd><%= @work.composition_date.presence || @work.composition_year.presence || "Unknown" %></dd>
+  </div>
+  <div>
+    <dt>Genre</dt>
+    <dd><%= @work.genre.presence || "Unknown" %></dd>
+  </div>
+  <div>
+    <dt>Source XML</dt>
+    <dd class="trace"><%= @work.source_file %></dd>
+  </div>
+  <div>
+    <dt>Source identifier</dt>
+    <dd class="trace"><%= @work.source_identifier.presence || "Unknown" %></dd>
+  </div>
+</dl>
+
+<section class="section">
+  <h2>Catalogue identifiers</h2>
+  <ul class="plain-list">
+    <% @work.catalogue_identifiers.each do |identifier| %>
+      <li><%= [identifier.identifier_type, identifier.value].compact.join(": ") %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Instrumentation</h2>
+  <ul class="plain-list">
+    <% @work.instrumentations.each do |instrumentation| %>
+      <li><%= instrumentation.name %><%= " (#{instrumentation.section})" if instrumentation.section.present? %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Movements</h2>
+  <ol class="plain-list">
+    <% @work.movements.each do |movement| %>
+      <li>
+        <%= movement.title %>
+        <% if movement.tempo_marking.present? || movement.duration.present? %>
+          <span class="muted"><%= [movement.tempo_marking, movement.duration].compact.join(", ") %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Sources</h2>
+  <ul class="plain-list">
+    <% @work.source_references.each do |source| %>
+      <li>
+        <strong><%= source.label %></strong>
+        <% if source.repository.present? %>
+          <span class="muted"><%= source.repository %></span>
+        <% end %>
+        <% if source.description.present? %>
+          <div><%= source.description %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Performances</h2>
+  <ul class="plain-list">
+    <% @work.performances.each do |performance| %>
+      <li>
+        <%= [performance.performed_on, performance.location, performance.performers].compact.join(" - ") %>
+        <% if performance.note.present? %>
+          <div><%= performance.note %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>External references</h2>
+  <ul class="plain-list">
+    <% @work.external_references.each do |reference| %>
+      <li><%= link_to reference.label, reference.url %></li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Latest import log</h2>
+  <% latest_log = @work.import_logs.order(imported_at: :desc).first %>
+  <% if latest_log %>
+    <p>Status: <%= latest_log.status %> at <%= latest_log.imported_at %></p>
+    <% if latest_log.warnings.any? %>
+      <ul class="plain-list">
+        <% latest_log.warnings.each do |warning| %>
+          <li><%= warning %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No importer warnings recorded for this file.</p>
+    <% end %>
+  <% else %>
+    <p>No import log has been recorded for this work.</p>
+  <% end %>
+</section>
