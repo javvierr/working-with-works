@@ -109,7 +109,7 @@ module Mei
       warnings << "Missing work title" if title.blank?
 
       identifiers = catalogue_identifiers(work_node, warnings)
-      catalogue_number = identifiers.first&.fetch(:value, nil)
+      catalogue_number = catalogue_number_for(work_node, identifiers)
       date_node = first_node(work_node, [
         ".//creation//date",
         ".//date[@type='composition']",
@@ -164,17 +164,29 @@ module Mei
     def catalogue_identifiers(work_node, warnings)
       nodes = work_node.xpath("./identifier | ./idno")
       nodes = work_node.xpath(".//identifier | .//idno") if nodes.empty?
-      rows = nodes.map do |node|
+      rows = identifier_rows(nodes)
+      warnings << "Missing catalogue identifier" if rows.empty?
+      rows
+    end
+
+    def catalogue_number_for(work_node, identifiers)
+      direct_cnw_identifier = identifier_rows(work_node.xpath("./identifier | ./idno")).find do |identifier|
+        identifier[:identifier_type].casecmp?("CNW")
+      end
+
+      (direct_cnw_identifier || identifiers.first)&.fetch(:value, nil)
+    end
+
+    def identifier_rows(nodes)
+      nodes.map do |node|
         value = normalize(node.text)
         next if value.blank?
 
         {
-          identifier_type: normalize(node["type"] || node["label"] || "catalogue"),
+          identifier_type: normalize(node["type"] || node["label"]) || "catalogue",
           value: value
         }
       end.compact.uniq { |row| [row[:identifier_type], row[:value]] }
-      warnings << "Missing catalogue identifier" if rows.empty?
-      rows
     end
 
     def movements(work_node, warnings)

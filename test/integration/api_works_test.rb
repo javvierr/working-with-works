@@ -38,4 +38,32 @@ class ApiWorksTest < ActionDispatch::IntegrationTest
     assert_equal ["CNW 29"], body.map { |work| work.fetch("catalogue_number") }
     assert_includes body.first.fetch("instrumentation"), "4 horns"
   end
+
+  test "catalogue filter returns the same work for bare and prefixed CNW input" do
+    get api_works_url(format: :json), params: { catalogue_number: "29" }
+    assert_response :success
+    bare_ids = JSON.parse(response.body).map { |work| work.fetch("id") }
+
+    get api_works_url(format: :json), params: { catalogue_number: "  cNw   29  " }
+    assert_response :success
+    prefixed_ids = JSON.parse(response.body).map { |work| work.fetch("id") }
+
+    assert_equal [works(:one).id], bare_ids
+    assert_equal bare_ids, prefixed_ids
+  end
+
+  test "prefixed catalogue filter excludes equal values from another identifier family" do
+    other_work = Work.create!(
+      composer: composers(:one),
+      title: "Non-CNW identifier",
+      catalogue_number: "29",
+      source_file: "test/generated/non-cnw-identifier.xml"
+    )
+    other_work.catalogue_identifiers.create!(identifier_type: "FS", value: "29")
+
+    get api_works_url(format: :json), params: { catalogue_number: "CNW 29" }
+
+    assert_response :success
+    assert_equal [works(:one).id], JSON.parse(response.body).map { |work| work.fetch("id") }
+  end
 end

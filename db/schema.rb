@@ -10,48 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_06_28_173732) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_17_090000) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "catalogue_identifiers", force: :cascade do |t|
-    t.bigint "work_id", null: false
-    t.string "identifier_type"
-    t.string "value", null: false
     t.datetime "created_at", null: false
+    t.string "identifier_type", null: false
     t.datetime "updated_at", null: false
+    t.string "value", null: false
+    t.bigint "work_id", null: false
     t.index ["value"], name: "index_catalogue_identifiers_on_value"
-    t.index ["work_id", "value"], name: "index_catalogue_identifiers_on_work_id_and_value", unique: true
+    t.index ["work_id", "identifier_type", "value"], name: "index_catalogue_identifiers_on_work_type_value", unique: true
     t.index ["work_id"], name: "index_catalogue_identifiers_on_work_id"
   end
 
   create_table "composers", force: :cascade do |t|
-    t.string "name", null: false
     t.datetime "created_at", null: false
+    t.string "name", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_composers_on_name", unique: true
   end
 
   create_table "external_references", force: :cascade do |t|
-    t.bigint "work_id", null: false
-    t.string "label"
-    t.string "url"
     t.datetime "created_at", null: false
+    t.string "label"
     t.datetime "updated_at", null: false
+    t.string "url"
+    t.bigint "work_id", null: false
     t.index ["url"], name: "index_external_references_on_url"
     t.index ["work_id"], name: "index_external_references_on_work_id"
   end
 
   create_table "import_logs", force: :cascade do |t|
-    t.bigint "work_id"
-    t.string "source_file", null: false
-    t.string "status", null: false
-    t.string "work_title"
-    t.jsonb "warnings", default: [], null: false
+    t.datetime "created_at", null: false
     t.text "error_message"
     t.datetime "imported_at", null: false
-    t.datetime "created_at", null: false
+    t.string "source_file", null: false
+    t.string "status", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "warnings", default: [], null: false
+    t.bigint "work_id"
+    t.string "work_title"
     t.index ["imported_at"], name: "index_import_logs_on_imported_at"
     t.index ["source_file"], name: "index_import_logs_on_source_file"
     t.index ["status"], name: "index_import_logs_on_status"
@@ -59,63 +59,63 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_28_173732) do
   end
 
   create_table "instrumentations", force: :cascade do |t|
-    t.bigint "work_id", null: false
+    t.datetime "created_at", null: false
     t.string "name", null: false
     t.string "section"
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "work_id", null: false
     t.index ["name"], name: "index_instrumentations_on_name"
     t.index ["work_id", "name"], name: "index_instrumentations_on_work_id_and_name", unique: true
     t.index ["work_id"], name: "index_instrumentations_on_work_id"
   end
 
   create_table "movements", force: :cascade do |t|
-    t.bigint "work_id", null: false
-    t.integer "position"
-    t.string "title"
-    t.string "tempo_marking"
-    t.string "duration"
     t.datetime "created_at", null: false
+    t.string "duration"
+    t.integer "position"
+    t.string "tempo_marking"
+    t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "work_id", null: false
     t.index ["work_id", "position"], name: "index_movements_on_work_id_and_position", unique: true
     t.index ["work_id"], name: "index_movements_on_work_id"
   end
 
   create_table "performances", force: :cascade do |t|
-    t.bigint "work_id", null: false
-    t.date "performed_on"
-    t.string "location"
-    t.text "performers"
-    t.text "note"
     t.datetime "created_at", null: false
+    t.string "location"
+    t.text "note"
+    t.date "performed_on"
+    t.text "performers"
     t.datetime "updated_at", null: false
+    t.bigint "work_id", null: false
     t.index ["location"], name: "index_performances_on_location"
     t.index ["performed_on"], name: "index_performances_on_performed_on"
     t.index ["work_id"], name: "index_performances_on_work_id"
   end
 
   create_table "source_references", force: :cascade do |t|
-    t.bigint "work_id", null: false
-    t.string "label"
-    t.string "source_type"
-    t.text "description"
-    t.string "repository"
     t.datetime "created_at", null: false
+    t.text "description"
+    t.string "label"
+    t.string "repository"
+    t.string "source_type"
     t.datetime "updated_at", null: false
+    t.bigint "work_id", null: false
     t.index ["source_type"], name: "index_source_references_on_source_type"
     t.index ["work_id"], name: "index_source_references_on_work_id"
   end
 
   create_table "works", force: :cascade do |t|
-    t.bigint "composer_id", null: false
-    t.string "title", null: false
     t.string "catalogue_number"
+    t.bigint "composer_id", null: false
     t.string "composition_date"
     t.integer "composition_year"
+    t.datetime "created_at", null: false
     t.string "genre"
     t.string "source_file", null: false
     t.string "source_identifier"
-    t.datetime "created_at", null: false
+    t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["catalogue_number"], name: "index_works_on_catalogue_number"
     t.index ["composer_id"], name: "index_works_on_composer_id"

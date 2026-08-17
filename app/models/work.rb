@@ -24,7 +24,26 @@ class Work < ApplicationRecord
   }
 
   scope :with_catalogue_number, ->(value) {
-    value.blank? ? all : where("works.catalogue_number ILIKE ?", "%#{sanitize_sql_like(value)}%")
+    if value.blank?
+      all
+    else
+      normalized_value = value.to_s.squish
+      prefixed_cnw = normalized_value.match(/\ACNW\s+(.+)\z/i)
+
+      if prefixed_cnw
+        cnw_value = prefixed_cnw[1]
+        matching_work_ids = CatalogueIdentifier
+          .where("LOWER(BTRIM(catalogue_identifiers.identifier_type)) = ?", "cnw")
+          .where(
+            "LOWER(BTRIM(catalogue_identifiers.value)) IN (?)",
+            [cnw_value.downcase, "cnw #{cnw_value}".downcase]
+          )
+          .select(:work_id)
+        where(id: matching_work_ids)
+      else
+        where("works.catalogue_number ILIKE ?", "%#{sanitize_sql_like(value)}%")
+      end
+    end
   }
 
   scope :with_genre, ->(value) {
