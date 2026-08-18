@@ -87,13 +87,7 @@ module Mei
 
     def extract(doc, source_file, warnings)
       work_node = doc.at_xpath("//work") || doc.root
-      composer_name = first_text(doc, [
-        "//work//composer//persName",
-        "//work//composer",
-        "//titleStmt//composer//persName",
-        "//titleStmt//composer",
-        "//respStmt//persName"
-      ])
+      composer_name = composer_name_for(doc, work_node)
       if composer_name.blank?
         composer_name = "Unknown composer"
         warnings << "Missing composer; imported as Unknown composer"
@@ -111,9 +105,9 @@ module Mei
       identifiers = catalogue_identifiers(work_node, warnings)
       catalogue_number = catalogue_number_for(work_node, identifiers)
       date_node = first_node(work_node, [
-        ".//creation//date",
-        ".//date[@type='composition']",
-        ".//date[@label='composition']"
+        "./creation/date",
+        "./date[@type='composition']",
+        "./date[@label='composition']"
       ])
       composition_date = normalize(date_node&.text)
       composition_year = extract_year(date_node)
@@ -145,6 +139,21 @@ module Mei
         performances: performances(work_node, warnings),
         external_references: external_references(work_node, warnings)
       }
+    end
+
+    def composer_name_for(doc, work_node)
+      direct_contributor_name = work_node.xpath("./contributor//persName").filter_map do |node|
+        next unless normalize(node["role"])&.casecmp?("composer")
+
+        normalize(node.text)
+      end.first
+
+      direct_contributor_name ||
+        first_text(work_node, ["./composer//persName", "./composer"]) ||
+        first_text(doc.root, [
+          "./meiHead/fileDesc/titleStmt/composer/persName",
+          "./meiHead/fileDesc/titleStmt/composer"
+        ])
     end
 
     def replace_children(work, extracted)
