@@ -1,6 +1,7 @@
 require "date"
 require "nokogiri"
 require "pathname"
+require "uri"
 
 module Mei
   class Importer
@@ -342,7 +343,7 @@ module Mei
       nodes = work_node.xpath(".//relation[@target] | .//ref[@target] | .//ptr[@target]")
       rows = nodes.map do |node|
         url = normalize(node["target"])
-        next if url.blank?
+        next unless absolute_http_reference?(url)
 
         {
           label: first_text(node, ["./label"]) || normalize(node.text) || normalize(node["rel"]) || "External reference",
@@ -351,6 +352,16 @@ module Mei
       end.compact.uniq { |row| row[:url] }
       warnings << "No external references found" if rows.empty?
       rows
+    end
+
+    def absolute_http_reference?(target)
+      return false if target.blank?
+
+      uri = URI.parse(target)
+
+      %w[http https].include?(uri.scheme&.downcase) && uri.host.present?
+    rescue URI::Error
+      false
     end
 
     def first_node(node, xpaths)

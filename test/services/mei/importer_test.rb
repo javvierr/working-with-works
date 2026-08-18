@@ -49,13 +49,23 @@ module Mei
         performance = Work.find_by!(catalogue_number: catalogue_number).performances.sole
         assert_equal expected_values, [performance.performed_on, performance.location, performance.performers]
       end
+
+      {
+        "CNW 18" => ["LOAR dataset context", "https://loar.kb.dk/"],
+        "CNW 29" => ["Royal Danish Library catalogue context", "https://www.kb.dk/"],
+        "CNW 2" => ["Royal Danish Library", "https://www.kb.dk/en"],
+        "CNW 34" => ["LOAR thematic catalogue dataset context", "https://loar.kb.dk/"]
+      }.each do |catalogue_number, expected_values|
+        reference = Work.find_by!(catalogue_number: catalogue_number).external_references.sole
+        assert_equal expected_values, [reference.label, reference.url]
+      end
     end
 
     test "updates existing imported works instead of duplicating them" do
       importer = Importer.new(directory: Rails.root.join("data/mei_samples"))
       importer.call
 
-      assert_no_difference ["Work.count", "Composer.count", "CatalogueIdentifier.count", "Performance.count"] do
+      assert_no_difference ["Work.count", "Composer.count", "CatalogueIdentifier.count", "Performance.count", "ExternalReference.count"] do
         importer.call
       end
       assert_equal 8, ImportLog.where(status: "success").count
@@ -643,6 +653,90 @@ module Mei
         assert_equal 30, work.reload.performances.count
         assert_equal 30, work.performances.distinct.count(:note)
       end
+    end
+
+    test "stores only syntactically absolute HTTP references from the bounded target elements" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="external-reference-contract">
+            <title>External reference contract</title>
+            <relation target="http://example.org/plain"><label>HTTP reference</label></relation>
+            <ref target="https://example.org/secure">HTTPS reference</ref>
+            <ptr target="   HtTpS://Example.org/Mixed   " rel="mixed-case"/>
+            <relation target="https://example.org/record.xml" rel="xml-record"/>
+            <relation target="https://example.org/search?work=18&amp;view=full" rel="query-record"/>
+            <relation target="https://example.org/score.pdf#page=3" rel="fragment-record"/>
+
+            <relation target="" rel="blank-target"/>
+            <ptr target="   " rel="whitespace-only-target"/>
+            <relation target="cnw0018.xml" rel="relative-xml"/>
+            <relation target="document.xq?doc=cnw0018.xml" rel="query-style"/>
+            <relation target="?doc=cnw0018.xml" rel="relative-query"/>
+            <relation target="/dcm/assets/example.pdf" rel="root-relative"/>
+            <relation target="#fragment" rel="fragment-only"/>
+            <relation target="//example.org/path" rel="protocol-relative"/>
+            <relation target="mailto:catalogue@example.org" rel="mail"/>
+            <relation target="ftp://example.org/file" rel="ftp"/>
+            <relation target="javascript:alert(1)" rel="javascript"/>
+            <relation target="data:text/plain,example" rel="data"/>
+            <relation target="https:///path" rel="hostless"/>
+            <relation target="https://example.org/bad path" rel="whitespace"/>
+            <relation target="https://example.org/%ZZ" rel="malformed"/>
+
+            <graphic target="https://example.org/graphic.jpg"/>
+            <persName auth.uri="https://example.org/authority">Authority name</persName>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      assert_equal 0, result.failures
+      assert_equal 0, ImportLog.where(status: "failure").count
+      work = Work.find_by!(source_identifier: "external-reference-contract")
+      assert_equal [
+        ["HTTP reference", "http://example.org/plain"],
+        ["HTTPS reference", "https://example.org/secure"],
+        ["mixed-case", "HtTpS://Example.org/Mixed"],
+        ["xml-record", "https://example.org/record.xml"],
+        ["query-record", "https://example.org/search?work=18&view=full"],
+        ["fragment-record", "https://example.org/score.pdf#page=3"]
+      ], work.external_references.order(:id).pluck(:label, :url)
+      assert_not_includes result.warnings, "No external references found"
+      assert_not work.external_references.exists?(url: "https://example.org/graphic.jpg")
+      assert_not work.external_references.exists?(url: "https://example.org/authority")
+    end
+
+    test "de-duplicates normalized external URLs while retaining the first source label" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="duplicate-external-reference">
+            <title>Duplicate external reference</title>
+            <relation target="  https://example.org/score.pdf  "><label>First label</label></relation>
+            <ref target="https://example.org/score.pdf"><label>Second label</label></ref>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      reference = Work.find_by!(source_identifier: "duplicate-external-reference").external_references.sole
+      assert_equal ["First label", "https://example.org/score.pdf"], [reference.label, reference.url]
+      assert_not_includes result.warnings, "No external references found"
+    end
+
+    test "rejects internal-only targets with one no-external-references warning" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="internal-only-references">
+            <title>Internal-only references</title>
+            <relation target="cnw0018.xml" rel="related-work"/>
+            <ptr target="/dcm/assets/example.pdf" rel="local-asset"/>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      assert_equal 0, Work.find_by!(source_identifier: "internal-only-references").external_references.count
+      assert_equal 1, result.warnings.count("No external references found")
     end
 
     private
