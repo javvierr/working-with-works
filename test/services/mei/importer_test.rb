@@ -39,13 +39,23 @@ module Mei
         assert_equal composition_date, fixture_work.composition_date
         assert_equal composition_year, fixture_work.composition_year
       end
+
+      {
+        "CNW 18" => [Date.new(1906, 11, 11), "Copenhagen", "Royal Danish Theatre"],
+        "CNW 29" => [Date.new(1916, 2, 1), "Copenhagen", "Musikforeningen"],
+        "CNW 2" => [Date.new(1922, 7, 8), "Odense", "Sample choral society"],
+        "CNW 34" => [Date.new(1903, 10, 8), "Copenhagen", "Royal Danish Orchestra"]
+      }.each do |catalogue_number, expected_values|
+        performance = Work.find_by!(catalogue_number: catalogue_number).performances.sole
+        assert_equal expected_values, [performance.performed_on, performance.location, performance.performers]
+      end
     end
 
     test "updates existing imported works instead of duplicating them" do
       importer = Importer.new(directory: Rails.root.join("data/mei_samples"))
       importer.call
 
-      assert_no_difference ["Work.count", "Composer.count", "CatalogueIdentifier.count"] do
+      assert_no_difference ["Work.count", "Composer.count", "CatalogueIdentifier.count", "Performance.count"] do
         importer.call
       end
       assert_equal 8, ImportLog.where(status: "success").count
@@ -413,6 +423,226 @@ module Mei
       assert_equal ["1889", 1889], [labelled_work.composition_date, labelled_work.composition_year]
       assert_not_includes type_result.warnings, "Missing composition date or year"
       assert_not_includes label_result.warnings, "Missing composition date or year"
+    end
+
+    test "imports an untyped event from a normalized performances event list with its exact direct date" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="parent-typed-performance-event">
+            <title>Parent-typed performance event</title>
+            <history><eventList type="  PeRfOrMaNcEs  ">
+              <event><date isodate=" 1896-01-15 "> 1896-01-15 </date></event>
+            </eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "parent-typed-performance-event").performances.sole
+      assert_equal Date.new(1896, 1, 15), performance.performed_on
+      assert_not_includes result.warnings, "No performance information found"
+    end
+
+    test "uses a direct event date instead of an earlier nested review date" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="direct-performance-date">
+            <title>Direct performance date</title>
+            <history><eventList type="performances"><event>
+              <biblList><bibl><date isodate="1896-01-16">1896-01-16</date></bibl></biblList>
+              <date isodate="1896-01-15">1896-01-15</date>
+            </event></eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "direct-performance-date").performances.sole
+      assert_equal Date.new(1896, 1, 15), performance.performed_on
+    end
+
+    test "does not use a nested-only review date as the performance date" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="nested-only-performance-date">
+            <title>Nested-only performance date</title>
+            <history><eventList type="performances"><event>
+              <biblList><bibl><date isodate="1896-01-16">1896-01-16</date></bibl></biblList>
+              <desc>Direct event description</desc>
+            </event></eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "nested-only-performance-date").performances.sole
+      assert_nil performance.performed_on
+      assert_equal "Direct event description", performance.note
+      assert_not_includes result.warnings, "Non-exact performance date was not stored"
+    end
+
+    test "flattens direct event locations and role-bearing participants while excluding nested review values" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="bounded-performance-fields">
+            <title>Bounded performance fields</title>
+            <history><eventList type="performances"><event>
+              <geogName role="venue">The Royal Theatre</geogName>
+              <geogName role="place">Copenhagen</geogName>
+              <persName role="conductor">Ebbe Hamerik</persName>
+              <corpName role="ensemble">Royal Orchestra</corpName>
+              <desc>First performance.</desc>
+              <biblList><bibl>
+                <geogName role="place">Nested Review Place</geogName>
+                <persName role="reviewer">Nested Reviewer</persName>
+                <corpName role="publisher">Nested Publisher</corpName>
+                <desc>Nested review description</desc>
+              </bibl></biblList>
+            </event></eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "bounded-performance-fields").performances.sole
+      assert_equal "Venue: The Royal Theatre; Place: Copenhagen", performance.location
+      assert_equal "Ebbe Hamerik (conductor), Royal Orchestra (ensemble)", performance.performers
+      assert_equal "First performance.", performance.note
+      assert_not_includes performance.location, "Nested Review Place"
+      assert_not_includes performance.performers, "Nested Reviewer"
+      assert_not_includes performance.note, "Nested review description"
+    end
+
+    test "skips a blank performance event with one accounted warning" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="blank-performance-event">
+            <title>Blank performance event</title>
+            <history><eventList type="performances"><event/></eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      assert_equal 0, Work.find_by!(source_identifier: "blank-performance-event").performances.count
+      assert_equal 1, result.warnings.count("Skipped performance event with no supported direct values")
+      assert_equal 0, result.warnings.count("No performance information found")
+    end
+
+    test "retains other direct fields while refusing to coerce a ranged performance date" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="ranged-performance-date">
+            <title>Ranged performance date</title>
+            <history><eventList type="performances"><event>
+              <date startdate="1920" enddate="1921">1920–21</date>
+              <geogName role="venue">Concert Hall</geogName>
+            </event></eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "ranged-performance-date").performances.sole
+      assert_nil performance.performed_on
+      assert_equal "Venue: Concert Hall", performance.location
+      assert_equal 1, result.warnings.count("Non-exact performance date was not stored")
+      assert_equal 0, result.warnings.count("Skipped performance event with no supported direct values")
+    end
+
+    test "retains no-performance warning only for a work with no candidate events" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="no-performance-events">
+            <title>No performance events</title>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      assert_equal 0, Work.find_by!(source_identifier: "no-performance-events").performances.count
+      assert_equal 1, result.warnings.count("No performance information found")
+      assert_equal 0, result.warnings.count("Skipped performance event with no supported direct values")
+    end
+
+    test "stores separate rows for source events with equal mapped values" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="equal-performance-events">
+            <title>Equal performance events</title>
+            <history><eventList type="performances">
+              <event><date isodate="1924-02-10">1924-02-10</date><geogName>Odense</geogName></event>
+              <event><date isodate="1924-02-10">1924-02-10</date><geogName>Odense</geogName></event>
+            </eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performances = Work.find_by!(source_identifier: "equal-performance-events").performances
+      assert_equal 2, performances.count
+      assert_equal [Date.new(1924, 2, 10), Date.new(1924, 2, 10)], performances.order(:id).pluck(:performed_on)
+      assert_equal ["Odense", "Odense"], performances.order(:id).pluck(:location)
+    end
+
+    test "retains the legacy performance element compatibility form with only direct values" do
+      result = import_xml(<<~XML)
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="legacy-performance-element">
+            <title>Legacy performance element</title>
+            <history><performance>
+              <date isodate="1922-07-08">8 July 1922</date>
+              <geogName>Odense</geogName>
+              <corpName role="ensemble">Legacy Ensemble</corpName>
+              <note>Legacy note</note>
+            </performance></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      assert_equal 1, result.successes
+      performance = Work.find_by!(source_identifier: "legacy-performance-element").performances.sole
+      assert_equal Date.new(1922, 7, 8), performance.performed_on
+      assert_equal "Odense", performance.location
+      assert_equal "Legacy Ensemble (ensemble)", performance.performers
+      assert_equal "Legacy note", performance.note
+    end
+
+    test "imports and replaces a bounded generated set of performance events without duplication" do
+      events = 30.times.map do |index|
+        day = (index % 28) + 1
+        <<~XML
+          <event>
+            <date isodate="1924-02-#{day.to_s.rjust(2, "0")}">1924-02-#{day.to_s.rjust(2, "0")}</date>
+            <desc>Generated performance #{index + 1}</desc>
+          </event>
+        XML
+      end.join
+      xml = <<~XML
+        <mei xmlns="http://www.music-encoding.org/ns/mei">
+          <meiHead><workList><work xml:id="generated-performance-events">
+            <title>Generated performance events</title>
+            <history><eventList type="performances">#{events}</eventList></history>
+          </work></workList></meiHead>
+        </mei>
+      XML
+
+      Dir.mktmpdir("mei-importer-", Rails.root.join("tmp")) do |directory|
+        Pathname.new(directory).join("record.xml").write(xml)
+        importer = Importer.new(directory: directory)
+
+        first_result = importer.call
+        assert_equal 1, first_result.successes
+        work = Work.find_by!(source_identifier: "generated-performance-events")
+        assert_equal 30, work.performances.count
+
+        assert_no_difference "Performance.count" do
+          second_result = importer.call
+          assert_equal 1, second_result.successes
+        end
+        assert_equal 30, work.reload.performances.count
+        assert_equal 30, work.performances.distinct.count(:note)
+      end
     end
 
     private

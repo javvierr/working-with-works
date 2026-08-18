@@ -251,23 +251,91 @@ module Mei
     end
 
     def performances(work_node, warnings)
-      nodes = work_node.xpath(".//event[@type='firstPerformance'] | .//event[@type='performance'] | .//performance")
-      rows = nodes.map do |node|
-        date_node = first_node(node, [".//date"])
-        location = first_text(node, [".//geogName", ".//placeName", ".//location"])
-        performers = node.xpath(".//persName | .//corpName").map { |name_node| normalize(name_node.text) }.compact_blank.join(", ")
-        note = first_text(node, ["./note", ".//note"])
-        next if date_node.blank? && location.blank? && performers.blank? && note.blank?
+      nodes = performance_nodes(work_node)
+      if nodes.empty?
+        warnings << "No performance information found"
+        return []
+      end
+
+      nodes.filter_map do |node|
+        date_node = node.at_xpath("./date")
+        performed_on = parse_date(date_node)
+        non_exact_date = performance_date_present?(date_node) && performed_on.blank?
+
+        location = performance_location(node)
+        performers = performance_performers(node)
+        note = performance_note(node)
+        if performed_on.blank? && location.blank? && performers.blank? && note.blank?
+          warnings << "Skipped performance event with no supported direct values"
+          next
+        end
+
+        warnings << "Non-exact performance date was not stored" if non_exact_date
 
         {
-          performed_on: parse_date(date_node),
+          performed_on: performed_on,
           location: location,
-          performers: performers.presence,
+          performers: performers,
           note: note
         }
-      end.compact
-      warnings << "No performance information found" if rows.empty?
-      rows
+      end
+    end
+
+    def performance_nodes(work_node)
+      event_nodes = work_node.xpath(".//eventList/event").select do |event|
+        list_type = normalize(event.parent["type"])
+        event_type = normalize(event["type"])
+
+        list_type&.casecmp?("performances") ||
+          %w[firstperformance performance].include?(event_type&.downcase)
+      end
+
+      event_nodes + work_node.xpath(".//performance").to_a
+    end
+
+    def performance_location(node)
+      node.xpath("./geogName | ./placeName | ./location").filter_map do |location_node|
+        value = normalize(location_node.text)
+        next if value.blank?
+
+        case normalize(location_node["role"])&.downcase
+        when "venue"
+          "Venue: #{value}"
+        when "place"
+          "Place: #{value}"
+        else
+          value
+        end
+      end.join("; ").presence
+    end
+
+    def performance_performers(node)
+      node.xpath("./persName | ./corpName").filter_map do |name_node|
+        name = normalize(name_node.text)
+        next if name.blank?
+
+        role = normalize(name_node["role"])
+        role.present? ? "#{name} (#{role})" : name
+      end.join(", ").presence
+    end
+
+    def performance_note(node)
+      ["./desc", "./description", "./note"].filter_map do |xpath|
+        normalize(node.at_xpath(xpath)&.text)
+      end.first
+    end
+
+    def performance_date_present?(date_node)
+      return false if date_node.blank?
+
+      [
+        date_node["isodate"],
+        date_node["notbefore"],
+        date_node["notafter"],
+        date_node["startdate"],
+        date_node["enddate"],
+        date_node.text
+      ].any? { |value| normalize(value).present? }
     end
 
     def external_references(work_node, warnings)
@@ -310,11 +378,18 @@ module Mei
 
     def parse_date(date_node)
       return if date_node.blank?
+      return if %w[notbefore notafter startdate enddate].any? { |attribute| normalize(date_node[attribute]).present? }
 
-      value = date_node["isodate"].presence || date_node.text
-      exact = value.to_s[/\d{4}-\d{2}-\d{2}/]
-      Date.iso8601(exact) if exact.present?
-    rescue Date::Error
+      [date_node["isodate"], date_node.text].filter_map { |value| normalize(value) }.each do |value|
+        next unless value.match?(/\A\d{4}-\d{2}-\d{2}\z/)
+
+        begin
+          return Date.iso8601(value)
+        rescue Date::Error
+          next
+        end
+      end
+
       nil
     end
 
