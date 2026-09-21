@@ -1,38 +1,78 @@
 <h1 class="page-title">Works</h1>
 <p class="lede">Imported MEI catalogue records with simple search and filters.</p>
 
-<%= form_with url: works_path, method: :get, local: true, class: "filter-form" do %>
+<% unless @query.valid? %>
+  <section class="filter-errors" role="alert" aria-labelledby="filter-errors-heading">
+    <h2 id="filter-errors-heading">Check the filters</h2>
+    <p>No search was run. Correct the fields below or use Clear to start again.</p>
+    <ul>
+      <% @query.errors.each do |error| %>
+        <li><%= works_filter_label(error[:parameter]) %>: <%= error[:message] %></li>
+      <% end %>
+    </ul>
+    <% if works_filter_errors(:page).any? && @filters[:page].present? %>
+      <p>Requested page: <%= @filters[:page] %>. Applying the filters starts again at page 1.</p>
+    <% end %>
+  </section>
+<% end %>
+
+<p id="filter-guidance">Filters combine. Clear returns to all works on page 1.</p>
+<%= form_with url: works_path, method: :get, local: true, class: "filter-form", id: "works-filters", aria: { describedby: "filter-guidance" } do %>
   <div class="field">
-    <%= label_tag :q, "Search" %>
-    <%= text_field_tag :q, @filters[:q], placeholder: "Title, composer, catalogue" %>
+    <%= label_tag :q, "General search" %>
+    <%= text_field_tag :q, @filters[:q], placeholder: "Title, composer, catalogue", aria: { describedby: works_filter_description(:q, hint: true), invalid: works_filter_errors(:q).any? } %>
+    <small id="q-hint">Search title variants, composer and catalogue text.</small>
+    <% if works_filter_errors(:q).any? %><p class="field-error" id="q-error"><%= works_filter_errors(:q).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="field">
     <%= label_tag :catalogue_number, "Catalogue number" %>
-    <%= text_field_tag :catalogue_number, @filters[:catalogue_number], placeholder: "CNW 29" %>
+    <%= text_field_tag :catalogue_number, @filters[:catalogue_number], placeholder: "CNW 29", aria: { describedby: works_filter_description(:catalogue_number, hint: true), invalid: works_filter_errors(:catalogue_number).any? } %>
+    <small id="catalogue_number-hint">CNW 29 matches that typed identifier exactly. A bare fragment, such as 29, matches stored catalogue text.</small>
+    <% if works_filter_errors(:catalogue_number).any? %><p class="field-error" id="catalogue_number-error"><%= works_filter_errors(:catalogue_number).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="field">
     <%= label_tag :instrumentation, "Instrumentation" %>
-    <%= text_field_tag :instrumentation, @filters[:instrumentation], placeholder: "strings" %>
+    <%= text_field_tag :instrumentation, @filters[:instrumentation], placeholder: "1 pf.", aria: { describedby: works_filter_description(:instrumentation, hint: true), invalid: works_filter_errors(:instrumentation).any? } %>
+    <small id="instrumentation-hint">Match source wording, for example 1 pf.; explanations are display aids, not search aliases.</small>
+    <% if works_filter_errors(:instrumentation).any? %><p class="field-error" id="instrumentation-error"><%= works_filter_errors(:instrumentation).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="field">
     <%= label_tag :genre, "Genre" %>
-    <%= text_field_tag :genre, @filters[:genre], placeholder: "Symphony" %>
+    <%= text_field_tag :genre, @filters[:genre], placeholder: "Symphony", aria: { describedby: works_filter_description(:genre), invalid: works_filter_errors(:genre).any? } %>
+    <% if works_filter_errors(:genre).any? %><p class="field-error" id="genre-error"><%= works_filter_errors(:genre).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="field">
     <%= label_tag :year_from, "Year from" %>
-    <%= number_field_tag :year_from, @filters[:year_from] %>
+    <%= text_field_tag :year_from, @filters[:year_from], inputmode: "numeric", aria: { describedby: works_filter_description(:year_from, hint: true), invalid: works_filter_errors(:year_from).any? } %>
+    <small id="year_from-hint">Inclusive, from 1 to 9999.</small>
+    <% if works_filter_errors(:year_from).any? %><p class="field-error" id="year_from-error"><%= works_filter_errors(:year_from).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="field">
     <%= label_tag :year_to, "Year to" %>
-    <%= number_field_tag :year_to, @filters[:year_to] %>
+    <%= text_field_tag :year_to, @filters[:year_to], inputmode: "numeric", aria: { describedby: works_filter_description(:year_to, hint: true), invalid: works_filter_errors(:year_to).any? } %>
+    <small id="year_to-hint">Inclusive, from 1 to 9999.</small>
+    <% if works_filter_errors(:year_to).any? %><p class="field-error" id="year_to-error"><%= works_filter_errors(:year_to).map { |error| error[:message] }.join(" ") %></p><% end %>
+  </div>
+  <div class="field">
+    <%= label_tag :per_page, "Results per page" %>
+    <%= text_field_tag :per_page, @filters[:per_page] || @query.per_page, inputmode: "numeric", aria: { describedby: works_filter_description(:per_page, hint: true), invalid: works_filter_errors(:per_page).any? } %>
+    <small id="per_page-hint">From 1 to 100. Applying filters starts at page 1.</small>
+    <% if works_filter_errors(:per_page).any? %><p class="field-error" id="per_page-error"><%= works_filter_errors(:per_page).map { |error| error[:message] }.join(" ") %></p><% end %>
   </div>
   <div class="actions">
-    <%= submit_tag "Filter", class: "button" %>
+    <%= submit_tag "Apply filters", class: "button", name: nil %>
     <%= link_to "Clear", works_path, class: "button secondary" %>
   </div>
 <% end %>
 
-<p class="muted"><%= pluralize(@works.size, "work") %> found</p>
+<% if @query.valid? %>
+  <% if @works.any? %>
+    <p class="result-count">Showing <%= (@query.page - 1) * @query.per_page + 1 %>–<%= [@query.page * @query.per_page, @query.total_count].min %> of <%= pluralize(@query.total_count, "work") %>.</p>
+  <% elsif @query.total_count.positive? %>
+    <p class="result-count">Page <%= @query.page %> has no works. <%= pluralize(@query.total_count, "work") %> match the filters across <%= pluralize(@query.total_pages, "page") %>. Use First page or Last page below.</p>
+  <% else %>
+    <p class="result-count">No works match the current filters. Change a filter or use Clear to see all works.</p>
+  <% end %>
 
 <% if @works.any? %>
   <table class="works-table">
@@ -49,16 +89,33 @@
     <tbody>
       <% @works.each do |work| %>
         <tr>
-          <td><%= link_to work.title, work_path(work) %></td>
+          <td><%= link_to work_path(work), class: "work-result-link" do %><span class="work-title"><%= work.title %></span> <span class="catalogue-cue">(<%= work_catalogue_cue(work) %>)</span><% end %></td>
           <td><%= work.composer.name %></td>
           <td><%= work.catalogue_number.presence || "Unknown" %></td>
           <td><%= work.composition_year.presence || work.composition_date.presence || "Unknown" %></td>
           <td><%= work.genre.presence || "Unknown" %></td>
-          <td><%= work.instrumentations.map(&:name).join(", ").presence || "Unknown" %></td>
+          <td>
+            <% if work.instrumentations.any? %>
+              <ul class="instrumentation-list">
+                <% work.instrumentations.each do |instrumentation| %>
+                  <li><span class="instrumentation-source"><%= instrumentation.name %></span> <span class="instrumentation-explanation">— <%= instrumentation_explanation(instrumentation.name) %></span></li>
+                <% end %>
+              </ul>
+            <% else %>
+              Unknown
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-<% else %>
-  <p>No works match the current filters.</p>
+<% end %>
+  <% if @query.navigation.any? %>
+    <nav class="pagination" aria-label="Works pages">
+      <% @query.navigation.each do |link| %>
+        <%= link_to works_page_label(link[:rel]), works_path(link[:params]), rel: link[:rel], class: "button secondary" %>
+      <% end %>
+      <% if @works.any? %><span>Page <%= @query.page %> of <%= @query.total_pages %></span><% end %>
+    </nav>
+  <% end %>
 <% end %>

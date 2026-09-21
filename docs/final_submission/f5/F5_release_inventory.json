@@ -1,0 +1,1038 @@
+{
+  "status": "POSITIVE_LOCAL_PROPOSAL_UNCOMMITTED",
+  "file_count": 255,
+  "runtime_candidate_build": "f5-e152006d650d0a93",
+  "runtime_file_count": 158,
+  "canonical_complete_hash_mode_manifest": "release/candidate_manifest.json in F5 review ZIP; every byte including this document is hashed there after freeze",
+  "files": [
+    {
+      "path": ".gitignore",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": ".ruby-version",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "Gemfile",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "Gemfile.lock",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "README.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "Rakefile",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/assets/config/manifest.js",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/assets/images/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/assets/stylesheets/application.css",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/api/base_controller.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/api/errors_controller.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/api/works_controller.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/concerns/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/controllers/works_controller.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/helpers/works_helper.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/catalogue_document.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/catalogue_identifier.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/composer.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/concerns/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/external_reference.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/held_item.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/import_log.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/instrumentation.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/movement.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/performance.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/source_description.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/source_reference.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/source_relation.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/work.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/work_classification_term.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/models/work_title.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/services/mei/importer.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/services/mei/input_document.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/services/mei/source_projection.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/services/works_query.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/views/layouts/application.html.erb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/views/works/_catalogue_sources.html.erb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/views/works/_source_values.html.erb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/views/works/index.html.erb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "app/views/works/show.html.erb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "bin/ci",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "bin/dev",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "bin/rails",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "bin/rake",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "bin/setup",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config.ru",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/application.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/boot.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/cable.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/ci.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/database.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/environment.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/environments/development.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/environments/production.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/environments/test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/assets.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/content_security_policy.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/filter_parameter_logging.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/inflections.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/new_framework_defaults_8_1.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/initializers/permissions_policy.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/locales/en.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/puma.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "config/routes.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "data/mei_samples/README.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_18_maskarade.mei",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_29_symphony_no_4.mei",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_2_fynsk_foraar.mei",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_34_helios.mei",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173642_create_composers.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173648_create_works.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173655_create_catalogue_identifiers.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173701_create_movements.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173707_create_instrumentations.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173713_create_source_references.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173718_create_performances.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173726_create_external_references.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260628173732_create_import_logs.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260817090000_update_catalogue_identifier_uniqueness.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260919180000_add_catalogue_foundation.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/migrate/20260919233000_add_catalogue_sources.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/schema.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "db/seeds.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_source_model_proposal.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_decisions.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/feedback_to_evidence_proposed.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_decisions.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/feedback_to_evidence_proposed.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_decisions.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_api_contract.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_decisions.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_label_sources.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/feedback_to_evidence_proposed.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_acceptance_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_api_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_checks.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_completion.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_corpus_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_decisions.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_developer_walkthrough.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_evaluation_protocol.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_historical_assertion_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_operational_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_report_notes.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_semantic_extension_results.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/feedback_to_evidence_proposed.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_acceptance_results.csv",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_checks.json",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_completion.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_decisions.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_evidence_index.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_release_handoff.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_release_inventory.json",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_report_notes.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_reproduction.md",
+      "reason": "Required additive F5 review document"
+    },
+    {
+      "path": "docs/final_submission/feedback_to_evidence.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/claim_evidence_register.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/gaps_and_next_evaluation.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/implementation_inventory.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_api_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_baseline_import_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_corpus_reconnaissance.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_correction_scope.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_demo_readiness.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_evaluation_protocol.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_fidelity_matrix.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_focused_probe_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_comparison.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_fidelity_matrix.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_fidelity_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_focused_probe_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_import_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_sample_manifest.csv",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_observation_template.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_participant_tasks.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_protocol.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "docs/report_evidence/verification_results.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "lib/assets/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "lib/tasks/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "lib/tasks/mei.rake",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/400.html",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/404.html",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/406-unsupported-browser.html",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/422.html",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/500.html",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/apple-touch-icon-precomposed.png",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/favicon.ico",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/icon.png",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/icon.svg",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "public/robots.txt",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_guard.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_source_api_check.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_sql_probe_support.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_guard.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_source_api_check.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_sql_probe_support.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_synthetic_api_experiment.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_synthetic_fixture.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_validate.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/load_schema.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f3_validation/run_suite.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/USAGE.md",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/audit_review.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_census_compare.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_corpus_table.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_historical_compare.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_reimport_compare.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_reproduction_compare.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_semantic_compare.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_source_oracle.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f4_validation/run_offline.py",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/f5_validation/release_commands_test.rb",
+      "reason": "Authorized portable release helper/test"
+    },
+    {
+      "path": "script/final_submission/f1_guard.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f1_source_api_check.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f1_sql_probe_support.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f1_suite.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f1_validate.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f2_guard.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f2_source_api_check.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f2_sql_probe_support.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f2_suite.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/final_submission/f2_validate.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "script/release/commands.rb",
+      "reason": "Authorized portable release helper/test"
+    },
+    {
+      "path": "script/release/migrate.rb",
+      "reason": "Authorized portable release helper/test"
+    },
+    {
+      "path": "script/release/schema.rb",
+      "reason": "Authorized portable release helper/test"
+    },
+    {
+      "path": "test/channels/application_cable/connection_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/controllers/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/controllers/f3_api_contract_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/catalogue_identifiers.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/composers.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/external_references.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/files/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/files/f3_synthetic_truth.json",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/instrumentations.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/movements.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/performances.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/source_references.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/fixtures/works.yml",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/helpers/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/api_works_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/catalogue_sources_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/external_reference_exposure_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/f1_work_projection_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/f2r1_catalogue_sources_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/integration/f3_works_interface_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/.keep",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/catalogue_foundation_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/catalogue_identifier_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/catalogue_sources_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/composer_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/external_reference_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/instrumentation_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/movement_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/performance_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/source_reference_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/models/work_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/services/mei/f1_importer_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/services/mei/f2_importer_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/services/mei/importer_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/services/mei/input_document_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/services/mei/source_projection_test.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/support/f3_fixture_support.rb",
+      "reason": "Accepted application/public historical evidence"
+    },
+    {
+      "path": "test/test_helper.rb",
+      "reason": "Accepted application/public historical evidence"
+    }
+  ],
+  "exclusions": [
+    "secret/master-key/encrypted-credential/environment files",
+    "private participant/consent records",
+    "arbitraryignored caches and dependencies",
+    "Git metadata and retaineddatabase/runtimecopy trees"
+  ],
+  "preservation": "Excluded originals retained; no deletion or staging",
+  "PUBLIC_RELEASE": "PENDING_USER_COMMIT_AND_PUBLICATION",
+  "PUBLIC_FRESH_CLONE": "NOT_RUN"
+}

@@ -1,23 +1,35 @@
 class Work < ApplicationRecord
   belongs_to :composer
+  belongs_to :catalogue_document, optional: true, inverse_of: :work
+  has_many :work_titles, -> { order(:source_order, :id) }, dependent: :destroy, inverse_of: :work
+  has_many :work_classification_terms, -> { order(:source_order, :id) }, dependent: :destroy,
+           inverse_of: :work
   has_many :catalogue_identifiers, dependent: :destroy
   has_many :movements, -> { order(:position) }, dependent: :destroy
   has_many :instrumentations, -> { order(:name) }, dependent: :destroy
   has_many :source_references, dependent: :destroy
   has_many :performances, -> { order(:performed_on) }, dependent: :destroy
   has_many :external_references, dependent: :destroy
-  has_many :import_logs, dependent: :nullify
+  has_many :import_logs, -> { order(imported_at: :desc, id: :desc) }, dependent: :nullify
 
   validates :title, :source_file, presence: true
   validates :source_file, uniqueness: true
+  validates :catalogue_document_id, uniqueness: true, allow_nil: true
+  validates :display_title_order, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   scope :search, ->(term) {
     if term.blank?
       all
     else
-      pattern = "%#{sanitize_sql_like(term)}%"
+      pattern = "%#{sanitize_sql_like(term.to_s)}%"
       joins(:composer).where(
-        "works.title ILIKE :pattern OR works.catalogue_number ILIKE :pattern OR composers.name ILIKE :pattern",
+        <<~SQL.squish,
+          EXISTS (
+            SELECT 1 FROM work_titles
+            WHERE work_titles.work_id = works.id AND work_titles.text ILIKE :pattern
+          ) OR (works.catalogue_document_id IS NULL AND works.title ILIKE :pattern)
+            OR works.catalogue_number ILIKE :pattern OR composers.name ILIKE :pattern
+        SQL
         pattern: pattern
       )
     end
@@ -47,7 +59,20 @@ class Work < ApplicationRecord
   }
 
   scope :with_genre, ->(value) {
-    value.blank? ? all : where("works.genre ILIKE ?", "%#{sanitize_sql_like(value)}%")
+    if value.blank?
+      all
+    else
+      where(
+        <<~SQL.squish,
+          EXISTS (
+            SELECT 1 FROM work_classification_terms
+            WHERE work_classification_terms.work_id = works.id
+              AND work_classification_terms.text ILIKE :pattern
+          ) OR (works.catalogue_document_id IS NULL AND works.genre ILIKE :pattern)
+        SQL
+        pattern: "%#{sanitize_sql_like(value.to_s)}%"
+      )
+    end
   }
 
   scope :with_instrumentation, ->(value) {
@@ -74,5 +99,24 @@ class Work < ApplicationRecord
       .from_year(filters[:year_from])
       .to_year(filters[:year_to])
       .with_genre(filters[:genre])
+  end
+
+  def latest_import_attempt
+    attempts_for_identity.first
+  end
+
+  def last_successful_import
+    attempts = attempts_for_identity
+    if attempts.loaded?
+      attempts.find { |attempt| attempt.status == "success" }
+    else
+      attempts.where(status: "success").first
+    end
+  end
+
+  private
+
+  def attempts_for_identity
+    catalogue_document ? catalogue_document.import_logs : import_logs
   end
 end

@@ -1,0 +1,158 @@
+{
+  "phase": "F5_RELEASE_PREPARATION",
+  "status": "PARTIAL",
+  "reason": "P5-01 prefiltered-read boundary NONCOMPLIANT; byte/Git preservation is a separate result.",
+  "candidate_build": "f5-e152006d650d0a93",
+  "accepted_f4_build": "f3-1602645a261ed754",
+  "runtime_files": 158,
+  "release_paths": 255,
+  "gates": [
+    {
+      "id": "P5-01",
+      "status": "FAIL",
+      "gate": "Baseline and preservation",
+      "observation": "968 starting paths matched F4; source/domain and user Git preservation are separately checked. A recursive text search may have opened excluded credentials. No values were output or fingerprinted; prefiltered-read boundary was violated.",
+      "evidence": [
+        "preservation/read_scope_incident.json",
+        "preservation/final/result.json"
+      ]
+    },
+    {
+      "id": "P5-02",
+      "status": "PASS",
+      "gate": "Narrow implementation scope",
+      "observation": "Four permitted existing files, four portable helper/test files and nine new F5 documents;150 evaluated runtime/source files unchanged within old154. No bin/dev/domain/schema/dependency changes.",
+      "evidence": [
+        "evidence/candidate_a_manifest_v4.json",
+        "preservation/final/patches/F5_only.patch"
+      ]
+    },
+    {
+      "id": "P5-03",
+      "status": "PASS",
+      "gate": "Owned runtime isolation and shutdown",
+      "observation": "New PG14.23 peer socket instance; five verified-absent targets; live guards in Ruby/schema/test/import subprocesses. Two owned app processes stopped and zero tabs created; PG stopped with data retained.",
+      "evidence": [
+        "evidence/resource_shutdown.json",
+        "evidence/final_guard_coverage_v3.json",
+        "targets/"
+      ]
+    },
+    {
+      "id": "D5-01",
+      "status": "PASS",
+      "gate": "Accurate complete README",
+      "observation": "Documented explicit separate targets, prerequisite checks, finite setup, full demo key map, official profile, tests/CI/manual start and truthful historical/publication limitations exercised in selected copies.",
+      "evidence": [
+        "files/README.md",
+        "logs/",
+        "validation/demo_http_smoke_02/result.json"
+      ]
+    },
+    {
+      "id": "R5-01",
+      "status": "PASS",
+      "gate": "Safe finite setup",
+      "observation": "Final setup succeeds and terminates, including fresh replay targets. Repeat setup preserves imported data and sentinels; no install/reset/cleanup/server start. Schema readiness comparison accepts only proven equivalent literal-array casts.",
+      "evidence": [
+        "validation/setup_development_04/command_result.json",
+        "evidence/final_demo_ci_replay_comparison_v2.json"
+      ]
+    },
+    {
+      "id": "R5-02",
+      "status": "PASS",
+      "gate": "Correct local CI",
+      "observation": "Actual bin/ci overrode inherited development settings, used only test, ran15focused tests/297assertions and164Rails tests/2586assertions, exit0; development state unchanged.",
+      "evidence": [
+        "logs/f5_ci.log",
+        "validation/ci/invocation.json",
+        "evidence/final_demo_ci_replay_comparison_v2.json"
+      ]
+    },
+    {
+      "id": "R5-03",
+      "status": "PASS",
+      "gate": "Consequential refusal paths",
+      "observation": "Focused15tests/297assertions cover missing/invalid target, flags, conflicts, CI environment and child exit23 propagation. Final guard probe8checks including wrong-target refusal before writes passes.",
+      "evidence": [
+        "evidence/release_schema_cast_focused.log",
+        "files/script/f5_validation/release_commands_test.rb",
+        "validation/guard_probe_04/"
+      ]
+    },
+    {
+      "id": "R5-04",
+      "status": "PASS",
+      "gate": "Documented demo and official smoke",
+      "observation": "Four demo identities; coherent repeats; final live HTTP5API+5HTML requests pass. Six pinned official records imported separately; final14API+3HTML26checks pass with complete selected expected/observed payloads. No fresh partial projection claim.",
+      "evidence": [
+        "acceptance/f5_smoke/",
+        "validation/demo_http_smoke_02/",
+        "validation/official_observe_02/"
+      ]
+    },
+    {
+      "id": "R5-05",
+      "status": "PASS",
+      "gate": "Actual full suite",
+      "observation": "Final direct suite, local CI suite and second-copy replay each164tests/2586assertions/0failures/0errors/0skips. Earlier164/2484/15failure run retained as external guard/schema-readiness failure.",
+      "evidence": [
+        "logs/f5_suite_02.log",
+        "logs/f5_ci.log",
+        "logs/f5_replay_suite.log",
+        "evidence/rails_test_preparation_review.json"
+      ]
+    },
+    {
+      "id": "R5-06",
+      "status": "PASS",
+      "gate": "Second candidate-copy replay",
+      "observation": "Second158file selective copy matches final runtime manifest and fresh replay development/test targets reproduce setup/import/suite. Installed locked dependencies reused; no old runtime copied.",
+      "evidence": [
+        "evidence/candidate_b_manifest.json",
+        "validation/replay_setup_development/",
+        "validation/replay_demo_import/",
+        "validation/replay_suite/"
+      ]
+    },
+    {
+      "id": "H5-01",
+      "status": "PASS",
+      "gate": "Exact release proposal",
+      "observation": "255 positive release paths; full external manifest/tree verify hashes/modes. Nine F5 docs/public history included; corpus/dependencies/database snapshots/.git/secrets/private records excluded and retained.",
+      "evidence": [
+        "release/candidate_manifest.json",
+        "release/candidate_verification.json",
+        "files/docs/final_submission/f5/F5_release_inventory.json"
+      ]
+    },
+    {
+      "id": "H5-02",
+      "status": "PASS",
+      "gate": "Honest publication and submission handoff",
+      "observation": "Local proposal only. PUBLIC_RELEASE=PENDING_USER_COMMIT_AND_PUBLICATION; PUBLIC_FRESH_CLONE=NOT_RUN. No remote invented, participant follow-up remains user-declined.",
+      "evidence": [
+        "files/docs/final_submission/f5/F5_release_handoff.md",
+        "files/docs/final_submission/f5/F5_report_notes.md"
+      ]
+    },
+    {
+      "id": "H5-03",
+      "status": "PASS",
+      "gate": "Validated review handoff",
+      "observation": "Nine documents, exact patch/preimages, expected/observed selected API payloads, failed attempts, preservation and shutdown retained. Archive integrity has separate producer/independent validations; technical scope violation remains visible.",
+      "evidence": [
+        "MANIFEST.sha256",
+        "adjacent validation",
+        "independent validation"
+      ]
+    }
+  ],
+  "PUBLIC_RELEASE": "PENDING_USER_COMMIT_AND_PUBLICATION",
+  "PUBLIC_FRESH_CLONE": "NOT_RUN",
+  "participant_evaluation": "NOT_EVALUATED_BY_USER_DECISION",
+  "data_retained": true,
+  "new_services_stopped": true,
+  "archive_validation": "Separate adjacent and independent readback; neither converts PARTIAL to PASS."
+}

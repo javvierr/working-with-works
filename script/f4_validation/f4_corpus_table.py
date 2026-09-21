@@ -1,0 +1,19 @@
+"""Render separate final corpus rows from frozen census and exact three import rounds."""
+import argparse,collections,csv,datetime,hashlib,json
+from pathlib import Path
+from f4_semantic_compare import save
+
+def main():
+ ap=argparse.ArgumentParser();ap.add_argument('--run',required=True,type=Path);ap.add_argument('--out',required=True,type=Path);a=ap.parse_args();r=a.run;census=json.loads((r/'acceptance/semantic_frozen/semantic_corpus_census_v1.json').read_text())['files'];rounds={k:{v['filename']:v for v in json.loads((r/'validation'/v/'per_file_accounting_local_only.json').read_text())} for k,v in {'first':'corpus_import_01','repeat':'corpus_reimport_01','replay':'reproduction_corpus_import_01'}.items()};result=[]
+ for source in census:
+  filename=source['filename'];f=rounds['first'][filename];p=f['projection_summary'];d=f['committed_document'];row={k:source[k] for k in ['filename','sha256','bytes','record_key','root_xml_id','work_xml_id']};row.update({'input_profile':d['input_profile'],'catalogue':d['catalogue'],'document_id':d['id'],'work_id':f['attempts'][0]['work_id'],'projection_version':d['source_projection_version'],'projection_state':p['state'],'structural_manifestations':source['manifestation_nodes'],'structural_items':source['item_nodes'],'structural_expressions':source['expression_nodes'],'outside_selected_item_path':source['item_nodes']-p['item_nodes']})
+  for key in ['source_nodes','represented_sources','unsupported_sources','item_nodes','represented_items','unsupported_items','relation_nodes','relation_tokens','represented_relations','unsupported_relation_nodes','resolved_relations','unresolved_relations','source_state_counts','item_state_counts','issues']:row[key]=p[key]
+  for label,index in rounds.items():
+   item=index[filename];attempts=item['attempts'];row[label+'_attempt_count']=len(attempts);row[label+'_attempt_id']=attempts[0]['id'] if len(attempts)==1 else None;row[label+'_status']=attempts[0]['status'] if len(attempts)==1 else 'UNACCOUNTED';row[label+'_warnings']=attempts[0]['warnings'] if len(attempts)==1 else [];row[label+'_identity_pass']=item['attribution_pass'] and item['commit_identity_pass'];row[label+'_unchanged_bytes']=attempts[0]['provenance']['unchanged_bytes'] if len(attempts)==1 else None
+  row['source_SQL_structural_comparison']='PASS' if p==source['projection_summary'] else 'FAIL';row['limit']='Nested item under item/componentList excluded by approved direct-item scope; original structural count retained.' if row['outside_selected_item_path'] else 'One unresolved local target retained with missing_fragment; record partial.' if p['unresolved_relations'] else '';result.append(row)
+ a.out.mkdir(parents=True,exist_ok=True)
+ with (a.out/'F4_corpus_results.csv').open('x',newline='') as out:
+  w=csv.DictWriter(out,fieldnames=list(result[0]));w.writeheader()
+  for row in result:w.writerow({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(dict,list)) else v for k,v in row.items()})
+ summary={'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'files':len(result),'all_individually_attributable':all(row[l+'_attempt_count']==1 and row[l+'_identity_pass'] for row in result for l in rounds),'all_hashes_source_comparison':all(row['source_SQL_structural_comparison']=='PASS' for row in result),'rounds':{l:dict(collections.Counter(row[l+'_status'] for row in result)) for l in rounds},'projection_states':dict(collections.Counter(row['projection_state'] for row in result)),'outside_selected_item_path':sum(row['outside_selected_item_path'] for row in result),'warning_note':'Legacy warning No source references found refers to unchanged SourceReference domain and does not imply absence of the additive SourceDescription projection. Warnings are retained exactly per round.'};save(a.out/'corpus_table_summary.json',summary);print(json.dumps(summary,indent=2))
+if __name__=='__main__':main()

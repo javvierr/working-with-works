@@ -1,0 +1,30 @@
+# F2-R1 completion
+
+The held-item disclosure correction is implemented and its runtime checks passed on 20 September 2026. The application change is confined to `app/views/works/_catalogue_sources.html.erb`: captions now name represented item nodes, and an empty represented array claims genuine supplied-node absence only when the document explicitly records zero unsupported items. Positive and unknown counts receive distinct record-wide wording.
+
+| Newly executed check | Actual result | Evidence relative to review archive |
+|---|---|---|
+| Unchanged current F2 baseline | PASS: 133 tests, 1,209 assertions; no failures, errors or skips | `baseline/gate_verdict.json`; `baseline/suite_result.json` |
+| C2 against original F2 partial | Expected failure: 1 test, 16 assertions, 1 failure; exit 1 | `validation/c2_red_result.json`; `validation/red_disposition.json`; `logs/c2_red.log` |
+| C2 against corrected partial | PASS: 1 test, 34 assertions; exit 0 | `validation/c2_green_result.json` |
+| Full corrected suite | PASS: 142 tests, 1,515 assertions; no failures, errors or skips | `validation/revised_suite_result.json` |
+| Six development records | PASS: 1,145 checks and 21 actual requests, including 75 corrected-availability HTML assertions | `validation/six_record_check/result.json` |
+| Actual browser checks | PASS: synthetic C2, Coll. 27 and CNW 17; Enter/Return expands and Space collapses native disclosure | `validation/build_1_browser/observations.json`; `validation/build_1_browser/result.json` |
+
+The baseline completed at 21:47:28 UTC before implementation. C2 failed at 21:49:20 UTC on the exact original false sentence, then passed at 21:50:02 UTC after the partial changed. The full revised suite completed at 21:50:24 UTC, and the independent source/interface run completed at 21:50:53 UTC. Commands, times, exits and retained output are in `evidence/commands.jsonl` and `logs/`.
+
+Nine focused tests add the missing API/count and source-container assertions, including mixed supported/unsupported items, an omission under another source, an item omission after the first 50 retained issues, missing/null availability counts, legacy states, ordered placeholders, escaped text, inert pointers and persisted-only GETs. Historical F2 S2-07/E2-02 PASS rows are unchanged. The new F2-R1 register records the repaired gap those earlier assertions missed.
+
+The six unchanged frozen records still produce 25 source descriptions, 22 represented items and 24 relation rows. Source-to-SQL fidelity, independent SQL/API agreement, scoped HTML assertions, the deliberately wrong expected-parent comparator control and before/after snapshots of 15 domain tables, sequences and schema are separate passing evidence. No reserved records or full-corpus import were used.
+
+A separate read-only audit passed 130 checks (`evidence/runtime_results_audit.json`). Its first attempt hashed path-aliased source snapshots without reversing the declared aliases, causing an audit-method mismatch; reversal reproduced the recorded table and aggregate hashes. A later explanation edit caused a Python syntax error before execution. Both audit-only attempts and their dispositions are retained; they did not rerun application tests, access the database or change original evidence. They are distinct from the deliberately failing C2 regression.
+
+Three real screenshots were inspected inline during browser execution. They were **not exported**: the available screenshot method supplied inline images without an exposed file-export path. No screenshot files are included or claimed. Browser evidence records three work-page GETs plus CSS and favicon requests, all successful; the work requests carry live target identities and the database state remained unchanged.
+
+Only this run's new resources were stopped. PostgreSQL 14.23 ran as `javier` at socket `/private/tmp/www_f2r1_pg_7ng9ocqu/socket`, port 55434, with data `/private/tmp/www_f2r1_pg_7ng9ocqu/data`, postmaster PID 26003, private 0700 directories, peer authentication and TCP disabled. It stopped at 21:54:32 UTC with data retained. Browser PID 31669 on `127.0.0.1:50497` stopped at 21:53:50 UTC. See `evidence/postgres_resource.json` and `validation/build_1_browser/stop_confirmation.json`.
+
+The safe baseline inventoried 909 protected paths, reconciled all 26 F2 source files and six historical F2 documents, and copied 143 explicitly selected application files. The revised execution copy contains 147 files. The final preservation and correction-only patch authorities are `evidence/preservation_comparison.json`, `evidence/preservation_after.json`, `evidence/git_after.json`, `evidence/F2R1_only.patch` and `evidence/F2R1_patch_check.json`. They compare against the actual unstaged/untracked F2 preimages, preserving the earlier F1/F2 work rather than treating the HEAD diff as this correction. HEAD/main remain `b0142488fd5609e86d93c84978134a7d849d1882`; staging, commits, pushes and F3 remain outside the run.
+
+Accepted prior F2 upgrade evidence is carried forward, not rerun: 231 checks / 36 requests. Its original pre-migration timestamp comparison was at whole-second precision; later upgrade/repeat/GET snapshots retained microseconds. Some earlier generated fixture copies were removed before retention was repaired. Inherited tests retain their existing cleanup of their own fresh temporary fixtures; new F2-R1 fixtures, failures, data and evidence are retained. The development set and narrow developer browser checks do not establish full-corpus accuracy, participant usability or general MEI compliance.
+
+The review archive is `/private/tmp/www_f2r1_20260920_y4vsr12i/Working_with_Works_F2R1_Review.zip`. Its adjacent `Working_with_Works_F2R1_Review.validation.json` is the authoritative final archive check, including measured size/hash, exact allowlist, payload hashes and readback. This document does not embed circular archive metrics or claim an archive verification before that adjacent result exists. C10 handoff acceptance requires that final validation to report PASS.

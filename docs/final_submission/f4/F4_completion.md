@@ -1,0 +1,21 @@
+# F4 completion
+
+Status: **TECHNICAL_COMPLETE_FOR_REVIEW**. The separate participant decision is **FOLLOWUP_PARTICIPANT_EVALUATION = NOT_EVALUATED_BY_USER_DECISION**. Runtime evaluation and review-package validation are complete; this is a handoff for review before F5.
+
+The accepted 154-file application build `f3-1602645a261ed754` was evaluated in two fresh selective external copies. The actual 945-path safe baseline matches accepted F3-Z1 work, with HEAD/main at `b0142488fd5609e86d93c84978134a7d849d1882`. Existing unstaged/untracked F1–F3-Z1 work, original F3 PARTIAL documents, XML and historical matrices remain preserved. Additions are confined to `script/f4_validation/` and `docs/final_submission/f4/`; patches use actual starting bytes. No application implementation, index or ref change occurred.
+
+Actual results on 21 September 2026 UTC (20 September locally):
+
+- All 446 pinned XML files, their aggregate 26,925,115 bytes and the original archive identity were verified. First import, unchanged repeat and independent replay each recorded 446 successes and zero failures.
+- The canonical projection contains 2,148 sources, 1,369 selected direct items and 1,590 relations. All 3,133 independent census checks passed. Document states are 441 complete, four absent and one partial. One nested item lies outside the approved path; one missing-fragment relation remains unresolved.
+- All 1,800 prospective extension units passed independently against SQL and API: 726 in the six development records and 1,074 in the four reserved records. This verifies the selected meanings, not the whole catalogue's accuracy.
+- All 83 historical assertions received separate new observations: 38 preserved, six transformed as intended, 34 omitted and five technical/not applicable. The original semantic denominator remains 78; 44 are fully within current supported scope. SQL/API agreement for all 83 does not turn omissions into passes. Legacy 277-04 retains its original policy; F1 heading assertions remain separate.
+- All 234 frozen API cases passed, with one separate repeat and 23 traversals. All 272 canonical cases passed, including 14 details and 109 frozen error replays. Traversals at sizes 20, 7 and 100 each recovered 446 unique ordered works. Both GET rounds preserved 15 tables, 15 sequences and schema with zero write-like SQL.
+- Safety evaluation completed 36 cases and 400 assertions. Its initial 34 passes and two observation-decoding errors remain retained; six outstanding assertions were completed offline from unchanged captured attempts. No source oracle or application change was made.
+- The unchanged suite passed in each copy: 164 tests, 2,586 assertions, zero failures/errors/skips. Five timing scenarios each completed five warm-ups and 30 correct measured requests. The Codex-led browser walkthrough passed; three captures were inspected inline and none exported. Accepted F3-Z1 actual-200%-zoom evidence is carried forward on identical application bytes.
+
+All owned resources are stopped. The new PostgreSQL instance at `/private/tmp/www_f4_pg_pkop14vj` (port 55437, PID 88648) stopped at 01:03:51 UTC; data and socket directories are retained. The owned loopback app (PID 98620, port 53654) stopped after the GET-state comparison. Owned Chrome tab `304010024` closed at 01:01:33 UTC, after restoring its viewport. No retained instance or existing application database was used. Run evidence remains at `/private/tmp/www_f4__ose8xy9`; no automatic deletion occurred.
+
+The handoff is `Working_with_Works_F4_Review.zip` with adjacent `.validation.json` and `.independent_validation.json` files in that run directory. The validations identify the exact delivered archive. The retained preflight archive passed producer and independent checks before this final report status was recorded; final validation repeats them against the delivered bytes. The review includes all 23 new F4 files, a reconstructed F4-only patch, an empty application patch, and preservation evidence for the 945 protected paths.
+
+This is technical evaluation for review. It does not establish submission readiness, a new participant study or a committed public-clone verification. F5, public access, setup/README/CI work, the final report and student video remain outside this invocation. Nothing was staged, committed or pushed.

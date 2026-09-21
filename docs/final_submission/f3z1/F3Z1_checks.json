@@ -1,0 +1,104 @@
+{
+  "phase": "F3-Z1",
+  "status": "PASS_FOR_REVIEW",
+  "missing_V3_01_component": "PASS",
+  "F3_closure": "PROPOSED_FOR_REVIEW; original F3 PARTIAL history unchanged",
+  "build_id": "f3-1602645a261ed754",
+  "stylesheet_sha256": "a916844a63292a805345b120fee35812ba54f1c31192fd1c75f0e9f797b20207",
+  "application_files": 154,
+  "protected_baseline_paths": 941,
+  "application_patch_bytes": 0,
+  "new_repository_documents": 4,
+  "package_verification": "evidence/package_verification.json",
+  "baseline": "evidence/baseline_reconciliation.json",
+  "browser_observations": "validation/browser_observations.json",
+  "browser": {
+    "name": "Google Chrome",
+    "version": null,
+    "version_reason": "Not exposed in permitted observations",
+    "owned_tab": "304010021",
+    "origin": "http://127.0.0.1:52601",
+    "initial_percent_user_reported": 100,
+    "tested_percent_directly_observed": 200,
+    "restored_percent_directly_observed": 100,
+    "owned_tab_closed_utc": "2026-09-21T00:06:16.515Z",
+    "viewport_css_baseline_restored": [
+      1713,
+      940
+    ],
+    "viewport_css_zoomed": [
+      856,
+      470
+    ],
+    "viewport_override": false,
+    "body_css_zoom": "1",
+    "actual_inline_page_captures": 15,
+    "exported_image_files": 0
+  },
+  "actual_new_checks": {
+    "runtime_check_count": 23,
+    "runtime_status": "PASS",
+    "acceptance_rows": 7,
+    "acceptance_pass": 7,
+    "requests": 11,
+    "application_requests": 9,
+    "asset_requests": 2,
+    "http200": 10,
+    "http400": 1,
+    "invalid_year_sql_queries": 0,
+    "get_state_unchanged": true,
+    "domain_tables": 15,
+    "sequences": 15,
+    "structural_schema": true,
+    "before_after_state_sha256": "55ba327dfae2a3c2813e08b36c72b89283535ba0f423656a9b99fe0b4109764b"
+  },
+  "new_full_suite": {
+    "status": "NOT_RUN",
+    "tests": null,
+    "assertions": null,
+    "exit_code": null,
+    "reason": "Not needed for unchanged final F3 build; no new suite result claimed."
+  },
+  "new_full_API_experiment": {
+    "status": "NOT_RUN",
+    "case_count": null,
+    "exit_code": null
+  },
+  "new_six_record_source_experiment": {
+    "status": "NOT_RUN",
+    "check_count": null,
+    "exit_code": null
+  },
+  "dataset": {
+    "synthetic_frozen_works": 48,
+    "pinned_xml_files": 3,
+    "xml_import_successes": 3,
+    "total_works": 51,
+    "source_descriptions": 17,
+    "held_items": 13,
+    "source_relations": 15,
+    "real_records": [
+      "CNW17",
+      "Coll27"
+    ],
+    "synthetic_xml": "c2_missing_id_only.xml"
+  },
+  "resources": "evidence/runtime_resources_final.json",
+  "runtime_shutdown": "evidence/runtime_completion.json",
+  "preservation": "evidence/preservation_comparison.json",
+  "commands": "evidence/runtime_commands.jsonl",
+  "failures_retained": [
+    "evidence/postgres_attempt_01.json",
+    "validation/browser_capability_attempts.json",
+    "validation/browser_observations.json"
+  ],
+  "limitations": [
+    "15 actual inline page captures,0 exported files; native Chrome screenshot unavailable, but exact native zoom AX labels directly observed.",
+    "Some narrow year/genre cells wrap characters across lines without lost content or horizontal overflow.",
+    "Immediate metadata URL samples lagged two navigations; original samples retained beside live DOM and fresh AX/server corroboration.",
+    "Initial native selection automatically returned unrelated foreground content; no personal page was operated, screenshot, or copied into evidence.",
+    "Initial failed initdb default cleanup removed partial initialization files before application data; failed directories/logs retained and second attempt used --no-clean."
+  ],
+  "F4_started": false,
+  "staged_committed_pushed": false
+}

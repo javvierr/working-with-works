@@ -1,0 +1,136 @@
+{
+  "phase": "F5-R1",
+  "status": "F5R1_TECHNICAL_COMPLETE_FOR_REVIEW",
+  "runtime_build": "f5r1-667192fea216a940",
+  "runtime_paths": 158,
+  "release_paths": 264,
+  "gates": [
+    {
+      "id": "A01",
+      "status": "PASS",
+      "gate": "Baseline and preservation",
+      "observation": "981 starting safe byte/mode identities match F5. Three authorized existing edits and nine additive documents; 978 protected original paths, HEAD/main/index/user refs remain unchanged. F5-R1 reads use explicit frozen inventories.",
+      "evidence": [
+        "baseline/result.json",
+        "preservation/result.json"
+      ]
+    },
+    {
+      "id": "A02",
+      "status": "PASS",
+      "gate": "Reproduce findings",
+      "observation": "Old helper violates 34 of 131 frozen cases, including default context, blank development declaration and encoded authority-host cases. Original expanded focused suite fails 3 groups; offline connection/SQL calls zero.",
+      "evidence": [
+        "offline/before_matrix.json",
+        "logs/before_focused.log"
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "PASS",
+      "gate": "Environment/declaration guard",
+      "observation": "All applicable declarations checked; blanks unset; conflicts refused; explicit test contexts, both setup directions and official-target sequence pass the frozen matrix. Refusals precede dependencies and children.",
+      "evidence": [
+        "offline/after_matrix_02.json",
+        "offline/contract_cases.json"
+      ]
+    },
+    {
+      "id": "A04",
+      "status": "PASS",
+      "gate": "URL/name guard",
+      "observation": "Encoded authority hosts refused; decoded protected names must differ across endpoint/role spellings. Encoded sockets/roles/database names and canonical IPv6 controls agree with installed Rails resolver; no DNS or connections.",
+      "evidence": [
+        "offline/after_matrix_02.json",
+        "files/script/release/commands.rb"
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "PASS",
+      "gate": "Focused regressions",
+      "observation": "19 focused tests  / 2,462 assertions pass, including existing schema/readiness tests and real child exit 23 propagation ; 131 prospective matrix cases pass.",
+      "evidence": [
+        "logs/after_focused_02.log",
+        "logs/ci.log"
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "PASS",
+      "gate": "Isolated runtime",
+      "observation": "One new private socket-only PG 14.23 instance and exactly two verified-absent targets. Exact live identities cover 18 normal Ruby images / 30,232 events, with zero normal guard refusals.",
+      "evidence": [
+        "targets/",
+        "evidence/runtime_audit.json",
+        "evidence/postgres_resource.json"
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "PASS",
+      "gate": "Real CI/preservation",
+      "observation": "One integrated bin/ci run under inherited development settings passes focused tests, finite test setup and 164 application tests / 2,586 assertions. Four demo identities and full selectors retained; development tables/sequences/schema and sentinels unchanged after CI and repeat setup.",
+      "evidence": [
+        "validation/ci/",
+        "validation/demo_import/invocation.json",
+        "evidence/development_preservation.json"
+      ]
+    },
+    {
+      "id": "A08",
+      "status": "PASS",
+      "gate": "Refreshed release",
+      "observation": "Frozen 158-file runtime has only 3 changes; new 264-file release tree matches positive path/size/mode/hash manifest. Historical 255-file F5 proposal remains unchanged and separately named.",
+      "evidence": [
+        "evidence/runtime_manifest.json",
+        "release/candidate_manifest.json",
+        "release/candidate_validation.json"
+      ]
+    },
+    {
+      "id": "A09",
+      "status": "PASS",
+      "gate": "Resource closure",
+      "observation": "Only the new run instance stopped; independent OS/socket/PID readback passes. New data/sentinels/evidence retained; no server/browser/permanent service created.",
+      "evidence": [
+        "evidence/resource_shutdown.json",
+        "evidence/shutdown_independent.json"
+      ]
+    },
+    {
+      "id": "A10",
+      "status": "PASS",
+      "gate": "Complete review package",
+      "observation": "Nine documents, exact incremental patch/preimages, before/after offline evidence, actual runtime and preservation evidence present. Positive allowlist/CRC/hashes and independent readback verify final archive; publication remains pending.",
+      "evidence": [
+        "MANIFEST.sha256",
+        "adjacent producer and independent validations"
+      ]
+    }
+  ],
+  "historical_F5": {
+    "status": "PARTIAL",
+    "P5-01": "FAIL/NONCOMPLIANT",
+    "past_excluded_opens": "UNKNOWN",
+    "review_findings": "R5-C1/R5-C2 closed prospectively by this build; earlier positive runtime observations remain historical."
+  },
+  "PUBLIC_RELEASE": "PENDING_USER_COMMIT_AND_PUBLICATION",
+  "PUBLIC_FRESH_CLONE": "NOT_RUN",
+  "participant_followup": "NOT_EVALUATED_BY_USER_DECISION",
+  "suite": {
+    "tests": 164,
+    "assertions": 2586,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "focused": {
+    "tests": 19,
+    "assertions": 2462,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "no_new_official_import_or_browser": true
+}

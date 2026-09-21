@@ -1,0 +1,27 @@
+# F2 completion — COMPLETE_FOR_REVIEW
+
+The full bounded F2 source-description/item/local-relation contract is implemented for review. No fallback or F3 work was used. The final application is the unstaged/untracked working tree; no stage, commit, push, reset, clean or Git-reference/index change was performed.
+
+The current F1 baseline passed **96 tests / 781 assertions** before implementation. Final **build_6 passes 133 tests / 1,209 assertions**, zero failures/errors/skips, seed 190926, one worker. Its source manifest is `validation/build_6.json`. The separate six-record fresh import has **25 descriptions,22 items,24 relation rows** and passes **1,070 checks across21 HTTP requests**. The genuine F1→F2 migration/identical-byte upgrade/repeat experiment passes231 checks, two six-file import invocations and36 GETs. These are different evidence classes and denominators, not one accuracy score.
+
+The five actual browser examples were CNW 417,63,17,45 andColl. 27. CNW 17's native disclosures support Enter/Tab/Space, with visible focus and wrapped content at498px viewport width. CNW 63's two items under source_d1e231 remain distinct. CNW 417 absence differs from Coll. 27 document membership with relationship unspecified. Developer browser observations do not establish participant usability. Three actual screenshots were inspected in the conversation; no exported screenshot files are claimed.
+
+Source/API observations used build_4; upgrade/browser used build_5. Only test files changed before final build_6; `validation/final_runtime_guard_review.json` verifies the identical production/validation file hashes. The additive migration20260919233000 and observed schema agree across the three F2 migrated targets; final eager-load/schema verification passed.
+
+## Changes and evidence
+
+The change adds exactly SourceDescription,HeldItem,SourceRelation; scoped ownership/typed-target constraints; selected ordered fields and provenance; explicit unresolved/placeholder/absence/unprojected states; atomic sequential replacement and mapping version `cnw_sources_v1`; the additive `catalogue_sources` detail JSON and existing-detail section. Legacy sources stay separate. The two F1 follow-ups correct inert DOCTYPE matching and make the existing demo command explicit. Frozen rules and hashes are in F2_decisions.md; case-level results are in F2_acceptance_results.csv.
+
+The exact patch is `evidence/F2_only.patch`, with source payloads listed in `evidence/F2_intended_files.json`. Its preimage is the **actual pre-F2 F1 working tree**, including untracked F1 source, not HEAD. The read-only patch applicability check is `evidence/F2_patch_check.json`. The original F1 diff remains separately preserved. The safe audit covers886 explicit prior paths:446 XML files are preservation-hashed only, with detailed source inspection/import limited to the six approved files. No private participant/secret files or old private F1 manifest were opened/hashed. HEAD/index/main, original F0/F1 documents, public history, XML and dependency/configuration files are compared in `evidence/preservation_comparison.json`.
+
+## Retained failures and limits
+
+Build3 had one fixture foreign-key deletion error and one fixture uniqueness collision; build4 had one Minitest nil-assertion syntax failure. Those runs remain retained. Review also corrected temporary ordinal reservation for growing imports and a foreign-namespace metadata mismatch before the final checks. The source-only oracle never changed to fit implementation. Earlier new-test temporary copies were automatically removed by test helpers; subsequent helpers retain them. The nine original parser reproduction fixtures, execution results and cleanup disclosures remain in external scratch. No preservation of those deleted generated copies is claimed.
+
+The original genuine-F1 pre-migration snapshot recorded timestamps to whole seconds. Migration preservation is checked at that precision and corroborated by the additive migration guard; later import/GET snapshots retain microseconds. Only the six development records and synthetic edge cases were evaluated. No reserved detailed records, full corpus, concurrent imports, cross-file resolution, general graph, second catalogue, pagination, broad UI, participant study or public release is claimed.
+
+## Handoff and retained resources
+
+Repository: `/Users/javier/Documents/academia/uol/final project/prototype/UoL final project`. Package was read directly outside it. Scratch: `/private/tmp/www_f2_20260919_aopic10q`. New PostgreSQL14.23 instance: `/private/tmp/www_f2_pg_6ncibanc/data`, private socket `/private/tmp/www_f2_pg_6ncibanc/socket`, port 55433, original postmaster PID 50655, local role javier, peer authentication, TCP disabled. **Stopped at 2026-09-20T20:43:14.490697+00:00**, exit0; data/evidence retained. Browser process50446 on loopback HTTP 49271 also stopped. No retained F1 instance was started or accessed. A shutdown permission-review timeout occurred before execution; the one permitted retry succeeded.
+
+Review ZIP: `/private/tmp/www_f2_20260919_aopic10q/Working_with_Works_F2_Review.zip`. Its exact final size, SHA256, member count and payload/readback checks are recorded in the adjacent `Working_with_Works_F2_Review.validation.json` and `.zip.sha256`; these are outside the ZIP to avoid a self-hash cycle. Review ends at F2. The21September checkpoint and23September feature freeze remain intact; the usage interruption is excluded from focused work time.

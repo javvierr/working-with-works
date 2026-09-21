@@ -1,0 +1,22 @@
+<section data-field="<%= field %>" aria-label="<%= label %>">
+  <p><strong><%= label %></strong></p>
+  <% if values.empty? %>
+    <p class="muted">Not supplied in the selected source fields.</p>
+  <% else %>
+    <ol class="plain-list">
+      <% values.each do |value| %>
+        <li data-value-order="<%= value["source_order"] %>">
+          <span class="source-value"><%= value["text"].presence || value.fetch("attributes", {})["target"].presence || value.fetch("attributes", {})["href"].presence || "Not supplied" %></span>
+          <% if value["element"] == "title" %>
+            <span class="muted">Type: <%= value["source_type"].presence || "Untyped" %>; language: <%= value["language"].presence || "Not supplied" %></span>
+          <% end %>
+          <details>
+            <summary>Value provenance</summary>
+            <p class="trace">XML locator: <%= value["locator"] %></p>
+            <p class="trace">Retained value and metadata: <%= JSON.generate(value) %></p>
+          </details>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</section>

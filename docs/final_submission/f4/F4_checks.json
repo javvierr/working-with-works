@@ -1,0 +1,154 @@
+{
+  "technical_status": "TECHNICAL_COMPLETE_FOR_REVIEW",
+  "recorded_utc": "2026-09-21T01:22:02.105598+00:00",
+  "build": "f3-1602645a261ed754",
+  "application_changes": 0,
+  "participant_evaluation": "NOT_EVALUATED_BY_USER_DECISION",
+  "gates": [
+    {
+      "id": "P4-01",
+      "status": "PASS",
+      "evidence": "preservation/attempt03/baseline_reconciliation.json; preservation/final/protected_comparison.json",
+      "actual_outcome": "945 safe accepted paths preserved; HEAD/main/index/refs/prior status unchanged; exactly 23 new F4 files"
+    },
+    {
+      "id": "P4-02",
+      "status": "PASS",
+      "evidence": "evidence/postgres_resource.json; targets/; validation/browser_walkthrough_01/stop_confirmation.json",
+      "actual_outcome": "Six fresh peer-authenticated targets with TCP disabled and exact live guards; owned services stopped and tab closed"
+    },
+    {
+      "id": "E4-01",
+      "status": "PASS",
+      "evidence": "acceptance/master_freeze_v1.json; acceptance/semantic_frozen/; validation/semantic_extension_01/semantic_negative_control.json",
+      "actual_outcome": "Source and selection freeze preceded import; SQL second freeze preceded API; expected-only negative controls detected"
+    },
+    {
+      "id": "C4-01",
+      "status": "PASS",
+      "evidence": "preservation/attempt03/corpus_identity.json",
+      "actual_outcome": "446 exact files, 26,925,115 aggregate bytes, and the pinned 234,079,300-byte archive verified"
+    },
+    {
+      "id": "C4-02",
+      "status": "PASS",
+      "evidence": "docs/final_submission/f4/F4_corpus_results.csv; validation/corpus_import_01/summary.json",
+      "actual_outcome": "446 successful first attempts and 446 committed documents/works; zero failed inputs"
+    },
+    {
+      "id": "C4-03",
+      "status": "PASS",
+      "evidence": "validation/semantic_census_01/census_summary.json; validation/corpus_import_01/integrity.json",
+      "actual_outcome": "3,133 independent checks passed; 2,148 sources, 1,369 direct items, 1,590 relations; no ownership violations"
+    },
+    {
+      "id": "C4-04",
+      "status": "PASS",
+      "evidence": "validation/semantic_reimport_01/reimport_summary.json; validation/reimport_independent_audit.json",
+      "actual_outcome": "446 unchanged-byte attempts; domain records, IDs and values stable; only approved success timestamps/provenance and logs changed"
+    },
+    {
+      "id": "S4-01",
+      "status": "PASS",
+      "evidence": "validation/semantic_historical_02/historical_summary.json; docs/final_submission/f4/F4_historical_assertion_results.csv",
+      "actual_outcome": "83 separate new rows: 38 preserved, six transformed, 34 omitted, five not applicable; legacy 277-04 policy retained"
+    },
+    {
+      "id": "S4-02",
+      "status": "PASS",
+      "evidence": "validation/semantic_extension_01/semantic_summary.json",
+      "actual_outcome": "1,800/1,800 source-to-SQL and 1,800/1,800 source-to-API units passed across ten frozen records"
+    },
+    {
+      "id": "S4-03",
+      "status": "PASS",
+      "evidence": "validation/semantic_extension_01/semantic_summary.json; validation/semantic_historical_02/historical_summary.json",
+      "actual_outcome": "726 development and 1,074 reserved units; original semantic denominator 78, currently fully supported 44; no overall accuracy claim"
+    },
+    {
+      "id": "A4-01",
+      "status": "PASS",
+      "evidence": "validation/api_synthetic_summary.json; validation/api_synthetic_independent_audit.json",
+      "actual_outcome": "234 frozen cases passed, plus one separate repeat and 23 traversals; synthetic truth set contains 48 rows"
+    },
+    {
+      "id": "A4-02",
+      "status": "PASS",
+      "evidence": "validation/api_corpus_independent_audit.json; validation/api_corpus_01/result.json",
+      "actual_outcome": "149 index cases passed; each traversal at sizes 20, 7 and 100 recovered 446 unique ordered works; seven real title ties"
+    },
+    {
+      "id": "A4-03",
+      "status": "PASS",
+      "evidence": "validation/api_corpus_state_summary.json; validation/api_corpus_detail_bodies.json",
+      "actual_outcome": "14 details include all ten semantic records; 15 tables, 15 sequences and schema unchanged; zero write-like SQL"
+    },
+    {
+      "id": "I4-01",
+      "status": "PASS",
+      "evidence": "validation/safety_observation_completion_01/result.json; validation/safety_cases_01/result.json",
+      "actual_outcome": "36 cases and 400 assertions completed; 38 attempts and three rollback cases; two original observer errors completed offline"
+    },
+    {
+      "id": "O4-01",
+      "status": "PASS",
+      "evidence": "validation/api_corpus_01/timing_raw.json; validation/api_operational_timing_window.json",
+      "actual_outcome": "Five scenarios, five warm-ups and 30 serial measured requests each; all 175 correct; descriptive timings only"
+    },
+    {
+      "id": "O4-02",
+      "status": "PASS",
+      "evidence": "validation/browser_observations.json; historical/F3Z1/validation/browser_observations.json",
+      "actual_outcome": "16 structured developer steps; fresh keyboard, narrow-layout and focus observations; unchanged accepted actual-200%-zoom history carried forward"
+    },
+    {
+      "id": "R4-01",
+      "status": "PASS",
+      "evidence": "validation/reproduction_corpus_import_01/summary.json; validation/reproduction_suite_suite_01/suite_result.json; validation/semantic_reproduction_02/reproduction_summary.json",
+      "actual_outcome": "Second copy: 446 import successes, 164 tests and 2,586 assertions passed, 49 independent replay checks; public-clone verification remains F5"
+    },
+    {
+      "id": "H4-01",
+      "status": "PASS",
+      "evidence": "patches/application.patch; validation/suite_suite_01/suite_result.json; preservation/final/protected_comparison.json",
+      "actual_outcome": "No production changes; unchanged suite passed 164 tests and 2,586 assertions in each copy; failed tool attempts retained"
+    },
+    {
+      "id": "H4-02",
+      "status": "PASS",
+      "evidence": "packaging/; Working_with_Works_F4_Review.validation.json (adjacent); Working_with_Works_F4_Review.independent_validation.json (adjacent)",
+      "actual_outcome": "Producer and independent preflight passed; delivered archive has adjacent exact-byte validations for allowlist, manifest, readback and patch; participant decision remains separate"
+    }
+  ],
+  "resources": {
+    "status": "STOPPED",
+    "authorization": "F4 user invocation: new private peer-authenticated PostgreSQL14.23 cluster; TCP disabled; retain data and stop only own instance at completion",
+    "base": "/private/tmp/www_f4_pg_pkop14vj",
+    "data_directory": "/private/tmp/www_f4_pg_pkop14vj/data",
+    "socket_directory": "/private/tmp/www_f4_pg_pkop14vj/socket",
+    "port": 55437,
+    "username": "javier",
+    "started_utc": "2026-09-21T00:47:50.064293+00:00",
+    "created_databases": [
+      "www_f4_corpus_ose8xy9",
+      "www_f4_synthetic_api_ose8xy9",
+      "www_f4_safety_ose8xy9",
+      "www_f4_suite_ose8xy9",
+      "www_f4_reproduction_corpus_ose8xy9",
+      "www_f4_reproduction_suite_ose8xy9"
+    ],
+    "tcp_enabled": false,
+    "hba_sha256": "4901ae08f913e0060c5399012bff597f97201f7bb346e61698f3e334fec1ab6c",
+    "configuration_sha256": "c510fcc98e2e5e820cec2704c54749f76159d3feee14b10c9ce016382f08aa69",
+    "socket_mode": "0o700",
+    "data_mode": "0o700",
+    "postmaster_pid": 88648,
+    "ready_utc": "2026-09-21T00:47:50.912286+00:00",
+    "stopped_utc": "2026-09-21T01:03:51.393755+00:00",
+    "data_retained": true,
+    "automatic_deletion": false
+  },
+  "runtime_commands": "evidence/runtime_commands.jsonl",
+  "whole_database_snapshots": "Retainedlocallyonly;reviewcontainsselectedfactsandcompletecomparisonhashes",
+  "F5_started": false
+}

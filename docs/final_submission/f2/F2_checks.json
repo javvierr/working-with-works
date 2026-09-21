@@ -1,0 +1,161 @@
+{
+  "status": "COMPLETE_FOR_REVIEW",
+  "contract": "full bounded F2 v1.0; no fallback; no F3",
+  "recorded_utc": "2026-09-20T20:51:45.479355+00:00",
+  "repository_root": "$REPO",
+  "head": "b0142488fd5609e86d93c84978134a7d849d1882",
+  "baseline": {
+    "build": "current F1 external copy",
+    "tests": 96,
+    "assertions": 781,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "ref": "baseline/suite_result.json",
+    "gate": "baseline/gate_verdict.json"
+  },
+  "final_suite": {
+    "status": "PASS",
+    "tests": 133,
+    "assertions": 1209,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seed": 190926,
+    "workers": 1,
+    "started_utc": "2026-09-20T20:38:15.156160Z",
+    "ended_utc": "2026-09-20T20:38:28.029419Z"
+  },
+  "final_build": {
+    "id": "build_6",
+    "manifest": "validation/build_6.json",
+    "manifest_sha256": "4612f79ed55fa528e3681fa25a9e13cb29af28eff1446c972b15ab4f68f59f34"
+  },
+  "source_SQL_API_HTML": {
+    "status": "PASS",
+    "build": "build_4",
+    "import": {
+      "files_seen": 6,
+      "successes": 6,
+      "failures": 0,
+      "run_errors": []
+    },
+    "checks": 1070,
+    "requests": 21,
+    "classes": {
+      "protocol": 18,
+      "import_execution": 1,
+      "source_to_SQL": 21,
+      "F1_source_regression": 18,
+      "SQL_to_API": 39,
+      "request_guard": 21,
+      "HTML": 939,
+      "F1_HTML_regression": 10,
+      "comparator_negative_control": 2,
+      "request_state_preservation": 1
+    },
+    "ref": "validation/build_4_source-api/result.json",
+    "structural_totals": {
+      "source_descriptions": 25,
+      "held_items": 22,
+      "source_relations": 24
+    }
+  },
+  "genuine_F1_upgrade": {
+    "status": "PASS",
+    "build": "build_5",
+    "checks": 231,
+    "six_file_import_invocations": 2,
+    "API_HTML_pairs": 18,
+    "HTTP_requests": 36,
+    "ref": "validation/build_5_upgrade_after/result.json",
+    "timestamp_limitation": "The original F1 snapshot serialized timestamps to whole seconds. Migration preservation is therefore established at that recorded precision, supplemented by the separate migration guard review. All snapshots obtained here retain six fractional digits; subsequent import and GET comparisons are exact."
+  },
+  "browser": {
+    "status": "PASS",
+    "build": "build_5",
+    "records": [
+      "17",
+      "417",
+      "63",
+      "45",
+      "Coll. 27"
+    ],
+    "ref": "validation/browser_observations.json",
+    "state_ref": "validation/build_5_browser/result.json",
+    "screenshots_inspected": 3,
+    "screenshot_files_exported": 0
+  },
+  "build_equivalence": {
+    "rule": "All production/config/schema/validation-tool files in builds4,5,6 are identical; only focused test files changed. Source/API and upgrade/browser observations remain tied to their actual build IDs.",
+    "ref": "validation/final_runtime_guard_review.json"
+  },
+  "frozen_inputs": {
+    "f2_source_expectations_v1.json": "991037f3dd3e34df7a4dfc2d89b34dddb31dab260807018c8ad25d89ca6f9425",
+    "f2_selected_fields_v1.json": "226bd7794098a608ad2a7f5e15a6debe6754e61f983cb6f4dae641af8db02ec6",
+    "f2_acceptance_protocol_v1.json": "20056c130a6301b651067d9a3927fd3f0f780908b043111688bd8920d0934508",
+    "input_manifest.json": "a28fce4373b83976c41ad693605ad28560c82667c6d1388466f44c20a113ec63"
+  },
+  "schema": {
+    "status": "PASS",
+    "migration": 20260919233000,
+    "sha256": "515b5fbe205a266c199725c948de3d19ed2ac77cb446833981ba72202f3588e7",
+    "ref": "validation/schema_copyback.json",
+    "final_verify": "logs/build_6_verify.log"
+  },
+  "preservation": {
+    "status": "PASS",
+    "ref": "evidence/preservation_comparison.json",
+    "scope": "886 previously filtered safe paths; no complete-machine claim; no private/secret files read or hashed"
+  },
+  "patch": {
+    "status": "PASS",
+    "ref": "evidence/F2_patch_check.json",
+    "basis": "Actual current F1 baseline, including originally untracked F1 source; not HEAD"
+  },
+  "archive": {
+    "status": "See adjacent actual final readback validation",
+    "path": "$F2_RUN/Working_with_Works_F2_Review.zip",
+    "validation": "$F2_RUN/Working_with_Works_F2_Review.validation.json",
+    "self_hash_in_payload": false
+  },
+  "runtime_resources": {
+    "status": "STOPPED",
+    "authorization": "F2 user invocation: new private peer-authenticated PostgreSQL14.23 cluster; TCP disabled; retain data and stop only own instance at completion",
+    "base": "/private/tmp/www_f2_pg_6ncibanc",
+    "data_directory": "/private/tmp/www_f2_pg_6ncibanc/data",
+    "socket_directory": "/private/tmp/www_f2_pg_6ncibanc/socket",
+    "port": 55433,
+    "username": "javier",
+    "started_utc": "2026-09-19T23:24:16.008641+00:00",
+    "created_databases": [
+      "www_f2_baseline_tests_20260919_aopic10q",
+      "www_f2_revised_tests_20260919_aopic10q",
+      "www_f2_revised_api_20260919_aopic10q",
+      "www_f2_upgrade_20260919_aopic10q"
+    ],
+    "tcp_enabled": false,
+    "hba_sha256": "4901ae08f913e0060c5399012bff597f97201f7bb346e61698f3e334fec1ab6c",
+    "configuration_sha256": "369f78cf259951ff566deac95c16a8723555ef4a3c9419a1dc20463ee339c075",
+    "socket_mode": "0o700",
+    "data_mode": "0o700",
+    "postmaster_pid": 50655,
+    "ready_utc": "2026-09-19T23:24:16.815842+00:00",
+    "stopped_utc": "2026-09-20T20:43:14.490697+00:00",
+    "data_retained": true,
+    "automatic_deletion": false
+  },
+  "commands_ref": "evidence/commands.jsonl",
+  "failed_attempts_ref": "evidence/failure_dispositions.md",
+  "runtime_guard_ref": "validation/final_runtime_guard_review.json",
+  "scope_limits": [
+    "Only six permitted development records; no detailed reserved records or full-corpus import.",
+    "Sequential imports; no concurrency or all-MEI compliance claim.",
+    "Developer browser check is not a participant usability study.",
+    "Earlier generated parser/importer/pure-test temporary copies were automatically removed before retention fixes; retained reproduction fixtures, results and dispositions are included.",
+    "Original setup/CI and public-release verification remain out of scope.",
+    "Original pre-migration F1 snapshot has whole-second timestamps; subsequent snapshots preserve microseconds."
+  ],
+  "protected_original_mutations_outside_F2": [],
+  "generated_temporary_cleanup_occurred_before_retention_fix": true
+}

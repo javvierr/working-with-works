@@ -1,0 +1,1094 @@
+{
+  "package": "F0",
+  "run_id": "20260919_jzkmvw",
+  "generated_utc": "2026-09-19T15:05:07.224688+00:00",
+  "head": "b0142488fd5609e86d93c84978134a7d849d1882",
+  "branch": "main",
+  "recommendation": "READY_WITH_BLOCKERS",
+  "evidence_classes": [
+    "historical summaries/results",
+    "fresh static source observations",
+    "fresh no-database runtime/preflight checks",
+    "unexecuted proposals"
+  ],
+  "aliases": {
+    "$REPO": "Original project root; see final response/local task workspace",
+    "$F0_RUN": "New disposable directory containing review ZIP; exact local locations kept in private_resource_locations.json outside archive",
+    "$SCRATCH": "Synonym for $F0_RUN",
+    "$USER_HOME": "User home; no credentials printed",
+    "$RUBY_4_0_5": "Existing Ruby 4.0.5 installation",
+    "PROJECT_ROOT": "$REPO",
+    "SOURCE_SCRATCH": "$F0_RUN/source",
+    "F0_SCRATCH": "$F0_RUN"
+  },
+  "command_record_policy": "Timed records below preserve real exit codes, including resolved prerequisite failures and scratch-selection failures. Preliminary navigation/read commands are in the task transcript, not assigned invented timestamps. No unrun command receives exit0. GIT_OPTIONAL_LOCKS=0 used for recorded read-only Git commands.",
+  "commands": [
+    {
+      "id": "git_head",
+      "command": "git rev-parse --show-toplevel HEAD",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.909713+00:00",
+      "end_utc": "2026-09-19T14:45:58.922518+00:00",
+      "elapsed_seconds": 0.013,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_head.txt",
+      "outcome": "$REPO\nb0142488fd5609e86d93c84978134a7d849d1882\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_branch",
+      "command": "git branch --show-current",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.923295+00:00",
+      "end_utc": "2026-09-19T14:45:58.931283+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_branch.txt",
+      "outcome": "main\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_status_before",
+      "command": "git status --porcelain=v1 --untracked-files=all",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.931776+00:00",
+      "end_utc": "2026-09-19T14:45:58.944657+00:00",
+      "elapsed_seconds": 0.013,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_status_before.txt",
+      "outcome": "",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_diff_before",
+      "command": "git diff --stat",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.945119+00:00",
+      "end_utc": "2026-09-19T14:45:58.953062+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_diff_before.txt",
+      "outcome": "",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_staged_before",
+      "command": "git diff --cached --stat",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.953517+00:00",
+      "end_utc": "2026-09-19T14:45:58.961658+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_staged_before.txt",
+      "outcome": "",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "assessed_ref_exists",
+      "command": "git cat-file -t b0142488fd5609e86d93c84978134a7d849d1882",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.962093+00:00",
+      "end_utc": "2026-09-19T14:45:58.969750+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/assessed_ref_exists.txt",
+      "outcome": "commit\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "available_declared_ruby",
+      "command": "$RUBY_4_0_5/bin/ruby --version",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.970202+00:00",
+      "end_utc": "2026-09-19T14:45:58.984468+00:00",
+      "elapsed_seconds": 0.015,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/available_declared_ruby.txt",
+      "outcome": "ruby 4.0.5 (2026-05-20 revision 64336ffd0e) +PRISM [arm64-darwin25]\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "available_declared_bundle",
+      "command": "$RUBY_4_0_5/bin/ruby $RUBY_4_0_5/bin/bundle --version",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:45:58.984976+00:00",
+      "end_utc": "2026-09-19T14:45:59.101085+00:00",
+      "elapsed_seconds": 0.116,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/available_declared_bundle.txt",
+      "outcome": "4.0.15\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "bundle_check",
+      "command": "$RUBY_4_0_5/bin/ruby $RUBY_4_0_5/bin/bundle check",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:46:23.211077+00:00",
+      "end_utc": "2026-09-19T14:46:23.386456+00:00",
+      "elapsed_seconds": 0.176,
+      "exit_code": 1,
+      "status": "FAIL",
+      "evidence_path": "logs/bundle_check.txt",
+      "outcome": "Initial unconfigured gem lookup failed; resolved by process-local existing GEM_HOME/GEM_PATH. See complete original diagnostic log.",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "pg_available",
+      "command": "/opt/homebrew/bin/pg_isready -h /tmp -p 5432",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:46:23.387277+00:00",
+      "end_utc": "2026-09-19T14:46:23.416854+00:00",
+      "elapsed_seconds": 0.03,
+      "exit_code": 2,
+      "status": "FAIL",
+      "evidence_path": "logs/pg_available.txt",
+      "outcome": "/tmp:5432 - no response\n",
+      "cwd_alias": "$REPO",
+      "evidence_kind": "environment_preflight_failure; not an application test failure"
+    },
+    {
+      "id": "gem_paths",
+      "command": "$RUBY_4_0_5/bin/ruby -rrubygems -e 'puts Gem.path; puts Gem::Specification.map { |s| \"#{s.name} #{s.version}\" }.sort'",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:46:42.095804+00:00",
+      "end_utc": "2026-09-19T14:46:42.160720+00:00",
+      "elapsed_seconds": 0.065,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/gem_paths.txt",
+      "outcome": "$USER_HOME/.gem/ruby/4.0.0\n$RUBY_4_0_5/lib/ruby/gems/4.0.0\nabbrev 0.1.2\nbase64 0.3.0\nbenchmark 0.5.0\nbigdecimal 4.0.1\nbundler 4.0.15\ncsv 3.3.5\ndate 3.5.1\ndebug 1.11.1\ndelegate 0.6.1\ndid_you_mean 2.0.0\ndigest 3.2.1\ndrb 2.2.3\nenglish 0.8.1\nerb 6.0.1.1\nerror_highlight 0.7.1\netc 1.4.6\nfcntl 1.3.0\nfiddle 1.1.8\nfileutils 1.8.0\nfind 0.2.0\nforwardable 1.4.0\ngetoptlong 0.2.1\nio-console 0.8.2\nio-nonblock 0.3.2\nio-wait 0.4.0\nipaddr 1.2.8\nirb 1.16.0\njson 2.18.0\nlogger 1.7.0\nmatrix 0.4.3\nminitest 6.0.0\nmutex_m 0.3.0\nnet-ftp 0.3.9\nnet-http 0.9.1\nnet-imap 0.6.2\nnet-pop 0.1.2\nnet-protocol 0.2.2\nnet-smtp 0.5.1\nnkf 0.2.0\nobserver 0.1.2\nopen-uri 0.5.0\nopen3 0.2.1\nopenssl 4.0.0\noptparse 0.8.1\nostruct 0.6.3\npower_assert 3.0.1\npp 0.6.3\nprettyprint 0.2.0\nprime 0.1.4\nprism 1.8.1\npstore 0.2.1\npsych 5.3.1\nracc 1.8.1\nrake 13.3.1\nrbs 3.10.0\nrdoc 7.0.4\nreadline 0.0.4\nreline 0.6.3\nrepl_type_completor 0.1.12\nresolv 0.7.0\nresolv-replace 0.1.1\nrexml 3.4.4\nrinda 0.2.0\nrss 0.3.2\nruby2_keywords 0.0.5\nsecurerandom 0.4.1\nshellwords 0.2.2\nsingleton 0.3.0\nstringio 3.2.0\nstrscan 3.1.6\nsyntax_suggest 2.0.3\nsyslog 0.3.0\ntempfile 0.3.1\ntest-unit 3.7.5\ntime 0.4.2\ntimeout 0.6.0\ntmpdir 0.3.1\ntsort 0.2.0\ntypeprof 0.31.1\nun 0.3.0\nuri 1.1.1\nweakref 0.1.4\nyaml 0.4.0\nzlib 3.2.3\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "local_tcp_pg",
+      "command": "/opt/homebrew/bin/pg_isready -h 127.0.0.1 -p 5432",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:46:42.161523+00:00",
+      "end_utc": "2026-09-19T14:46:42.176543+00:00",
+      "elapsed_seconds": 0.015,
+      "exit_code": 2,
+      "status": "FAIL",
+      "evidence_path": "logs/local_tcp_pg.txt",
+      "outcome": "127.0.0.1:5432 - no response\n",
+      "cwd_alias": "$REPO",
+      "evidence_kind": "environment_preflight_failure; not an application test failure"
+    },
+    {
+      "id": "runtime_locations",
+      "command": "python3 -c 'import glob,os; pats=['\"'\"'$USER_HOME/.gem/ruby/*/specifications/rails-*.gemspec'\"'\"','\"'\"'$USER_HOME/.gem/ruby/*/specifications/pg-*.gemspec'\"'\"','\"'\"'$RUBY_4_0_5/lib/ruby/gems/*/specifications/rails-*.gemspec'\"'\"','\"'\"'/opt/homebrew/lib/ruby/gems/*/specifications/rails-*.gemspec'\"'\"','\"'\"'/opt/homebrew/opt/ruby*/bin/ruby'\"'\"']; print('\"'\"'\\n'\"'\"'.join(p for pat in pats for p in glob.glob(pat)))'",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:46:42.177004+00:00",
+      "end_utc": "2026-09-19T14:46:42.307995+00:00",
+      "elapsed_seconds": 0.131,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/runtime_locations.txt",
+      "outcome": "javier/.gem/ruby/3.1.4/specifications/pg-1.5.3.gemspec\n$USER_HOME/.gem/ruby/3.2.2/specifications/pg-1.5.6.gemspec\n$USER_HOME/.gem/ruby/3.2.2/specifications/pg-1.3.5.gemspec\n$USER_HOME/.gem/ruby/3.2.2/specifications/pg-1.5.4.gemspec\n$USER_HOME/.gem/ruby/3.2.2/specifications/pg-1.5.3.gemspec\n$USER_HOME/.gem/ruby/3.0.6/specifications/pg-1.4.3.gemspec\n$USER_HOME/.gem/ruby/3.0.6/specifications/pg-1.5.3.gemspec\n$USER_HOME/.gem/ruby/3.2.3/specifications/pg-1.5.6.gemspec\n$USER_HOME/.gem/ruby/3.2.3/specifications/pg-1.5.4.gemspec\n$USER_HOME/.gem/ruby/3.2.3/specifications/pg-1.4.3.gemspec\n$USER_HOME/.gem/ruby/2.7.4/specifications/pg-1.2.3.gemspec\n$USER_HOME/.gem/ruby/2.7.4/specifications/pg-1.4.3.gemspec\n$USER_HOME/.gem/ruby/3.1.1/specifications/pg-1.3.5.gemspec\n$USER_HOME/.gem/ruby/3.1.1/specifications/pg-1.4.3.gemspec\n$USER_HOME/.gem/ruby/3.1.1/specifications/pg-1.3.2.gemspec\n$USER_HOME/.gem/ruby/4.0.5/specifications/pg-1.5.6.gemspec\n$USER_HOME/.gem/ruby/4.0.5/specifications/pg-1.6.3-arm64-darwin.gemspec\n$USER_HOME/.gem/ruby/2.6.9/specifications/pg-1.1.4.gemspec\n$USER_HOME/.gem/ruby/2.6.7/specifications/pg-1.1.4.gemspec\n$USER_HOME/.gem/ruby/3.0.3/specifications/pg-1.2.3.gemspec\n$USER_HOME/.gem/ruby/3.0.4/specifications/pg-1.3.5.gemspec\n$USER_HOME/.gem/ruby/2.6.6/specifications/pg-1.0.0.gemspec\n$USER_HOME/.gem/ruby/2.6.6/specifications/pg-1.2.3.gemspec\n$USER_HOME/.gem/ruby/2.6.6/specifications/pg-1.4.3.gemspec\n$USER_HOME/.gem/ruby/2.6.8/specifications/pg-1.1.4.gemspec\n/opt/homebrew/opt/ruby@4/bin/ruby\n/opt/homebrew/opt/ruby@3/bin/ruby\n/opt/homebrew/opt/ruby@3.4/bin/ruby\n/opt/homebrew/opt/ruby@3.3/bin/ruby\n/opt/homebrew/opt/ruby@3.2/bin/ruby\n/opt/homebrew/opt/ruby@4.0/bin/ruby\n/opt/homebrew/opt/ruby/bin/ruby\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "bundle_check_configured",
+      "command": "$RUBY_4_0_5/bin/ruby $RUBY_4_0_5/bin/bundle check",
+      "environment_overrides": {
+        "PATH": "$RUBY_4_0_5/bin:$INHERITED_PATH",
+        "GEM_HOME": "$USER_HOME/.gem/ruby/4.0.5",
+        "GEM_PATH": "$USER_HOME/.gem/ruby/4.0.5:$RUBY_4_0_5/lib/ruby/gems/4.0.0"
+      },
+      "start_utc": "2026-09-19T14:46:59.110418+00:00",
+      "end_utc": "2026-09-19T14:46:59.406928+00:00",
+      "elapsed_seconds": 0.297,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/bundle_check_configured.txt",
+      "outcome": "[DEPRECATED] Platform :mingw, :mswin, :x64_mingw will be removed in the future. Please use platform :windows instead.\n[DEPRECATED] Platform :mingw, :x64_mingw will be removed in the future. Please use platform :windows instead.\nThe Gemfile's dependencies are satisfied\n",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "postgres_readonly_identity",
+      "command": "/opt/homebrew/bin/psql -X -w -h /tmp -p 5432 -d postgres -A -t -c 'SELECT current_database(), current_user;'",
+      "environment_overrides": {
+        "PGCONNECT_TIMEOUT": "3"
+      },
+      "start_utc": "2026-09-19T14:46:59.407793+00:00",
+      "end_utc": "2026-09-19T14:46:59.424663+00:00",
+      "elapsed_seconds": 0.017,
+      "exit_code": 2,
+      "status": "FAIL",
+      "evidence_path": "logs/postgres_readonly_identity.txt",
+      "outcome": "psql: error: connection to server on socket \"/tmp/.s.PGSQL.5432\" failed: No such file or directory\n\tIs the server running locally and accepting connections on that socket?\n",
+      "cwd_alias": "$REPO",
+      "evidence_kind": "environment_preflight_failure; not an application test failure"
+    },
+    {
+      "id": "postgres_tcp_identity",
+      "command": "/opt/homebrew/bin/psql -X -w -h 127.0.0.1 -p 5432 -d postgres -A -t -c 'SELECT current_database(), current_user;'",
+      "environment_overrides": {
+        "PGCONNECT_TIMEOUT": "3"
+      },
+      "start_utc": "2026-09-19T14:47:25.243674+00:00",
+      "end_utc": "2026-09-19T14:47:25.262363+00:00",
+      "elapsed_seconds": 0.019,
+      "exit_code": 2,
+      "status": "FAIL",
+      "evidence_path": "logs/postgres_tcp_identity.txt",
+      "outcome": "psql: error: connection to server at \"127.0.0.1\", port 5432 failed: Operation not permitted\n\tIs the server running on that host and accepting TCP/IP connections?\n",
+      "cwd_alias": "$REPO",
+      "evidence_kind": "environment_preflight_failure; not an application test failure"
+    },
+    {
+      "id": "postgres_process",
+      "command": "/usr/bin/pgrep -x postgres",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:47:25.263082+00:00",
+      "end_utc": "2026-09-19T14:47:25.268702+00:00",
+      "elapsed_seconds": 0.006,
+      "exit_code": 3,
+      "status": "FAIL",
+      "evidence_path": "logs/postgres_process.txt",
+      "outcome": "sysmon request failed with error: sysmond service not found\npgrep: Cannot get process list\n",
+      "cwd_alias": "$REPO",
+      "evidence_kind": "environment_preflight_failure; not an application test failure"
+    },
+    {
+      "id": "kit_manifest",
+      "command": "shasum -a 256 -c MANIFEST.sha256",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T14:47:25.269192+00:00",
+      "end_utc": "2026-09-19T14:47:25.305774+00:00",
+      "elapsed_seconds": 0.037,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/kit_manifest.txt",
+      "outcome": "F0_Baseline_and_Source_Reconnaissance_Spec.md: OK\nF0_Codex_Prompt.txt: OK\nFeedback_to_Evidence_Register.md: OK\nSTART_HERE.md: OK\ncontext/Working_with_Works_September_19_28_Delivery_Plan.md: OK\ncontext/assessed_snapshot_manifest.json: OK\ncontext/assessed_snapshot_notes.md: OK\ncontext/course_guardrails_excerpt.txt: OK\ncontext/draft report project feedback.txt: OK\ncontext/instructions.txt: OK\ncontext/preliminary report feedback.txt: OK\ncontext/template_scope_excerpt.txt: OK\n",
+      "cwd_alias": "$REPO/codex_context/f0/Working_with_Works_F0_Start"
+    },
+    {
+      "id": "ruby_syntax",
+      "command": "$RUBY_4_0_5/bin/ruby -e 'files = Dir[\"{app,config,db,test,lib}/**/*.rb\"] + [\"Rakefile\"] + Dir[\"bin/*\"].select { |p| File.read(p).start_with?(\"#!/usr/bin/env ruby\") }; bad = files.reject { |p| system(RbConfig.ruby, \"-c\", p, out: File::NULL) }; puts \"#{files.length} files; #{bad.length} syntax failures\"; puts bad; exit(bad.empty? ? 0 : 1)'",
+      "environment_overrides": {
+        "PATH": "$RUBY_4_0_5/bin:$INHERITED_PATH",
+        "GEM_HOME": "$USER_HOME/.gem/ruby/4.0.5",
+        "GEM_PATH": "$USER_HOME/.gem/ruby/4.0.5:$RUBY_4_0_5/lib/ruby/gems/4.0.0",
+        "RAILS_ENV": "test",
+        "DATABASE_URL": "postgresql:///www_f0_tests_20260919_jzkmvw?host=/tmp&port=5432"
+      },
+      "start_utc": "2026-09-19T14:48:14.399745+00:00",
+      "end_utc": "2026-09-19T14:48:15.029826+00:00",
+      "elapsed_seconds": 0.63,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/ruby_syntax.txt",
+      "outcome": "64 files; 0 syntax failures\n",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "installed_framework_versions",
+      "command": "$RUBY_4_0_5/bin/ruby $RUBY_4_0_5/bin/bundle exec $RUBY_4_0_5/bin/ruby -e 'require \"rails\"; require \"pg\"; require \"nokogiri\"; puts \"Rails #{Rails.version}\"; puts \"PG gem #{PG::VERSION}\"; puts \"Nokogiri #{Nokogiri::VERSION}\"'",
+      "environment_overrides": {
+        "PATH": "$RUBY_4_0_5/bin:$INHERITED_PATH",
+        "GEM_HOME": "$USER_HOME/.gem/ruby/4.0.5",
+        "GEM_PATH": "$USER_HOME/.gem/ruby/4.0.5:$RUBY_4_0_5/lib/ruby/gems/4.0.0",
+        "RAILS_ENV": "test",
+        "DATABASE_URL": "postgresql:///www_f0_tests_20260919_jzkmvw?host=/tmp&port=5432"
+      },
+      "start_utc": "2026-09-19T14:48:15.030922+00:00",
+      "end_utc": "2026-09-19T14:48:15.776312+00:00",
+      "elapsed_seconds": 0.746,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/installed_framework_versions.txt",
+      "outcome": "Rails 8.1.3\nPG gem 1.6.3\nNokogiri 1.19.4\n",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "resolved_test_config",
+      "command": "$RUBY_4_0_5/bin/ruby bin/rails runner 'require \"json\"; puts JSON.generate({rails_environment: Rails.env, configs: ActiveRecord::Base.configurations.configs_for(env_name: Rails.env).map { |c| {name: c.name, adapter: c.adapter, database: c.database, host: c.configuration_hash[:host], port: c.configuration_hash[:port], username: c.configuration_hash[:username]} }})'",
+      "environment_overrides": {
+        "PATH": "$RUBY_4_0_5/bin:$INHERITED_PATH",
+        "GEM_HOME": "$USER_HOME/.gem/ruby/4.0.5",
+        "GEM_PATH": "$USER_HOME/.gem/ruby/4.0.5:$RUBY_4_0_5/lib/ruby/gems/4.0.0",
+        "RAILS_ENV": "test",
+        "DATABASE_URL": "postgresql:///www_f0_tests_20260919_jzkmvw?host=/tmp&port=5432"
+      },
+      "start_utc": "2026-09-19T14:48:35.508138+00:00",
+      "end_utc": "2026-09-19T14:48:37.163689+00:00",
+      "elapsed_seconds": 1.656,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/resolved_test_config.txt",
+      "outcome": "`$USER_HOME` is not writable.\nBundler will use `/var/folders/4g/g8394n3j72x8gmpmv2gkdxmm0000gn/T/bundler20260919-3486-p640xa3486' as your home directory temporarily.\n{\"rails_environment\":\"test\",\"configs\":[{\"name\":\"primary\",\"adapter\":\"postgresql\",\"database\":\"www_f0_tests_20260919_jzkmvw\",\"host\":\"/tmp\",\"port\":\"5432\",\"username\":null}]}\n",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "zeitwerk_check",
+      "command": "$RUBY_4_0_5/bin/ruby bin/rails zeitwerk:check",
+      "environment_overrides": {
+        "PATH": "$RUBY_4_0_5/bin:$INHERITED_PATH",
+        "GEM_HOME": "$USER_HOME/.gem/ruby/4.0.5",
+        "GEM_PATH": "$USER_HOME/.gem/ruby/4.0.5:$RUBY_4_0_5/lib/ruby/gems/4.0.0",
+        "RAILS_ENV": "test",
+        "DATABASE_URL": "postgresql:///www_f0_tests_20260919_jzkmvw?host=/tmp&port=5432"
+      },
+      "start_utc": "2026-09-19T14:48:37.164422+00:00",
+      "end_utc": "2026-09-19T14:48:37.954267+00:00",
+      "elapsed_seconds": 0.79,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/zeitwerk_check.txt",
+      "outcome": "`$USER_HOME` is not writable.\nBundler will use `/var/folders/4g/g8394n3j72x8gmpmv2gkdxmm0000gn/T/bundler20260919-3487-mz23w03487' as your home directory temporarily.\nHold on, I am eager loading the application.\nAll is good!\n",
+      "cwd_alias": "$F0_RUN/app_copy"
+    },
+    {
+      "id": "prepare_api_subset",
+      "command": "python3 $F0_RUN/scripts/prepare_subset.py",
+      "start_utc": "2026-09-19T14:52:23.760147+00:00",
+      "end_utc": "2026-09-19T14:52:23.763373+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Three source copies verified byte-identical; subset import BLOCKED, no DB writes",
+      "evidence_path": "evidence/subset_copy_manifest.json",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "evidence_consistency",
+      "command": "python3 $F0_RUN/scripts/validate_evidence.py",
+      "start_utc": "2026-09-19T15:03:19.620436+00:00",
+      "end_utc": "2026-09-19T15:03:19.742561+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": [
+        "Source file/count/byte/structural denominators reconcile with per-file rows",
+        "261 selected XML-ID/XPath pairs resolve to the unchanged six source files",
+        "Full feedback seed bytes preserved as prefix",
+        "15 F0 Python scratch scripts parse successfully; not application tests"
+      ],
+      "evidence_path": "evidence/evidence_validation.json",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "preservation_comparison_initial",
+      "command": "python3 $F0_RUN/scripts/finalize_preservation.py",
+      "start_utc": "2026-09-19T15:03:38.144235+00:00",
+      "end_utc": "2026-09-19T15:03:39.853404+00:00",
+      "exit_code": 1,
+      "status": "FAIL",
+      "outcome": "Strict comparison flagged one newly appeared codex_context/f0/.DS_Store; zero existing content/mode changes. Retained without deletion; producer not established.",
+      "evidence_path": "evidence/preservation_comparison_initial.json",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_status_after",
+      "command": "git status --porcelain=v1 --untracked-files=all",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T15:03:55.153489+00:00",
+      "end_utc": "2026-09-19T15:03:55.175878+00:00",
+      "elapsed_seconds": 0.026,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_status_after.txt",
+      "outcome": "?? docs/final_submission/f0/F0_checks.json\n?? docs/final_submission/f0/F0_completion.md\n?? docs/final_submission/f0/F0_report_notes.md\n?? docs/final_submission/f0/F0_source_model_proposal.md\n?? docs/final_submission/feedback_to_evidence.md\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_diff_after",
+      "command": "git diff --stat",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T15:03:55.179681+00:00",
+      "end_utc": "2026-09-19T15:03:55.191074+00:00",
+      "elapsed_seconds": 0.012,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_diff_after.txt",
+      "outcome": "",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_staged_after",
+      "command": "git diff --cached --stat",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T15:03:55.191844+00:00",
+      "end_utc": "2026-09-19T15:03:55.202325+00:00",
+      "elapsed_seconds": 0.011,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_staged_after.txt",
+      "outcome": "",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "git_head_after",
+      "command": "git rev-parse HEAD",
+      "environment_overrides": {},
+      "start_utc": "2026-09-19T15:03:55.202811+00:00",
+      "end_utc": "2026-09-19T15:03:55.210897+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "logs/git_head_after.txt",
+      "outcome": "b0142488fd5609e86d93c84978134a7d849d1882\n",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "id": "preservation_comparison",
+      "command": "python3 $F0_RUN/scripts/finalize_preservation.py",
+      "start_utc": "2026-09-19T15:04:42.716264+00:00",
+      "end_utc": "2026-09-19T15:04:44.307644+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Compared 5967 original files and 111 execution-copy sources; 0 original changes",
+      "evidence_path": "evidence/preservation_comparison.json",
+      "cwd_alias": "$REPO"
+    },
+    {
+      "start_utc": "2026-09-19T14:48:31.909019+00:00",
+      "end_utc": "2026-09-19T14:48:34.076062+00:00",
+      "exit_code": 1,
+      "status": "FAIL",
+      "outcome": "Source profiling selection rule yielded zero fresh blank-source candidates; failed scratch diagnostic retained; final rule revised structurally. Not an API harness attempt.",
+      "evidence_path": "source/source_profile_run.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_30"
+    },
+    {
+      "start_utc": "2026-09-19T14:48:54.279533+00:00",
+      "end_utc": "2026-09-19T14:48:56.808343+00:00",
+      "exit_code": 1,
+      "status": "FAIL",
+      "outcome": "Source profiling selection rule yielded zero fresh blank-source candidates; failed scratch diagnostic retained; final rule revised structurally. Not an API harness attempt.",
+      "evidence_path": "source/source_profile_selection_diagnostic.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_31"
+    },
+    {
+      "start_utc": "2026-09-19T14:49:35.831337+00:00",
+      "end_utc": "2026-09-19T14:49:38.579170+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/source_profile_success.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_32"
+    },
+    {
+      "start_utc": "2026-09-19T14:49:54.388882+00:00",
+      "end_utc": "2026-09-19T14:49:54.417971+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/selected_examples_read.log",
+      "command": "python3 -c 'import json,pathlib; p=json.loads(pathlib.Path(\"source_profile.json\").read_text()); print({k:v for k,v in p.items() if k not in [\"per_file\"]}); es=json.loads(pathlib.Path(\"source_examples.json\").read_text()); [(print(\"EXAMPLE\",e[\"filename\"],e[\"structure_counts\"],\"titles\",[(t[\"text\"],t[\"attributes\"]) for t in e[\"direct_titles\"]],\"classification\",[(t[\"text\"],t[\"locator\"]) for t in e[\"direct_work_classification\"]],\"genre\",e[\"current_genre_selection\"],\"sources\",[(s[\"xml_id\"],[t[\"text\"] for t in s[\"titles\"]],s[\"direct_item_xml_ids\"]) for s in e[\"selected_manifestations\"]],\"relations\",[(r[\"attributes\"],r[\"target_resolution\"]) for r in e[\"selected_source_relations\"]],\"expressions\",[(r[\"xml_id\"],r[\"locator\"]) for r in e[\"expression_context\"]])) for e in es]'",
+      "cwd_alias": "SOURCE_SCRATCH",
+      "id": "record_33"
+    },
+    {
+      "start_utc": "2026-09-19T14:51:56.417988+00:00",
+      "end_utc": "2026-09-19T14:51:58.916298+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/source_profile_final.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_34"
+    },
+    {
+      "start_utc": "2026-09-19T14:52:16.027893+00:00",
+      "end_utc": "2026-09-19T14:52:16.055701+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/profile_coverage_read.log",
+      "command": "python3 -c 'import json,pathlib; p=json.loads(pathlib.Path(\"source_profile.json\").read_text()); print(json.dumps({k:p[k] for k in [\"manifestation_relation_type_counts\",\"manifestation_relation_resolution_counts\",\"field_coverage\",\"identity_profile\",\"reserved_final_evaluation\"]},indent=2)); es=json.loads(pathlib.Path(\"source_examples.json\").read_text()); [(print(e[\"filename\"],[(i[\"xml_id\"],[(r[\"text\"],r[\"xml_id\"]) for r in i[\"repositories\"]],[(r[\"text\"],r[\"xml_id\"]) for r in i[\"shelfmarks\"]]) for i in e[\"selected_items\"]])) for e in es]'",
+      "cwd_alias": "SOURCE_SCRATCH",
+      "id": "record_35"
+    },
+    {
+      "start_utc": "2026-09-19T14:52:50.208758+00:00",
+      "end_utc": "2026-09-19T14:52:52.773833+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/source_profile_complete.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_36"
+    },
+    {
+      "start_utc": "2026-09-19T14:53:40.151106+00:00",
+      "end_utc": "2026-09-19T14:53:40.176219+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/payload_category_read.log",
+      "command": "python3 -c 'import json,pathlib; p=json.loads(pathlib.Path(\"source_profile.json\").read_text()); print({k:v for k,v in p[\"field_coverage\"].items() if \"payload\" in k}); print(\"top level\",sum(r[\"top_level_manifestation_count\"] for r in p[\"per_file\"])); print(\"CNW17\",next(r for r in p[\"per_file\"] if r[\"filename\"]==\"cnw0017.xml\"))'",
+      "cwd_alias": "SOURCE_SCRATCH",
+      "id": "record_37"
+    },
+    {
+      "start_utc": "2026-09-19T14:53:46.521028+00:00",
+      "end_utc": "2026-09-19T14:53:49.030329+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/source_profile_final_examples.log",
+      "command": "python3 $F0_RUN/source/profile_source.py --repo '$REPO' --out $F0_RUN/source",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_38"
+    },
+    {
+      "start_utc": "2026-09-19T14:55:18.692801+00:00",
+      "end_utc": "2026-09-19T14:55:18.721508+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/render_selected_examples.log",
+      "command": "python3 render_examples.py",
+      "cwd_alias": "SOURCE_SCRATCH",
+      "id": "record_39"
+    },
+    {
+      "start_utc": "2026-09-19T14:59:32.328369+00:00",
+      "end_utc": "2026-09-19T14:59:35.007408+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/source_profile_finalized.log",
+      "command": "python3 SOURCE_SCRATCH/profile_source.py --repo PROJECT_ROOT --out SOURCE_SCRATCH",
+      "cwd_alias": "PROJECT_ROOT",
+      "id": "record_40"
+    },
+    {
+      "start_utc": "2026-09-19T15:00:36.224897+00:00",
+      "end_utc": "2026-09-19T15:00:36.398719+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Command completed; see evidence. PASS describes execution only, not semantic fidelity.",
+      "evidence_path": "source/verify_source_evidence.log",
+      "command": "python3 verify_source_evidence.py --repo PROJECT_ROOT",
+      "cwd_alias": "SOURCE_SCRATCH",
+      "id": "record_41"
+    },
+    {
+      "command": "python3 $SCRATCH/audit/collect_static_audit.py $REPO",
+      "cwd_alias": "$REPO",
+      "start_utc": "2026-09-19T14:47:13.479372+00:00",
+      "end_utc": "2026-09-19T14:47:13.489839+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Read source hashes, active initializer lines, test declarations and historical title assertion; no runtime executed.",
+      "evidence_path": "audit/static_facts.json",
+      "id": "record_42"
+    },
+    {
+      "command": "python3 $SCRATCH/audit/assemble_feedback.py $REPO",
+      "cwd_alias": "$REPO",
+      "start_utc": "2026-09-19T14:53:45.126325+00:00",
+      "end_utc": "2026-09-19T14:53:45.127283+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "New scratch register preserves full initial seed bytes and appends F0 observations; no item closed.",
+      "evidence_path": "audit/feedback_to_evidence.md",
+      "seed_sha256": "5f4039a09fa4055707d1d892865d1b26d0f4bb8d7d4969672a3d4abd44b492c0",
+      "seed_bytes": 13994,
+      "seed_prefix_exact": true,
+      "id": "record_43"
+    },
+    {
+      "command": "python3 api_plan/collect_static_api_evidence.py",
+      "start_utc": "2026-09-19T14:54:26.545378+00:00",
+      "end_utc": "2026-09-19T14:54:26.555826+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "outcome": "Read and hashed 36 public/static files; no app or database execution.",
+      "evidence_path": "api_plan/static_api_input_inventory.json",
+      "cwd_alias": "F0_SCRATCH",
+      "id": "record_44"
+    }
+  ],
+  "runtime": {
+    "evidence_kind": "fresh F0 local runtime/preflight; no Rails suite or API execution",
+    "ruby": "4.0.5",
+    "bundler": "4.0.15",
+    "rails": "8.1.3",
+    "pg_gem": "1.6.3",
+    "nokogiri": "1.19.4",
+    "dependency_state": "PASS with already installed per-version user gem directory; initial unconfigured lookup failed",
+    "quality_checks": {
+      "ruby_syntax_files": 64,
+      "ruby_syntax_failures": 0,
+      "zeitwerk": "PASS"
+    },
+    "database": {
+      "status": "BLOCKED",
+      "local_socket": "/tmp/.s.PGSQL.5432 absent",
+      "tcp": "127.0.0.1:5432 Operation not permitted in sandbox; server availability unknown",
+      "process_inventory": "Unavailable in sandbox (pgrep exit3)",
+      "planned_only_database_names": {
+        "tests": "www_f0_tests_20260919_jzkmvw",
+        "api": "www_f0_api_20260919_jzkmvw"
+      },
+      "database_existence_checked": false,
+      "server_identity_confirmed": false,
+      "created_databases": [],
+      "writes": 0,
+      "application_config": "test primary resolved to planned tests database on /tmp:5432, username null; this is configuration evidence, not server identity"
+    },
+    "existing_rails_suite": {
+      "status": "BLOCKED",
+      "execution": "NOT_RUN",
+      "exit_code": null,
+      "seed": null,
+      "tests": null,
+      "assertions": null,
+      "failures": null,
+      "errors": null,
+      "skips": null,
+      "reason": "Database isolation could not be established before destructive fixture/test hooks"
+    },
+    "subset_import": {
+      "status": "BLOCKED",
+      "execution": "NOT_RUN",
+      "exit_code": null,
+      "files_seen": null,
+      "successes": null,
+      "failures": null
+    },
+    "api_harness": {
+      "status": "BLOCKED",
+      "execution": "NOT_RUN",
+      "attempts": 0,
+      "requests": 0,
+      "negative_control": "NOT_RUN",
+      "wrong_identity_control": "NOT_RUN",
+      "state_digests": "NOT_RUN"
+    },
+    "scope": "No installation/service start/network retrieval/monkey patches/original application edits; fresh test boot/eager load in copied app only."
+  },
+  "source_summary": {
+    "method": "Independent Python3 stdlib ElementTree; namespace preserved, no implementation helpers/database/API used. No XML bytes written. Structural presence is not fidelity; own-payload flag is syntactic, not semantic.",
+    "corpus_relative_path": "tmp/phase2_corpus_reconnaissance/extracted/dcm-catalogue-data/cnw/data-cnw",
+    "file_count": 446,
+    "aggregate_bytes": 26925115,
+    "parse_errors": [],
+    "work_count_distribution": {
+      "1": 446
+    },
+    "namespace_counts": {
+      "http://www.music-encoding.org/ns/mei": 446
+    },
+    "mei_version_counts": {
+      "4.0.1": 446
+    },
+    "namespace_locator_binding": {
+      "m": "http://www.music-encoding.org/ns/mei"
+    },
+    "element_namespace_counts": {
+      "http://www.music-encoding.org/ns/mei": 322400
+    },
+    "own_payload_rule": "Descriptive payload excludes nested entities and relationship scaffolding.\n\n    A nonempty text or one of the allowlisted substantive attributes qualifies.\n    xml:id, @class, @type and xml:lang alone do not imply a real description.\n    Label-only or link-only nodes qualify syntactically; field coverage is\n    reported separately. This is not a claim of semantic completeness.\n    ",
+    "aggregate_structural_counts": {
+      "manifestation_nodes": 2148,
+      "manifestation_own_payload": 2148,
+      "manifestation_no_own_payload": 0,
+      "item_nodes": 1370,
+      "item_own_payload": 1369,
+      "item_no_own_payload": 1,
+      "expression_nodes": 1195,
+      "expression_own_payload": 1166,
+      "expression_no_own_payload": 29,
+      "componentList_nodes": 128,
+      "componentList_own_payload": 125,
+      "componentList_no_own_payload": 3,
+      "repository_nodes": 5685,
+      "repository_own_payload": 5648,
+      "repository_no_own_payload": 37,
+      "physLoc_nodes": 5685,
+      "physLoc_own_payload": 5650,
+      "physLoc_no_own_payload": 35
+    },
+    "files_with_manifestations": 442,
+    "files_with_items": 392,
+    "current_genre_choice_counts": {
+      "letter": 246,
+      "Vocal music": 101,
+      "Instrumental music": 27,
+      "manuscript": 2,
+      "article": 48,
+      "Chamber music": 1,
+      "book": 3,
+      "Stage music": 4,
+      "interview": 1,
+      "<empty>": 2,
+      "diary entry": 10,
+      "Song": 1
+    },
+    "genre_choice_outside_direct_work_classification_files": 310,
+    "genre_documentary_label_choice_count": 310,
+    "current_source_selector_total": 0,
+    "all_target_attribute_token_forms": {
+      "absolute_http": 1361,
+      "other_scheme": 446,
+      "catalogue_query_relative": 211,
+      "xml_file_relative": 957,
+      "site_relative": 3024,
+      "same_document_fragment": 1590,
+      "other_relative_or_identifier": 65
+    },
+    "manifestation_direct_relation_target_token_forms": {
+      "same_document_fragment": 1590
+    },
+    "source_relation_metrics": {
+      "source_relation_count": 1590,
+      "source_local_target_resolved_expression_count": 1499,
+      "source_local_target_unresolved_count": 1,
+      "source_nonlocal_target_count": 0,
+      "source_relations_to_component_expression_count": 0
+    },
+    "manifestation_relation_type_counts": {
+      "isEmbodimentOf": 1500,
+      "isReproductionOf": 86,
+      "hasReproduction": 4
+    },
+    "manifestation_relation_resolution_counts": {
+      "expression": 1499,
+      "manifestation": 90,
+      "unresolved": 1
+    },
+    "field_coverage": {
+      "manifestation_payload_category_text_payload": 2105,
+      "manifestations_with_nonempty_direct_title": 2105,
+      "manifestations_with_nonempty_classification": 2105,
+      "manifestations_with_nonempty_publisher_or_pubplace_or_date": 846,
+      "manifestations_with_any_direct_item": 1348,
+      "manifestations_with_any_direct_relation": 1502,
+      "items_with_nonempty_direct_identifier": 1278,
+      "items_with_nonempty_repository_identifier_or_name": 1364,
+      "items_with_nonempty_direct_physLoc_identifier_shelfmark_candidate": 1289,
+      "items_with_physLoc_identifier_nodes_but_empty": 81,
+      "manifestation_payload_category_label_and_link_only": 43
+    },
+    "identity_profile": {
+      "distinct_document_xml_ids": 439,
+      "distinct_work_xml_ids": 70,
+      "distinct_cnw_values": 446,
+      "document_xml_ids_repeated_across_files": 3,
+      "work_xml_ids_repeated_across_files": 9,
+      "cnw_values_repeated_across_files": 0,
+      "within_document_duplicate_xml_id_count": 0
+    },
+    "sample_manifest": {
+      "relative_path": "docs/report_evidence/phase2_sample_manifest.csv",
+      "sha256": "210fbe9d2010389332fc620faa60092f765e08dda002ae23c396633137d0d72e",
+      "entries": 15,
+      "hash_comparison": [
+        {
+          "filename": "712a43e2-d3d6-463a-88fa-0b7e88e4dbf8.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0277.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0063.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0018.xml",
+          "match": true
+        },
+        {
+          "filename": "1292525519.xml",
+          "match": true
+        },
+        {
+          "filename": "03f4c141-9dab-46d7-b8c1-9d0000cc997a.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0017.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0002.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0027.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0064.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0070.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0081.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0237.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0067.xml",
+          "match": true
+        },
+        {
+          "filename": "cnw0010.xml",
+          "match": true
+        }
+      ]
+    },
+    "archive": {
+      "relative_path": "tmp/phase2_corpus_reconnaissance/dcm-catalogue-data.zip",
+      "bytes": 234079300,
+      "sha256": "fa3ff9e3012a6a9e8d21c098105bea3be9670945bb76aa5ea46391d2c33cf8ec"
+    },
+    "reserved_final_evaluation": [
+      {
+        "selection_rule": "Outside prior15 and development6; lexicographic first exactly one populated source+item and one resolved expression target",
+        "filename": "cnw0048.xml",
+        "sha256": "27a06bf3fea411d0b341efdb660bb6dc6264e2ae1cd9e3e86678c10616e1a7a6",
+        "cnw": [
+          "48"
+        ],
+        "counts": {
+          "manifestation_nodes": 1,
+          "manifestation_own_payload": 1,
+          "item_nodes": 1,
+          "item_own_payload": 1,
+          "expression_nodes": 4,
+          "source_relations_to_component_expression_count": 0,
+          "source_nonlocal_target_count": 0
+        },
+        "asserted_values_inspected": false
+      },
+      {
+        "selection_rule": "Outside prior15 and development6; lexicographic first multiple expression contexts and >8 sources",
+        "filename": "cnw0001.xml",
+        "sha256": "607898d54dc3354d84e215145d7d1a8b3bab47e255d842fb7506f9226784cca6",
+        "cnw": [
+          "1"
+        ],
+        "counts": {
+          "manifestation_nodes": 32,
+          "manifestation_own_payload": 32,
+          "item_nodes": 30,
+          "item_own_payload": 30,
+          "expression_nodes": 32,
+          "source_relations_to_component_expression_count": 0,
+          "source_nonlocal_target_count": 0
+        },
+        "asserted_values_inspected": false
+      },
+      {
+        "selection_rule": "Outside prior15 and development6; lexicographic first one-source/no-items/no-source-relations case",
+        "filename": "1f6c24d6-e41f-4647-8526-f33efc08faeb.xml",
+        "sha256": "023b4b9281270a16f8a9c31cb23f02d6925200a3a2ff7316f48292301eb08d6e",
+        "cnw": [
+          "Coll. 21"
+        ],
+        "counts": {
+          "manifestation_nodes": 1,
+          "manifestation_own_payload": 1,
+          "item_nodes": 0,
+          "item_own_payload": 0,
+          "expression_nodes": 1,
+          "source_relations_to_component_expression_count": 0,
+          "source_nonlocal_target_count": 0
+        },
+        "asserted_values_inspected": false
+      },
+      {
+        "selection_rule": "Outside prior15 and development6; lexicographic first source with target resolving to another entity type",
+        "filename": "cnw0202.xml",
+        "sha256": "2033e285f12acf277378da6ad4a8b2d27bd9d5a5b5c893a88433e9366972794e",
+        "cnw": [
+          "202"
+        ],
+        "counts": {
+          "manifestation_nodes": 7,
+          "manifestation_own_payload": 7,
+          "item_nodes": 1,
+          "item_own_payload": 1,
+          "expression_nodes": 2,
+          "source_relations_to_component_expression_count": 0,
+          "source_nonlocal_target_count": 0
+        },
+        "asserted_values_inspected": false
+      }
+    ],
+    "reservation_disclosure": "Reserved only after corpus-wide structural/identity and selector reproduction; not statistically random or wholly unseen. Detailed titles, repository/shelfmark values and expected asserted relation identities are not opened for reserved examples. Reconfirm eligibility independently before final protocol."
+  },
+  "preservation": {
+    "start_utc": "2026-09-19T15:04:42.716264+00:00",
+    "end_utc": "2026-09-19T15:04:44.307644+00:00",
+    "status": "PASS",
+    "baseline_captured_utc": "2026-09-19T14:45:45.828101+00:00",
+    "after_captured_utc": "2026-09-19T15:04:44.258871+00:00",
+    "baseline_files": 5967,
+    "after_files": 5968,
+    "changed_original_paths": [],
+    "removed_original_paths": [],
+    "unexpected_added_original_paths": [],
+    "incidental_new_os_metadata": [
+      "codex_context/f0/.DS_Store"
+    ],
+    "metadata_note": "A .DS_Store appeared after the baseline. Producer is not established; it was retained. The initial strict comparison is preserved separately; PASS concerns preservation of existing protected files, not an assertion of zero incidental additions.",
+    "private_historical_aggregate_matches": true,
+    "copy_source_files": 111,
+    "copy_source_content_or_mode_changes": [],
+    "authorised_new_document_paths": [
+      "docs/final_submission/f0/F0_checks.json",
+      "docs/final_submission/f0/F0_completion.md",
+      "docs/final_submission/f0/F0_report_notes.md",
+      "docs/final_submission/f0/F0_source_model_proposal.md",
+      "docs/final_submission/feedback_to_evidence.md"
+    ],
+    "sensitive_file_exclusions": [
+      "config/credentials.yml.enc",
+      "config/master.key"
+    ],
+    "limitation": "Credentials/key contents were not inspected or hashed. Private historical session contents only contributed to an opaque preservation digest, never interpretation or handoff copies. Top-level OS metadata and Git object store are outside this targeted comparison."
+  },
+  "historical_comparison": {
+    "kind": "historical, not F0 execution",
+    "reported_tests": 58,
+    "reported_assertions": 269,
+    "reported_corrected_import_successes": 446,
+    "old_matrix_rows_each": 83,
+    "corrected_api_cells": "not_evaluated"
+  },
+  "not_run_checks": [
+    {
+      "id": "existing_rails_suite",
+      "command": "guarded single-process existing Rails suite; explicit RAILS_ENV=test, PARALLEL_WORKERS=1, seed and separate new DB (see deferred procedure)",
+      "cwd_alias": "$F0_RUN/app_copy",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "BLOCKED",
+      "reason": "No verified local server identity/unused target; test fixture hooks are destructive",
+      "evidence_path": "api_plan/API_feasibility_blocker_and_next_diagnostic.md"
+    },
+    {
+      "id": "subset_import_api",
+      "command": "one unchanged importer call on data/f0_subset, then four requests and independent comparisons in a second new DB",
+      "cwd_alias": "$F0_RUN/app_copy",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "BLOCKED",
+      "reason": "Local DB isolation prerequisite not met; zero API harness attempts",
+      "evidence_path": "api_plan/API_feasibility_blocker_and_next_diagnostic.md"
+    },
+    {
+      "id": "comparator_negative_control",
+      "command": "deliberate_negative_control using changed copy of expected observation",
+      "cwd_alias": "$F0_RUN",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "reason": "No completed API response/comparator run",
+      "evidence_path": "evidence/runtime_outcome.json"
+    },
+    {
+      "id": "wrong_database_identity_refusal",
+      "command": "pure synthetic mismatch plus connected mismatch on NEW dedicated DB only",
+      "cwd_alias": "$F0_RUN",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "reason": "No connected isolated guard; no pure simulation reported as live proof",
+      "evidence_path": "evidence/runtime_outcome.json"
+    },
+    {
+      "id": "aggregate_ci_setup",
+      "command": "bin/setup or bin/ci",
+      "cwd_alias": "$REPO",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "NOT_RUN",
+      "reason": "Explicitly prohibited unsafe setup/clear/reset/replant actions; absent importmap executable",
+      "evidence_path": "audit/static_audit.md"
+    },
+    {
+      "id": "archive_extraction",
+      "command": null,
+      "cwd_alias": "$F0_RUN",
+      "start_utc": null,
+      "end_utc": null,
+      "exit_code": null,
+      "status": "NOT_APPLICABLE",
+      "reason": "Existing extracted official CNW corpus is present; no retrieval or extraction needed",
+      "evidence_path": "source/source_profile.json"
+    }
+  ],
+  "created_resources": {
+    "application_copy_files": 111,
+    "official_subset_files": 3,
+    "new_databases": [],
+    "runtime_services": [],
+    "original_repo_documents": [
+      "docs/final_submission/f0/F0_completion.md",
+      "docs/final_submission/f0/F0_source_model_proposal.md",
+      "docs/final_submission/f0/F0_checks.json",
+      "docs/final_submission/f0/F0_report_notes.md",
+      "docs/final_submission/feedback_to_evidence.md"
+    ],
+    "cleanup": "No deletion performed; scratch and two Bundler auto-temp directories are listed privately beside review ZIP. Planned DB names were not created."
+  },
+  "scratch_script_notes": [
+    "Source profiling had two failed fresh-record selection diagnostics; both logs retained; no source XML was changed.",
+    "Path literals in F0 helper and static API reader changed to process-local inputs for portable sanitized handoff; observation/application semantics unchanged.",
+    "A manifest/record alone does not establish source fidelity, request correctness, or participant outcomes."
+  ],
+  "gates": {
+    "G0": {
+      "status": "PASS",
+      "reason": "Content/mode/index/ref preservation comparison; documented sensitive-file exclusions"
+    },
+    "G1": {
+      "status": "PARTIAL",
+      "reason": "HEAD/runtime/dependency/no-DB checks verified; existing suite blocked"
+    },
+    "G2": {
+      "status": "PASS",
+      "reason": "Independent census and six source-located development examples; reserved selection disclosed"
+    },
+    "G3": {
+      "status": "PASS",
+      "reason": "One minimum design and one fallback; concrete policies, acceptance examples and estimate supplied for review"
+    },
+    "G4": {
+      "status": "BLOCKED",
+      "reason": "No DB/request/comparator/negative control feasibility run"
+    },
+    "G5": {
+      "status": "PASS",
+      "reason": "Feedback seed preserved; F0 observations appended with no future closures"
+    },
+    "G6": {
+      "status": "PASS",
+      "reason": "Final handoff only after explicit allowlist, SHA256 manifest and ZIP CRC/readback validation; validation JSON alongside archive"
+    }
+  }
+}

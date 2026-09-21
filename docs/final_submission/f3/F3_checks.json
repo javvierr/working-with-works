@@ -1,0 +1,163 @@
+{
+  "package": "F3",
+  "status": "PARTIAL",
+  "recorded_utc": "2026-09-20T23:09:58.100849+00:00",
+  "reason": "Required actual 200% browser zoom remains NOT_RUN because permitted browser controls did not expose it; all final functional/API/source checks pass.",
+  "repository": {
+    "actual_root": "$APP_REPO",
+    "head": "b0142488fd5609e86d93c84978134a7d849d1882",
+    "branch": "main",
+    "index_and_refs": "Preservation evidence; no mutation authorized/performed"
+  },
+  "prospective_freeze": {
+    "manifest": "acceptance/f3_prospective_freeze_manifest.json",
+    "sha256": "79af33a454d530a45452e5dfc50ecbcd88ff27a1a6fda66d1b5607aae5a4d5a7",
+    "case_count": 234,
+    "synthetic_works": 48,
+    "frozen_before_production_edits": true
+  },
+  "baseline": {
+    "status": "PASS",
+    "tests": 142,
+    "assertions": 1515,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seed": 190926,
+    "workers": 1
+  },
+  "revised_suite": {
+    "status": "PASS",
+    "tests": 164,
+    "assertions": 2586,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seed": 190926,
+    "workers": 1,
+    "build_id": "f3-de54529de1564a9d",
+    "result": "validation/revised_suite_03_result.json",
+    "exit_code": 0
+  },
+  "independent_synthetic_api": {
+    "status": "PASS",
+    "frozen_cases": 234,
+    "checks_including_repeat": 235,
+    "complete_traversals": 23,
+    "negative_comparator_controls": 3,
+    "tables_sequences_schema_unchanged": true,
+    "build_id": "f3-de54529de1564a9d",
+    "result": "validation/synthetic_check_01/result.json",
+    "independent_audit": "acceptance/synthetic_evidence_independent_audit.json",
+    "exit_code": 0
+  },
+  "six_record_regression": {
+    "status": "PASS",
+    "assertions": 1159,
+    "requests": 21,
+    "input_files": 6,
+    "source_descriptions": 25,
+    "held_items": 22,
+    "source_relations": 24,
+    "imports_in_final_observation": 0,
+    "prior_imports": 1,
+    "prior_import_proof": "validation/source_check_01/import_proof.json",
+    "build_id": "f3-de54529de1564a9d",
+    "result": "validation/source_check_03/result.json",
+    "source_oracle_sha256": "991037f3dd3e34df7a4dfc2d89b34dddb31dab260807018c8ad25d89ca6f9425",
+    "exit_code": 0
+  },
+  "browser": {
+    "status": "PARTIAL",
+    "observations": 17,
+    "passed_observations": 16,
+    "zoom_200_percent": {
+      "status": "NOT_RUN",
+      "zoom_factor": null,
+      "exit_code": null,
+      "reason": "IAB exposes viewport and visibility capabilities, not zoom. Browser super+0 then super+plus had no effect (innerWidth1280,innerHeight900,devicePixelRatio1,visualViewport.scale1,bodyCSSzoom1). Native Codex access was rejected by the computer-use tool for safety; no repeat or bypass attempted. Viewport narrowing is not represented as 200% zoom."
+    },
+    "inline_captures": 8,
+    "exported_screenshot_files": 0,
+    "final_style_build": "f3-1602645a261ed754",
+    "result": "validation/browser_observations.json",
+    "first_server": "validation/browser_walkthrough_01/result.json",
+    "second_server": "validation/browser_walkthrough_02/result.json",
+    "both_server_exit_codes": [
+      0,
+      0
+    ],
+    "both_get_states_unchanged": true
+  },
+  "build_relationship": {
+    "suite_source_API_build": "f3-de54529de1564a9d",
+    "final_browser_style_build": "f3-1602645a261ed754",
+    "only_change": "app/assets/stylesheets/application.css: add align-content: start to .field",
+    "evidence": "validation/browser_walkthrough_01/style_update.json",
+    "suite_rerun_after_CSS_only_change": false,
+    "reason": "No Ruby/test/query/schema change; corrected CSS was observed in fresh real browser process."
+  },
+  "preservation": {
+    "status": "PASS",
+    "evidence": "final_preservation_1/evidence/preservation_comparison.json",
+    "protected_baseline_paths": 918,
+    "expected_modified_paths": 8,
+    "expected_new_paths": 23,
+    "qualified_new_path_origins": 3,
+    "no_secret_or_private_file_reads": true,
+    "historical_evidence_and_ingestion_unchanged": true
+  },
+  "resources": {
+    "postgres_status": "STOPPED",
+    "data_directory": "/private/tmp/www_f3_pg_2oxzep44/data",
+    "socket": "/private/tmp/www_f3_pg_2oxzep44/socket",
+    "port": 55435,
+    "postmaster_pid": 69352,
+    "stopped_utc": "2026-09-20T23:00:53.903718+00:00",
+    "data_retained": true,
+    "browser_pids": [
+      85975,
+      90069
+    ],
+    "browser_ports": [
+      51509,
+      51618
+    ],
+    "all_run_owned_processes_stopped": true,
+    "prior_instances_used": false
+  },
+  "retained_failures": [
+    {
+      "id": "revised_suite_01",
+      "status": "FAIL",
+      "tests": 149,
+      "assertions": 1200,
+      "failures": 30,
+      "errors": 3,
+      "reason": "API default format :json symbol was rejected by the new exact string check; corrected route default to string json."
+    },
+    {
+      "id": "source_check_01",
+      "status": "FAIL",
+      "reason": "Same406 routing error after a successful6-file import; whole GET state retained unchanged; later observations reused verified import without another import."
+    }
+  ],
+  "command_records": [
+    "evidence/commands.jsonl",
+    "baseline/gate_verdict.json",
+    "validation/*_invocation.json"
+  ],
+  "limits": [
+    "Fixed-data page stability only; no concurrent write snapshot guarantee.",
+    "Six purposively selected development XML records and48synthetic records are not final-corpus or generalMEI evidence.",
+    "Only exact1pf./1vl. explanations supported by suppliedpublicprotocol; compound/unknown wording remains unexplained.",
+    "Newfixtures/evidence retained; inheritedtests retain their prior cleanup of their own newtemporaryfixtures. No universal retention claim.",
+    "Three new rootfile origins use qualified Git-baseline inference, notdirect prewrite lstat; all918protectedpaths compared.",
+    "Screenshot observations are inlineonly. Required200%zoom remainsunverified; no accessibility orparticipant claim.",
+    "F4/F5, publicrelease, cleanclone/setuprepair, participantwork, report/video andgitpublishing remain pending."
+  ],
+  "review_zip": {
+    "intended_path": "$F3_RUN/Working_with_Works_F3_Review.zip",
+    "validation": "Adjacent Working_with_Works_F3_Review.validation.json records actual final member/hash/CRC/patch checks; archive integrity is separate from partial F3 acceptance."
+  }
+}

@@ -1,0 +1,111 @@
+<% projection = catalogue_sources.fetch("projection") %>
+<% summary = projection.fetch("summary") %>
+<% descriptions = catalogue_sources.fetch("descriptions") %>
+<% represented_ids = descriptions.map { |source| source.fetch("xml_id") } %>
+<section class="section" id="catalogue-sources" data-projection-state="<%= summary.fetch("state") %>">
+  <h2>Source descriptions in this catalogue record</h2>
+  <p>These descriptions belong to this XML record. An explicit expression relationship gives context; it does not establish complete-work or component coverage.</p>
+  <% if summary["state"] == "not_projected" %>
+    <p>Source descriptions have not yet been projected for this record. Their presence or absence is unknown.</p>
+  <% elsif summary["state"] == "absent_in_source" %>
+    <p>No source-description nodes are supplied by this record. Bibliographic references do not establish musical sources or held items.</p>
+  <% else %>
+    <p><%= summary["represented_sources"] %> represented descriptions from <%= summary["source_nodes"] %> source nodes; <%= summary["represented_items"] %> represented item nodes from <%= summary["item_nodes"] %>. Empty placeholders are identified individually.</p>
+    <% if summary["state"] == "partial" %>
+      <p>The representation is partial: some nodes or relationships are unsupported or unresolved.</p>
+    <% end %>
+    <% descriptions.each do |source| %>
+      <% expression_relations = source.fetch("relations").select { |relation| relation["resolution_state"] == "resolved_expression" } %>
+      <details id="<%= catalogue_source_anchor(source.fetch("xml_id")) %>" data-source-xml-id="<%= source["xml_id"] %>" data-source-state="<%= source["state"] %>">
+        <summary><strong><%= source["source_order"] %>. <%= catalogue_source_heading(source) %></strong> — <%= source.fetch("held_items").length %> represented item nodes; <%= expression_relations.any? ? "explicit expression context" : "relationship unspecified" %></summary>
+        <h3><%= catalogue_source_heading(source) %></h3>
+        <p class="source-state"><%= catalogue_node_state(source["state"]) %></p>
+        <p class="trace">Source XML identifier: <%= source["xml_id"] %></p>
+        <% if source["label"].present? %><p>Source label: <%= source["label"] %></p><% end %>
+        <p class="source-relationship"><%= expression_relations.any? ? "Explicit expression context is listed below; coverage beyond that statement is unspecified." : "Relationship unspecified: no supported explicit expression relationship is recorded." %></p>
+        <% { "titles" => "Titles", "classification_terms" => "Classification and scope", "identifiers" => "Source identifiers", "publication" => "Publication", "physical_description" => "Physical description", "notes" => "Notes", "links" => "Pointer values (plain text)" }.each do |field, label| %>
+          <%= render "source_values", values: source.fetch(field), field: field, label: label %>
+        <% end %>
+        <h4>Explicit relationships</h4>
+        <% if source.fetch("relations").empty? %>
+          <p>No source relation is supplied.</p>
+        <% else %>
+          <ol class="plain-list">
+            <% source.fetch("relations").each do |relation| %>
+              <li data-relation-order="<%= relation["relation_order"] %>" data-token-order="<%= relation["token_order"] %>" data-resolution-state="<%= relation["resolution_state"] %>">
+                <p>Relation: <%= relation["rel"].presence || "Not supplied" %>; target token: <%= relation["target_token"].presence || "Not supplied" %>.</p>
+                <% if relation["resolution_state"] == "resolved_expression" %>
+                  <% context = relation.fetch("expression_context") %>
+                  <p class="expression-context">Explicit expression: <%= context["xml_id"] %>; containing work: <%= context.fetch("containing_work")["xml_id"] %>.</p>
+                  <%= render "source_values", values: context.fetch("titles"), field: "expression-titles", label: "Expression titles" %>
+                  <% if context.fetch("ancestor_expressions").any? %>
+                    <p>Ancestor expression context, outermost first:</p>
+                    <ol>
+                      <% context.fetch("ancestor_expressions").each do |ancestor| %>
+                        <li><%= ancestor["xml_id"] || "XML identifier not supplied" %>: <%= ancestor.fetch("titles").filter_map { |title| title["text"] }.join("; ") %> <span class="trace"><%= ancestor["locator"] %></span></li>
+                      <% end %>
+                    </ol>
+                  <% end %>
+                  <p class="trace">Expression locator: <%= context["locator"] %></p>
+                <% elsif relation["resolution_state"] == "resolved_source" && represented_ids.include?(relation["target_source_xml_id"]) %>
+                  <p>Explicit source target: <%= link_to relation["target_source_xml_id"], "##{catalogue_source_anchor(relation["target_source_xml_id"])}" %>. Direction is retained as supplied; no further work association is inferred.</p>
+                <% else %>
+                  <p>Unresolved: <%= relation["resolution_reason"].to_s.tr("_", " ") %>.</p>
+                <% end %>
+                <details><summary>Relationship provenance</summary><p class="trace"><%= JSON.generate(relation) %></p></details>
+              </li>
+            <% end %>
+          </ol>
+        <% end %>
+        <h4>Held-item descriptions</h4>
+        <% if source.fetch("held_items").empty? %>
+          <% if summary["unsupported_items"] == 0 %>
+            <p>No held-item nodes are supplied for this description.</p>
+          <% elsif summary["unsupported_items"].is_a?(Integer) && summary["unsupported_items"].positive? %>
+            <p>No held-item descriptions are represented here. This catalogue record contains unsupported item nodes; see Unsupported or unresolved details.</p>
+          <% else %>
+            <p>No held-item descriptions are represented here. The number of unsupported item nodes in this catalogue record is unknown; supplied-item absence cannot be determined.</p>
+          <% end %>
+        <% else %>
+          <% source.fetch("held_items").each do |item| %>
+            <section data-item-xml-id="<%= item["xml_id"] %>" data-item-state="<%= item["state"] %>">
+              <h5>Item <%= item["source_order"] %>: <%= item["label"].presence || item["xml_id"] %></h5>
+              <p class="item-state"><%= catalogue_node_state(item["state"]) %></p>
+              <p class="trace">Item XML identifier: <%= item["xml_id"] %>; parent source: <%= item["source_xml_id"] %>.</p>
+              <%= render "source_values", values: item.fetch("identifiers"), field: "item-identifiers", label: "Item identifiers" %>
+              <% if item.fetch("physical_locations").empty? %><p>Repository and location identifiers are not supplied.</p><% end %>
+              <% item.fetch("physical_locations").each do |location| %>
+                <section data-location-order="<%= location["source_order"] %>">
+                  <h6>Physical location <%= location["source_order"] %></h6>
+                  <% if location.fetch("repositories").empty? %><p>Repository not supplied.</p><% end %>
+                  <% location.fetch("repositories").each do |repository| %>
+                    <section data-repository-order="<%= repository["source_order"] %>">
+                      <p><strong>Repository <%= repository["source_order"] %></strong></p>
+                      <%= render "source_values", values: repository.fetch("names"), field: "repository-names", label: "Repository names" %>
+                      <%= render "source_values", values: repository.fetch("identifiers"), field: "repository-identifiers", label: "Repository identifiers" %>
+                      <%= render "source_values", values: repository.fetch("links"), field: "repository-links", label: "Repository pointer values (plain text)" %>
+                      <details><summary>Repository metadata</summary><p class="trace"><%= JSON.generate(repository.except("names", "identifiers", "links")) %></p></details>
+                    </section>
+                  <% end %>
+                  <%= render "source_values", values: location.fetch("identifiers"), field: "location-identifiers", label: "Location identifier" %>
+                  <details><summary>Location metadata</summary><p class="trace"><%= JSON.generate(location.except("repositories", "identifiers")) %></p></details>
+                </section>
+              <% end %>
+              <%= render "source_values", values: item.fetch("physical_description"), field: "item-physical-description", label: "Item physical description" %>
+              <%= render "source_values", values: item.fetch("links"), field: "item-links", label: "Item pointer values (plain text)" %>
+              <details><summary>Item provenance and field availability</summary><p class="trace"><%= JSON.generate(item.slice("xml_id", "locator", "attributes", "parent_metadata", "availability")) %></p></details>
+            </section>
+          <% end %>
+        <% end %>
+        <details><summary>Source provenance and field availability</summary><p class="trace"><%= JSON.generate(source.slice("xml_id", "locator", "attributes", "parent_metadata", "availability")) %></p></details>
+      </details>
+    <% end %>
+  <% end %>
+  <% if summary.fetch("issue_count", 0).positive? %>
+    <details>
+      <summary>Unsupported or unresolved details (<%= summary["issue_count"] %>)</summary>
+      <ul><% summary.fetch("issues").each do |issue| %><li><%= issue["kind"] %>: <%= issue["reason"].to_s.tr("_", " ") %> — <span class="trace"><%= issue["locator"] %></span></li><% end %></ul>
+      <% if summary["issues_truncated"] %><p>Only the first 50 issues are listed; the total count includes all issues.</p><% end %>
+    </details>
+  <% end %>
+</section>

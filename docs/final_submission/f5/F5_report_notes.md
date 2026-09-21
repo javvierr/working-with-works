@@ -1,0 +1,15 @@
+# Notes for the later human report
+
+These are evidence notes and remaining tasks, not the final report.
+
+F5 changed documentation, launchers and small portable helpers with focused tests. The accepted F4 application, schema, UI and source implementation remain unchanged under build `f3-1602645a261ed754`. The new 158-file runtime candidate and 255-path local release proposal have separate identities. Setup, CI, import and HTTP observations support local reproducibility with declared installed dependencies and fresh owned targets. They do not establish public availability, cold installation, production readiness or participant benefit.
+
+Keep F4 measures distinct: 446-file import/integrity accounting; 1,800 purposively selected semantic units; 234 synthetic and 272 canonical API cases; and 83 historical assertions (38 preserved, six transformed, 34 omitted, five technical/not applicable). Preserve one excluded nested item, one unresolved relation and all stated source/model boundaries. Serial warm-cache in-process Rack timings include guard overhead and exclude HTTP/browser cost; they do not support a scale or comparative speed conclusion. SQL/API agreement is not independent whole-corpus source fidelity.
+
+The final F5 direct suite, CI and replay each ran 164 tests with 2,586 assertions. Focused release tests ran 15 tests with 297 assertions. The six pinned official smoke records have no partial projection; accepted F4 real-partial and synthetic missing-ID observations remain historical. The original F4 archive and additive reviewer supplement preserve 17 restored expected objects as one evidence pair. No new F4 evaluation result is asserted.
+
+Historical F3/F3-Z1 keyboard, layout and actual 200% zoom checks remain developer observations under unchanged UI. F5 HTML smoke verifies responses, not visual accessibility. The earlier public three-person formative study remains historical. **Follow-up participant evaluation: NOT_EVALUATED_BY_USER_DECISION.** Do not infer ease, speed, overall fidelity, comprehensive accessibility/security or new participant benefit.
+
+Disclose the F5 read-scope incident and retained early instrumentation/launcher failures. No secret values were output or fingerprinted, but excluded-file opens are unknown, so overall F5 is PARTIAL. Guard corrections and schema-readiness work repaired the release validation pathway without changing approved application meaning. Existing test fixture cleanup and reused installed dependencies limit reproduction claims.
+
+Public release remains PENDING_USER_COMMIT_AND_PUBLICATION; public fresh clone is NOT_RUN. The later report/submission owner should check the supplied six chapter maxima (1,000 / 2,500 / 2,000 / 2,500 / 2,500 / 1,000 words; these sum to 11,500, but the supplied instructions separately impose a strict overall cap of 10,500 words), figures/citations, portal cutoff and time zone, the student's own 3–5 minute video and submission receipt against actual course instructions. No final report or video was generated here and no coursework was submitted.

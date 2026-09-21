@@ -49,7 +49,7 @@ class ExternalReferenceExposureTest < ActionDispatch::IntegrationTest
   def import_xml(xml)
     Dir.mktmpdir("mei-importer-", Rails.root.join("tmp")) do |directory|
       Pathname.new(directory).join("record.xml").write(xml)
-      return Mei::Importer.new(directory: directory).call
+      return Mei::Importer.new(directory: directory, input_profile: "demo", fixture_key: "mixed-reference-exposure").call
     end
   end
 end

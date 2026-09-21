@@ -1,7 +1,24 @@
 <p><%= link_to "Back to works", works_path %></p>
 
 <h1 class="page-title"><%= @work.title %></h1>
-<p class="lede"><%= @work.composer.name %></p>
+<p class="lede work-context"><span class="catalogue-cue"><%= work_catalogue_cue(@work) %></span> · <%= @work.composer.name %><% if @work.composition_year.present? || @work.composition_date.present? %> · <%= @work.composition_year.presence || @work.composition_date %><% end %></p>
+<nav class="inspection-nav" aria-label="Inspect this work">
+  <%= link_to "Title variants", "#title-variants" %>
+  <%= link_to "Work classifications", "#work-classifications" %>
+  <%= link_to "Instrumentation", "#instrumentation" %>
+  <%= link_to "Source descriptions and held items", "#catalogue-sources" %>
+</nav>
+<% projection = work_projection(@work) %>
+
+<section class="section" id="catalogue-availability">
+  <% if projection[:availability][:status] == "official" %>
+    <p>Official CNW input, validated for the supported MEI 4.0.1 import profile.</p>
+  <% elsif projection[:availability][:status] == "demo" %>
+    <p>Demo data — non-authoritative sample.</p>
+  <% else %>
+    <p>Legacy data — not validated for the document, title and classification representation.</p>
+  <% end %>
+</section>
 
 <dl class="metadata">
   <div>
@@ -17,7 +34,7 @@
     <dd><%= @work.genre.presence || "Unknown" %></dd>
   </div>
   <div>
-    <dt>Source XML</dt>
+    <dt>Imported file/reference identifier</dt>
     <dd class="trace"><%= @work.source_file %></dd>
   </div>
   <div>
@@ -25,6 +42,70 @@
     <dd class="trace"><%= @work.source_identifier.presence || "Unknown" %></dd>
   </div>
 </dl>
+
+<section class="section" id="title-variants">
+  <h2>Title variants</h2>
+  <% if projection[:display_title_policy] %>
+    <p>Heading convention: main, untyped, uniform, alternative, then subordinate; source order breaks ties without a preferred language.</p>
+    <% if projection[:display_title_policy][:subordinate_fallback] %>
+      <p>The heading uses a subordinate title as a fallback.</p>
+    <% end %>
+    <p class="muted">Selection: <%= projection[:display_title_policy][:selection_reason] %></p>
+  <% end %>
+  <% if projection[:availability][:titles] == "unvalidated" %>
+    <p>Title variants have not been validated for this legacy record. The stored heading remains available.</p>
+  <% elsif projection[:titles].empty? %>
+    <p>No supported title variants are available.</p>
+  <% else %>
+    <ol class="plain-list">
+      <% projection[:titles].each do |title| %>
+        <li>
+          <strong><%= title[:text] %></strong>
+          <span class="muted">Type: <%= title[:source_type].presence || "Untyped" %>; language: <%= title[:language].presence || "Not supplied" %></span>
+          <% if title[:selected_for_display] %><span class="muted">Selected heading</span><% end %>
+          <details>
+            <summary>Title source metadata</summary>
+            <dl>
+              <dt>Source order</dt><dd><%= title[:source_order] %></dd>
+              <dt>XML identifier</dt><dd><%= title[:xml_id].presence || "Not supplied" %></dd>
+              <dt>Source locator</dt><dd class="trace"><%= title[:locator] %></dd>
+              <dt>Source attributes</dt><dd class="trace"><%= JSON.generate(title[:attributes]) %></dd>
+            </dl>
+          </details>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</section>
+
+<section class="section" id="work-classifications">
+  <h2>Work classifications</h2>
+  <% if projection[:availability][:classification_terms] == "unvalidated" %>
+    <p>Classification terms have not been validated for this legacy record. The stored genre is a legacy value.</p>
+  <% elsif projection[:classification_terms].empty? %>
+    <p>No work classification is supplied by the supported source. Genre is unknown.</p>
+  <% else %>
+    <p class="muted">Genre uses the first retained work term; all source terms are listed below.</p>
+    <ol class="plain-list">
+      <% projection[:classification_terms].each do |term| %>
+        <li>
+          <strong><%= term[:text] %></strong>
+          <details>
+            <summary>Classification source metadata</summary>
+            <dl>
+              <dt>Source order</dt><dd><%= term[:source_order] %></dd>
+              <dt>XML identifier</dt><dd><%= term[:xml_id].presence || "Not supplied" %></dd>
+              <dt>Source locator</dt><dd class="trace"><%= term[:locator] %></dd>
+              <dt>Term attributes</dt><dd class="trace"><%= JSON.generate(term[:attributes]) %></dd>
+              <dt>Classification metadata</dt><dd class="trace"><%= JSON.generate(term[:classification_metadata]) %></dd>
+              <dt>Term list metadata</dt><dd class="trace"><%= JSON.generate(term[:term_list_metadata]) %></dd>
+            </dl>
+          </details>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</section>
 
 <section class="section">
   <h2>Catalogue identifiers</h2>
@@ -35,11 +116,13 @@
   </ul>
 </section>
 
-<section class="section">
+<section class="section" id="instrumentation">
   <h2>Instrumentation</h2>
-  <ul class="plain-list">
+  <p class="muted">Source wording is retained. Verified explanations cover only the exact strings 1 pf. and 1 vl.</p>
+  <% if @work.instrumentations.empty? %><p>Instrumentation is not supplied.</p><% end %>
+  <ul class="plain-list instrumentation-list">
     <% @work.instrumentations.each do |instrumentation| %>
-      <li><%= instrumentation.name %><%= " (#{instrumentation.section})" if instrumentation.section.present? %></li>
+      <li><span class="instrumentation-source"><%= instrumentation.name %></span> <span class="instrumentation-explanation">— <%= instrumentation_explanation(instrumentation.name) %></span><%= " (#{instrumentation.section})" if instrumentation.section.present? %></li>
     <% end %>
   </ul>
 </section>
@@ -58,8 +141,11 @@
   </ol>
 </section>
 
-<section class="section">
-  <h2>Sources</h2>
+<%= render "catalogue_sources", catalogue_sources: projection[:catalogue_sources] %>
+
+<section class="section" id="legacy-source-references">
+  <h2>Legacy source references</h2>
+  <p class="muted">Earlier source-reference fields, separate from the catalogue document descriptions above.</p>
   <ul class="plain-list">
     <% @work.source_references.each do |source| %>
       <li>
@@ -98,14 +184,17 @@
   </ul>
 </section>
 
-<section class="section">
-  <h2>Latest import log</h2>
-  <% latest_log = @work.import_logs.order(imported_at: :desc).first %>
+<section class="section" id="latest-import-attempt">
+  <h2>Latest import attempt</h2>
+  <% latest_log = projection[:latest_import_attempt] %>
   <% if latest_log %>
-    <p>Status: <%= latest_log.status %> at <%= latest_log.imported_at %></p>
-    <% if latest_log.warnings.any? %>
+    <p>Status: <%= latest_log[:status] %> at <%= latest_log[:imported_at] %></p>
+    <% if latest_log[:error_message].present? %>
+      <p class="import-error">Error: <%= latest_log[:error_message] %></p>
+    <% end %>
+    <% if latest_log[:warnings].any? %>
       <ul class="plain-list">
-        <% latest_log.warnings.each do |warning| %>
+        <% latest_log[:warnings].each do |warning| %>
           <li><%= warning %></li>
         <% end %>
       </ul>
@@ -114,5 +203,18 @@
     <% end %>
   <% else %>
     <p>No import log has been recorded for this work.</p>
+  <% end %>
+</section>
+
+<section class="section" id="last-successful-import">
+  <h2>Last successful data import</h2>
+  <% successful_import = projection[:last_successful_import] %>
+  <% if successful_import %>
+    <p>Data retained from the successful import at <%= successful_import[:imported_at] %>.</p>
+    <% if successful_import[:committed_sha256].present? %>
+      <p class="trace">Source SHA-256: <%= successful_import[:committed_sha256] %></p>
+    <% end %>
+  <% else %>
+    <p>No successful import attempt is recorded for this work.</p>
   <% end %>
 </section>

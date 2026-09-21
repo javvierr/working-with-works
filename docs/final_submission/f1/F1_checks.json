@@ -1,0 +1,206 @@
+{
+  "status": "COMPLETE_FOR_REVIEW",
+  "recorded_utc": "2026-09-19T19:33:19.459869+00:00",
+  "scope": "F1 only; F2 not started",
+  "package_version": "1.0, 19 September 2026",
+  "baseline_head": "b0142488fd5609e86d93c84978134a7d849d1882",
+  "branch": "main",
+  "changes_staged": false,
+  "commit_created": false,
+  "authority_amendment": "User allowed only a new isolated PostgreSQL14.23 instance under /private/tmp with TCP disabled and private peer-authenticated socket; existing databases/services remain excluded.",
+  "build_manifest": {
+    "path": "validation/build_5.json",
+    "sha256": "acd5d1d3cc7d430fa695afa943b266697e10ecc6182df55157c7aef96faff3d8",
+    "application_files": 125
+  },
+  "frozen_expectations": {
+    "path": "acceptance/f1_expectations_v1.json",
+    "sha256": "1874d9b9488a38354240f884b2a42c746559965e5e0a78dce54668fe57d9f792",
+    "expectation_revisions": 0
+  },
+  "gate_verdicts": {
+    "P0_isolation_baseline_harness": "PASS",
+    "identity_input_policy": "PASS",
+    "title_classification_fidelity_exposure": "PASS",
+    "reimport_rollback_latest_attempt": "PASS",
+    "full_regression_suite": "PASS",
+    "preservation_handoff": "PASS"
+  },
+  "mandatory_cases": {
+    "total": 25,
+    "PASS": 25,
+    "NOT_RUN": 0,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "detailed_rows": "F1_acceptance_results.csv",
+    "runtime_mapping": "acceptance/acceptance_evidence_map.json",
+    "mapping_note": "Independent map retained at its original pre-archive state (V-03 pending); final CSV/checks add observed handoff disposition."
+  },
+  "baseline": {
+    "P0_verdict": "evidence/p0_verdict.json",
+    "suite": {
+      "tests": 58,
+      "assertions": 269,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "exit_code": 0,
+      "seed": 190926,
+      "workers": 1,
+      "path": "p0/attempt_2/suite_result.json"
+    },
+    "probe": {
+      "requests": 4,
+      "statuses": [
+        200,
+        200,
+        200,
+        404
+      ],
+      "missing_content_type": "text/html",
+      "path": "p0/attempt_2/api/api_probe_outcome.json"
+    },
+    "R01": "p0/r01/r01_outcome.json",
+    "attempts": 2,
+    "revised_attempts": 1
+  },
+  "revised": {
+    "suite": {
+      "status": "PASS",
+      "tests": 96,
+      "assertions": 781,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seed": 190926,
+      "workers": 1,
+      "started_utc": "2026-09-19T18:43:01.320288Z",
+      "ended_utc": "2026-09-19T18:43:07.465491Z"
+    },
+    "suite_exit_code": 0,
+    "suite_path": "validation/revised_build_5_suite_result.json",
+    "source_api": {
+      "assertions": 222,
+      "requests": 21,
+      "official_files_seen": 6,
+      "successes": 6,
+      "failures": 0,
+      "exit_code": 0,
+      "additional_imports_in_final_observation": 0,
+      "path": "validation/revised_build_5_source-api_observations/result.json",
+      "import_evidence": "validation/revised_build_3_source-api_observations/result.json"
+    },
+    "empty_missing_task": {
+      "each_task_exit_code": 1,
+      "harness_exit_code": 0,
+      "files_seen_each": 0,
+      "successes_each": 0,
+      "file_failures_each": 0,
+      "path": "validation/revised_build_5_empty-task_observations/result.json"
+    },
+    "eager_load_and_schema": {
+      "status": "PASS",
+      "exit_code": 0,
+      "path": "logs/revised_build_5_verify.log"
+    },
+    "schema_sha256": "5593301c8a1fd7c4f19ba5b399f13623bfe1bb9618f638a43473af7d9e63df10",
+    "migration_evidence": [
+      "validation/migrate_tests_result.json",
+      "validation/migrate_api_result.json",
+      "validation/schema_copyback.json"
+    ],
+    "legacy_projection_comparison": "acceptance/legacy_projection_comparison.json"
+  },
+  "preservation": {
+    "status": "PASS",
+    "baseline_entries": 5974,
+    "unchanged": 5961,
+    "intended_modified": 11,
+    "missing_transient_refs": 2,
+    "new_source_files": 14,
+    "new_document_files": 6,
+    "source_xml_unchanged": 446,
+    "historical_report_files_unchanged": 22,
+    "historical_phase2_files_unchanged": 719,
+    "f0_register_files_unchanged": 20,
+    "preexisting_untracked_files_unchanged": 5,
+    "HEAD_index_main_unchanged": true,
+    "comparison": "evidence/preservation_comparison.json",
+    "scope": "Excludes private participant contents, credentials, secret filenames, dependency/cache/tool internals and outward symlinks. Not total-machine preservation."
+  },
+  "privacy_limitation": "Initial collector incorrectly read and hashed two secret-named tmp files. Values were not printed or copied. Original manifest retained privately mode0600; two entries/hashes removed from review baseline and no further content reads. Only preservation_before_review.json is packaged.",
+  "resources": {
+    "status": "STOPPED",
+    "authorized_amendment": "2026-09-19 user permits a new private peer-auth Unix-socket-only PostgreSQL14.23 instance; stop own instance at end, retain data",
+    "base": "/private/tmp/www_f1_pg_20260919_ausd0td1",
+    "data_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/data",
+    "socket_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/socket",
+    "port": 55432,
+    "username": "javier",
+    "started_utc": "2026-09-19T17:44:30.207778+00:00",
+    "created_databases": [
+      "www_f1_baseline_tests_20260919_yb5352lj",
+      "www_f1_baseline_api_20260919_yb5352lj",
+      "www_f1_revised_tests_20260919_yb5352lj",
+      "www_f1_revised_api_20260919_yb5352lj"
+    ],
+    "tcp_enabled": false,
+    "hba_sha256": "4901ae08f913e0060c5399012bff597f97201f7bb346e61698f3e334fec1ab6c",
+    "configuration_sha256": "7b9bad16a65c7ec1457391c206c5cbe52ec04a1f5a7e748ceec04d4b0ff22c89",
+    "postmaster_pid": 40790,
+    "ready_utc": "2026-09-19T17:44:31.039539+00:00",
+    "stopped_utc": "2026-09-19T19:23:14.508362+00:00",
+    "data_retained": true,
+    "automatic_deletion": false
+  },
+  "database_targets": [
+    {
+      "database": "www_f1_baseline_tests_20260919_yb5352lj",
+      "username": "javier",
+      "host": "/private/tmp/www_f1_pg_20260919_ausd0td1/socket",
+      "port": 55432,
+      "data_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/data",
+      "newly_created": true,
+      "creation_evidence": "$F1_RUN/p0/baseline_tests_creation.json"
+    },
+    {
+      "database": "www_f1_baseline_api_20260919_yb5352lj",
+      "username": "javier",
+      "host": "/private/tmp/www_f1_pg_20260919_ausd0td1/socket",
+      "port": 55432,
+      "data_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/data",
+      "newly_created": true,
+      "creation_evidence": "$F1_RUN/p0/baseline_api_creation.json"
+    },
+    {
+      "database": "www_f1_revised_tests_20260919_yb5352lj",
+      "username": "javier",
+      "host": "/private/tmp/www_f1_pg_20260919_ausd0td1/socket",
+      "port": 55432,
+      "data_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/data",
+      "newly_created": true,
+      "creation_evidence": "$F1_RUN/p0/revised_tests_creation.json"
+    },
+    {
+      "database": "www_f1_revised_api_20260919_yb5352lj",
+      "username": "javier",
+      "host": "/private/tmp/www_f1_pg_20260919_ausd0td1/socket",
+      "port": 55432,
+      "data_directory": "/private/tmp/www_f1_pg_20260919_ausd0td1/data",
+      "newly_created": true,
+      "creation_evidence": "$F1_RUN/p0/revised_api_creation.json"
+    }
+  ],
+  "commands": "evidence/commands.jsonl (plus retained harness/acceptance command records); early endpoint diagnostic start/end timestamps unavailable and explicitly null, never reconstructed.",
+  "failure_dispositions": "evidence/failure_dispositions.md",
+  "archive_validation": "adjacent Working_with_Works_F1_Review.validation.json",
+  "archive_preflight": "review_preflight.validation.json",
+  "limitations": [
+    "Only six official development records; exact unchanged legacy projection compared for 417/277/63. No full-corpus quality percentage or reserved-record evaluation.",
+    "Input profile checks are bounded, not full MEI schema validation.",
+    "Existing HTML missing-record API response and source_file compatibility remain F3 work.",
+    "Legacy rows are unvalidated without fabricated provenance; no existing database was migrated.",
+    "SourceDescription/HeldItem/SourceRelation and source ownership/screens remain F2.",
+    "Original setup/CI and clean-clone/public-access evaluation remain F5."
+  ]
+}

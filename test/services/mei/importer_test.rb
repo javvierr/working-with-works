@@ -3,6 +3,13 @@ require "tmpdir"
 
 module Mei
   class ImporterTest < ActiveSupport::TestCase
+    # Existing non-authoritative samples now opt into the explicit demo profile.
+    SAMPLE_KEYS = {
+      "cnw_18_maskarade.mei" => "cnw-18",
+      "cnw_29_symphony_no_4.mei" => "cnw-29",
+      "cnw_2_fynsk_foraar.mei" => "cnw-2",
+      "cnw_34_helios.mei" => "cnw-34"
+    }.freeze
     setup do
       ImportLog.delete_all
       Work.destroy_all
@@ -10,7 +17,7 @@ module Mei
     end
 
     test "imports sample MEI files into related records" do
-      result = Importer.new(directory: Rails.root.join("data/mei_samples")).call
+      result = Importer.new(directory: Rails.root.join("data/mei_samples"), input_profile: "demo", fixture_keys: SAMPLE_KEYS).call
 
       assert_equal 4, result.files_seen
       assert_equal 4, result.successes
@@ -62,7 +69,7 @@ module Mei
     end
 
     test "updates existing imported works instead of duplicating them" do
-      importer = Importer.new(directory: Rails.root.join("data/mei_samples"))
+      importer = Importer.new(directory: Rails.root.join("data/mei_samples"), input_profile: "demo", fixture_keys: SAMPLE_KEYS)
       importer.call
 
       assert_no_difference ["Work.count", "Composer.count", "CatalogueIdentifier.count", "Performance.count", "ExternalReference.count"] do
@@ -639,7 +646,7 @@ module Mei
 
       Dir.mktmpdir("mei-importer-", Rails.root.join("tmp")) do |directory|
         Pathname.new(directory).join("record.xml").write(xml)
-        importer = Importer.new(directory: directory)
+        importer = Importer.new(directory: directory, input_profile: "demo", fixture_key: "generated-performance-events")
 
         first_result = importer.call
         assert_equal 1, first_result.successes
@@ -744,7 +751,10 @@ module Mei
     def import_xml(xml)
       Dir.mktmpdir("mei-importer-", Rails.root.join("tmp")) do |directory|
         Pathname.new(directory).join("record.xml").write(xml)
-        return Importer.new(directory: directory).call
+        # Caller deliberately uses this synthetic fixture's declared stable ID;
+        # the importer never derives a demo identity from an ingest path.
+        fixture_key = Nokogiri::XML(xml).at_xpath("//*[local-name()='work']")["xml:id"]
+        return Importer.new(directory: directory, input_profile: "demo", fixture_key: fixture_key).call
       end
     end
   end

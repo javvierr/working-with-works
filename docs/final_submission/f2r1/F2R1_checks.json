@@ -1,0 +1,387 @@
+{
+  "correction": "F2-R1-01",
+  "execution_status": "PASS",
+  "archive_acceptance": "Authoritative only in adjacent Working_with_Works_F2R1_Review.validation.json; C10 requires its PASS before delivery.",
+  "run_root": "/private/tmp/www_f2r1_20260920_y4vsr12i",
+  "package_root": "/Users/javier/Documents/Codex/2026-09-19/referenced-chatgpt-conversation-this-is-an/outputs/Working_with_Works_F2R1_Start",
+  "historical_comparison_only": {
+    "F2_suite": {
+      "tests": 133,
+      "assertions": 1209
+    },
+    "F2_source_interfaces": {
+      "checks": 1070,
+      "requests": 21
+    },
+    "F2_upgrade_repeat": {
+      "checks": 231,
+      "requests": 36
+    },
+    "new_upgrade_experiment": "NOT_REQUIRED_NOT_RUN",
+    "new_upgrade_counts": null,
+    "new_upgrade_exit_code": null,
+    "migration_precision_limit": "Original pre-migration snapshot compared whole seconds; later F2 upgrade/repeat/GET snapshots retained microseconds."
+  },
+  "runs": {
+    "baseline": {
+      "status": "PASS",
+      "started_utc": "2026-09-20T21:47:18.639590Z",
+      "ended_utc": "2026-09-20T21:47:28.177490Z",
+      "tests": 133,
+      "assertions": 1209,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seed": 190926,
+      "workers": 1,
+      "exit_code": 0,
+      "observed_ref": "baseline/suite_result.json",
+      "command_ref": "evidence/commands.jsonl#baseline_suite",
+      "guard_ref": "baseline/suite_guard.jsonl",
+      "result_details_count": 133
+    },
+    "C2_red": {
+      "status": "FAIL",
+      "started_utc": "2026-09-20T21:49:18.049796Z",
+      "ended_utc": "2026-09-20T21:49:20.079825Z",
+      "tests": 1,
+      "assertions": 16,
+      "failures": 1,
+      "errors": 0,
+      "skips": 0,
+      "seed": 190926,
+      "workers": 1,
+      "exit_code": 1,
+      "observed_ref": "validation/c2_red_result.json",
+      "command_ref": "evidence/commands.jsonl#c2_red",
+      "guard_ref": "validation/c2_red_guard.jsonl",
+      "result_details_count": 1,
+      "disposition": "EXPECTED_FAILURE_REPRODUCED"
+    },
+    "C2_green": {
+      "status": "PASS",
+      "started_utc": "2026-09-20T21:50:00.506275Z",
+      "ended_utc": "2026-09-20T21:50:02.451693Z",
+      "tests": 1,
+      "assertions": 34,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seed": 190926,
+      "workers": 1,
+      "exit_code": 0,
+      "observed_ref": "validation/c2_green_result.json",
+      "command_ref": "evidence/commands.jsonl#c2_green",
+      "guard_ref": "validation/c2_green_guard.jsonl",
+      "result_details_count": 1
+    },
+    "revised_full": {
+      "status": "PASS",
+      "started_utc": "2026-09-20T21:50:13.070158Z",
+      "ended_utc": "2026-09-20T21:50:24.435886Z",
+      "tests": 142,
+      "assertions": 1515,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "seed": 190926,
+      "workers": 1,
+      "exit_code": 0,
+      "observed_ref": "validation/revised_suite_result.json",
+      "command_ref": "evidence/commands.jsonl#revised_suite",
+      "guard_ref": "validation/revised_suite_guard.jsonl",
+      "result_details_count": 142
+    }
+  },
+  "focused_cases_within_full_suite": {
+    "status": "PASS",
+    "separate_nine_test_run": false,
+    "tests": 9,
+    "assertions": 306,
+    "details": [
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c7_ordered_items_placeholders_missing_locations_and_inert_text_remain_intact",
+        "assertions": 45,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c3_mixed_items_count_only_the_correctly_parented_represented_item",
+        "assertions": 22,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c6_an_omitted_item_after_fifty_retained_issues_does_not_become_absent",
+        "assertions": 35,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c4_explicit_zero_unsupported_items_permits_genuine_item_and_source_absence",
+        "assertions": 36,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c5_unsupported_items_elsewhere_remain_a_record_wide_disclosure",
+        "assertions": 47,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c7_item_availability_GETs_use_stored_facts_without_source_file_access_or_XML_parsing",
+        "assertions": 25,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c7_missing_or_null_unsupported_item_counts_do_not_imply_zero",
+        "assertions": 40,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c2_missing_id_only_does_not_turn_unsupported_supplied_items_into_absence",
+        "assertions": 34,
+        "failures": []
+      },
+      {
+        "class": "F2R1CatalogueSourcesIntegrationTest",
+        "name": "test_c7_legacy_and_unprojected_records_keep_availability_unknown",
+        "assertions": 22,
+        "failures": []
+      }
+    ],
+    "observed_ref": "validation/revised_suite_result.json#result_details"
+  },
+  "source_interfaces": {
+    "status": "PASS",
+    "build_id": "six_record_check",
+    "checks": 1145,
+    "requests": 21,
+    "exit_code": 0,
+    "started_utc": "2026-09-20T21:50:49.898157Z",
+    "ended_utc": "2026-09-20T21:50:53.938502Z",
+    "check_classes": {
+      "F1_HTML_regression": 10,
+      "F1_source_regression": 18,
+      "HTML": 939,
+      "HTML_availability_R1": 75,
+      "SQL_to_API": 39,
+      "comparator_negative_control": 2,
+      "import_execution": 1,
+      "protocol": 18,
+      "request_guard": 21,
+      "request_state_preservation": 1,
+      "source_to_SQL": 21
+    },
+    "represented_source_item_relation_counts": [
+      25,
+      22,
+      24
+    ],
+    "observed_ref": "validation/six_record_check/result.json",
+    "oracle_sha256": "991037f3dd3e34df7a4dfc2d89b34dddb31dab260807018c8ad25d89ca6f9425",
+    "field_contract_sha256": "226bd7794098a608ad2a7f5e15a6debe6754e61f983cb6f4dae641af8db02ec6",
+    "source_manifest_ref": "validation/six_record_check/result.json#source_manifest",
+    "wrong_identity_controls": {
+      "pure_wrong_identity": "REFUSED",
+      "live_wrong_expected_identity": "REFUSED",
+      "write_callback_calls": 0,
+      "dedicated_live_identity": {
+        "database": "www_f2r1_revised_api_20260920_y4vsr12i",
+        "username": "javier",
+        "server_addr": null,
+        "server_port": null,
+        "backend_pid": 30457,
+        "server_version_num": "140023",
+        "data_directory": "/private/tmp/www_f2r1_pg_7ng9ocqu/data",
+        "socket_directory": "/private/tmp/www_f2r1_pg_7ng9ocqu/socket",
+        "socket_permissions": "0700",
+        "configured_port": "55434",
+        "listen_addresses": ""
+      }
+    },
+    "comparator_negative_control": {
+      "status": "PASS",
+      "response_changed": false,
+      "differences": [
+        {
+          "path": "$.catalogue_sources.descriptions[0].held_items[0].source_xml_id",
+          "reason": "value or type differs",
+          "expected": "source_d1e135_DELIBERATE_WRONG_PARENT",
+          "actual": "source_d1e135"
+        }
+      ]
+    },
+    "GET_state_check": {
+      "label": "all fifteen domain tables/sequences/schema unchanged by requests",
+      "evidence_class": "request_state_preservation",
+      "expected": true,
+      "actual": true,
+      "pass": true,
+      "before_ref": "state_before_requests.json",
+      "after_ref": "state_after_requests.json",
+      "before_sha256": "dfc9ac9ddd999d02316f14806a0fa3d5d5d2a4d870c8f64bc913874cd4cb1621",
+      "after_sha256": "dfc9ac9ddd999d02316f14806a0fa3d5d5d2a4d870c8f64bc913874cd4cb1621"
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "build_id": "build_1",
+    "pages": 3,
+    "total_requests": 5,
+    "work_page_requests": 3,
+    "all_requests_200": true,
+    "get_state_unchanged": true,
+    "screenshots": {
+      "captured_and_inspected": 3,
+      "exported_files": [],
+      "export_status": "NOT_EXPORTED",
+      "reason": "Documented screenshot methods returned inline image bytes; no screenshot-file export path was exposed. Three actual screenshots remain visible in the execution conversation. No screenshot files fabricated."
+    },
+    "observed_ref": "validation/build_1_browser/observations.json",
+    "runtime_ref": "validation/build_1_browser/result.json",
+    "stop_ref": "validation/build_1_browser/stop_confirmation.json"
+  },
+  "semantic_file_comparison": {
+    "status": "PASS",
+    "files": [
+      {
+        "path": "app/services/mei/importer.rb",
+        "baseline_sha256": "c26beb44cfad8771fae3d8742746edd68b8470be64a24027643d9648616d9a91",
+        "current_sha256": "c26beb44cfad8771fae3d8742746edd68b8470be64a24027643d9648616d9a91",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/services/mei/input_document.rb",
+        "baseline_sha256": "1f046c06109f22c26bcda34cf1fa3740f62f9797b8f41dda3d4760ac76ced3e0",
+        "current_sha256": "1f046c06109f22c26bcda34cf1fa3740f62f9797b8f41dda3d4760ac76ced3e0",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/services/mei/source_projection.rb",
+        "baseline_sha256": "24227b6bac70b75e585f9f868bc34c096ff3f0b9e76c747030b51877584a2448",
+        "current_sha256": "24227b6bac70b75e585f9f868bc34c096ff3f0b9e76c747030b51877584a2448",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/catalogue_document.rb",
+        "baseline_sha256": "bba2cd317ea6631ff4bab69a7beacae04b63dd0730cd82679f10a41a990cd0db",
+        "current_sha256": "bba2cd317ea6631ff4bab69a7beacae04b63dd0730cd82679f10a41a990cd0db",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/work.rb",
+        "baseline_sha256": "ea3c37eae303ed062dc289fe584e8d14beed9b61ff3240fde72ca59a01fe04ec",
+        "current_sha256": "ea3c37eae303ed062dc289fe584e8d14beed9b61ff3240fde72ca59a01fe04ec",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/import_log.rb",
+        "baseline_sha256": "b11141a1fe4575f2b5b6319d341e8d0398d63a197087138019a5dcf563612cbf",
+        "current_sha256": "b11141a1fe4575f2b5b6319d341e8d0398d63a197087138019a5dcf563612cbf",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/source_description.rb",
+        "baseline_sha256": "071d51584d50263accedd5d61856e49b85ccad898a6920f340538df683f6b01b",
+        "current_sha256": "071d51584d50263accedd5d61856e49b85ccad898a6920f340538df683f6b01b",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/held_item.rb",
+        "baseline_sha256": "da57db2f1949aeff00df915aa996cd5d8cfdf5dc22f47a29b0766c1be8c51e9b",
+        "current_sha256": "da57db2f1949aeff00df915aa996cd5d8cfdf5dc22f47a29b0766c1be8c51e9b",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "app/models/source_relation.rb",
+        "baseline_sha256": "beea100a6fcaf2d4660d78b9bc5918b38c35659c8aead045315cdb84e522b2cf",
+        "current_sha256": "beea100a6fcaf2d4660d78b9bc5918b38c35659c8aead045315cdb84e522b2cf",
+        "status": "UNCHANGED"
+      },
+      {
+        "path": "db/schema.rb",
+        "baseline_sha256": "515b5fbe205a266c199725c948de3d19ed2ac77cb446833981ba72202f3588e7",
+        "current_sha256": "515b5fbe205a266c199725c948de3d19ed2ac77cb446833981ba72202f3588e7",
+        "status": "UNCHANGED"
+      }
+    ],
+    "scope": "These ten execution-critical files match actual F2 baseline; complete protected inventory and migrations are governed by final preservation comparison."
+  },
+  "services": {
+    "postgres": {
+      "status": "STOPPED",
+      "resource_ref": "evidence/postgres_resource.json",
+      "data_directory": "/private/tmp/www_f2r1_pg_7ng9ocqu/data",
+      "socket_directory": "/private/tmp/www_f2r1_pg_7ng9ocqu/socket",
+      "port": 55434,
+      "pid": 26003,
+      "username": "javier",
+      "databases": [
+        "www_f2r1_baseline_tests_20260920_y4vsr12i",
+        "www_f2r1_revised_tests_20260920_y4vsr12i",
+        "www_f2r1_revised_api_20260920_y4vsr12i",
+        "www_f2r1_browser_20260920_y4vsr12i"
+      ],
+      "data_retained": true,
+      "automatic_deletion": false,
+      "stop_exit_code": 0
+    },
+    "browser": {
+      "status": "STOPPED",
+      "pid": 31669,
+      "port": 50497,
+      "stop_ref": "validation/build_1_browser/stop_confirmation.json"
+    }
+  },
+  "preservation": {
+    "initial_status": "PASS",
+    "initial_protected_files": 909,
+    "initial_source_reconciliation": 26,
+    "initial_historical_document_reconciliation": 6,
+    "initial_ref": "baseline/preparation_result.json",
+    "final_authoritative_refs": [
+      "evidence/preservation_comparison.json",
+      "evidence/preservation_after.json",
+      "evidence/git_after.json",
+      "evidence/F2R1_patch_check.json"
+    ],
+    "intended_files_ref": "evidence/F2R1_intended_files.json",
+    "correction_patch_ref": "evidence/F2R1_only.patch",
+    "expected_unchanged_HEAD_main": "b0142488fd5609e86d93c84978134a7d849d1882"
+  },
+  "archive": {
+    "validation_status": "EXTERNAL_AUTHORITATIVE",
+    "path": "/private/tmp/www_f2r1_20260920_y4vsr12i/Working_with_Works_F2R1_Review.zip",
+    "validation_path": "/private/tmp/www_f2r1_20260920_y4vsr12i/Working_with_Works_F2R1_Review.validation.json",
+    "bytes": null,
+    "sha256": null,
+    "member_count": null,
+    "reason": "Final measured archive values and exact allowlist/readback verification are recorded beside the ZIP, avoiding circular embedded archive claims."
+  },
+  "limits": [
+    "Historical S2-07/E2-02 PASS rows remain unchanged; new F2-R1 cases repair their missed disclosure assertions.",
+    "The prior extracted probe had record item counts 2/0/2; new focused C2 has 1/0/1.",
+    "New F2-R1 inputs and failed reproduction are retained; unchanged inherited tests may clean up their own newly generated fixtures.",
+    "Some earlier F2 generated fixture copies were deleted before retention was repaired.",
+    "The focused GET regression monitors the current XML constructor and source File.read/binread/open paths, not every OS filesystem syscall.",
+    "Three actual screenshots were inspected inline; no image files were exported or fabricated.",
+    "Six selected development records and narrow developer browser checks do not establish full-corpus accuracy, participant usability or general MEI compliance.",
+    "No new upgrade experiment, F3, staging, commit or push."
+  ],
+  "independent_runtime_audit": {
+    "status": "PASS",
+    "checks": 130,
+    "observed_ref": "evidence/runtime_results_audit.json",
+    "failed_method_attempts": [
+      "evidence/runtime_results_audit_attempt_1.json",
+      "evidence/runtime_results_audit_attempt_2.json"
+    ],
+    "disposition_ref": "evidence/runtime_audit_disposition.json",
+    "explanation": "First audit required reversal of only declared path aliases before raw SQL-state hash recomputation. A subsequent explanatory-text edit caused a syntax error before execution. Both audit-only attempts were corrected before the 130-check PASS; no database/application rerun or original evidence change."
+  }
+}

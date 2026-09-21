@@ -1,0 +1,1075 @@
+{
+  "status": "POSITIVE_LOCAL_PROPOSAL_NOT_PUBLISHED",
+  "runtime_build": "f5r1-667192fea216a940",
+  "runtime_paths": 158,
+  "prior_release": "f5-release-08a7c33d997e720a",
+  "file_count": 264,
+  "canonical_full_hash_mode_manifest": "release/candidate_manifest.json outside the tree; includes this document after freeze",
+  "files": [
+    {
+      "path": ".gitignore",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": ".ruby-version",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "Gemfile",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "Gemfile.lock",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "README.md",
+      "reason": "Three-file bounded correction"
+    },
+    {
+      "path": "Rakefile",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/assets/config/manifest.js",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/assets/images/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/assets/stylesheets/application.css",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/channels/application_cable/channel.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/channels/application_cable/connection.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/api/base_controller.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/api/errors_controller.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/api/works_controller.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/application_controller.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/concerns/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/controllers/works_controller.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/helpers/application_helper.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/helpers/works_helper.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/jobs/application_job.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/application_record.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/catalogue_document.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/catalogue_identifier.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/composer.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/concerns/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/external_reference.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/held_item.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/import_log.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/instrumentation.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/movement.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/performance.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/source_description.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/source_reference.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/source_relation.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/work.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/work_classification_term.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/models/work_title.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/services/mei/importer.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/services/mei/input_document.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/services/mei/source_projection.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/services/works_query.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/views/layouts/application.html.erb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/views/works/_catalogue_sources.html.erb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/views/works/_source_values.html.erb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/views/works/index.html.erb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "app/views/works/show.html.erb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "bin/ci",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "bin/dev",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "bin/rails",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "bin/rake",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "bin/setup",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config.ru",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/application.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/boot.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/cable.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/ci.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/database.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/environment.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/environments/development.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/environments/production.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/environments/test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/assets.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/content_security_policy.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/filter_parameter_logging.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/inflections.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/new_framework_defaults_8_1.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/initializers/permissions_policy.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/locales/en.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/puma.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "config/routes.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "data/mei_samples/README.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_18_maskarade.mei",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_29_symphony_no_4.mei",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_2_fynsk_foraar.mei",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "data/mei_samples/cnw_34_helios.mei",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173642_create_composers.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173648_create_works.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173655_create_catalogue_identifiers.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173701_create_movements.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173707_create_instrumentations.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173713_create_source_references.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173718_create_performances.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173726_create_external_references.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260628173732_create_import_logs.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260817090000_update_catalogue_identifier_uniqueness.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260919180000_add_catalogue_foundation.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/migrate/20260919233000_add_catalogue_sources.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/schema.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "db/seeds.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f0/F0_source_model_proposal.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/F1_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f1/feedback_to_evidence_proposed.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/F2_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2/feedback_to_evidence_proposed.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f2r1/F2R1_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_api_contract.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_label_sources.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/F3_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3/feedback_to_evidence_proposed.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f3z1/F3Z1_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_api_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_corpus_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_developer_walkthrough.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_evaluation_protocol.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_historical_assertion_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_operational_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/F4_semantic_extension_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f4/feedback_to_evidence_proposed.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_acceptance_results.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_checks.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_completion.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_decisions.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_evidence_index.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_release_handoff.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_release_inventory.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_report_notes.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5/F5_reproduction.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_acceptance_results.csv",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_checks.json",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_completion.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_decisions.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_evidence_index.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_release_handoff.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_release_inventory.json",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_report_notes.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/f5r1/F5R1_reproduction.md",
+      "reason": "Additive required F5-R1 document"
+    },
+    {
+      "path": "docs/final_submission/feedback_to_evidence.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/claim_evidence_register.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/gaps_and_next_evaluation.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/implementation_inventory.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_api_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_baseline_import_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_corpus_reconnaissance.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_correction_scope.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_demo_readiness.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_evaluation_protocol.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_fidelity_matrix.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_focused_probe_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_comparison.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_fidelity_matrix.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_fidelity_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_focused_probe_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_post_correction_import_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_sample_manifest.csv",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_observation_template.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_participant_tasks.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_protocol.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/phase2_usability_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "docs/report_evidence/verification_results.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "lib/assets/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "lib/tasks/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "lib/tasks/mei.rake",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/400.html",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/404.html",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/406-unsupported-browser.html",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/422.html",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/500.html",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/apple-touch-icon-precomposed.png",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/apple-touch-icon.png",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/favicon.ico",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/icon.png",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/icon.svg",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "public/robots.txt",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_guard.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_source_api_check.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f2r1_validation/f2r1_sql_probe_support.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_guard.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_source_api_check.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_sql_probe_support.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_synthetic_api_experiment.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_synthetic_fixture.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/f3_validate.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/load_schema.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f3_validation/run_suite.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/USAGE.md",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/audit_review.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_census_compare.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_corpus_table.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_historical_compare.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_reimport_compare.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_reproduction_compare.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_semantic_compare.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/f4_source_oracle.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f4_validation/run_offline.py",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/f5_validation/release_commands_test.rb",
+      "reason": "Three-file bounded correction"
+    },
+    {
+      "path": "script/final_submission/f1_guard.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f1_source_api_check.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f1_sql_probe_support.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f1_suite.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f1_validate.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f2_guard.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f2_source_api_check.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f2_sql_probe_support.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f2_suite.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/final_submission/f2_validate.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/release/commands.rb",
+      "reason": "Three-file bounded correction"
+    },
+    {
+      "path": "script/release/migrate.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "script/release/schema.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/channels/application_cable/connection_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/controllers/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/controllers/f3_api_contract_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/catalogue_identifiers.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/composers.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/external_references.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/files/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/files/f3_synthetic_truth.json",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/instrumentations.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/movements.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/performances.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/source_references.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/fixtures/works.yml",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/helpers/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/api_works_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/catalogue_sources_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/external_reference_exposure_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/f1_work_projection_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/f2r1_catalogue_sources_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/integration/f3_works_interface_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/.keep",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/catalogue_foundation_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/catalogue_identifier_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/catalogue_sources_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/composer_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/external_reference_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/instrumentation_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/movement_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/performance_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/source_reference_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/models/work_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/services/mei/f1_importer_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/services/mei/f2_importer_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/services/mei/importer_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/services/mei/input_document_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/services/mei/source_projection_test.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/support/f3_fixture_support.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    },
+    {
+      "path": "test/test_helper.rb",
+      "reason": "Preserved accepted F5 release selection and public evidence"
+    }
+  ],
+  "excluded_categories": [
+    "secret/master-key/encrypted-credential/environment files",
+    "private participant/consent records",
+    "arbitraryignored caches and dependencies",
+    "Git metadata and retaineddatabase/runtimecopy trees"
+  ],
+  "excluded_originals_preserved": true,
+  "PUBLIC_RELEASE": "PENDING_USER_COMMIT_AND_PUBLICATION",
+  "PUBLIC_FRESH_CLONE": "NOT_RUN"
+}

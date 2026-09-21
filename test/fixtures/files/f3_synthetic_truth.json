@@ -1,0 +1,1364 @@
+{
+  "schema_version": "F3-contract-1",
+  "status": "NOT_RUN",
+  "origin": "Synthetic only; no original XML or official source records.",
+  "identity_rule": "Insert in insertion_rank order. Map external keys to runtime IDs independently by exact source_file; require increasing IDs within every tied title.",
+  "dataset_requirement": "Dedicated empty isolated experiment target before synthetic insert; exactly these 48 works. Six-record semantic experiment may use separate target or run after these observations.",
+  "ordering": {
+    "sql": "works.title ASC, works.id ASC",
+    "collation": "Runtime PostgreSQL collation must be recorded and the independent SQL ordered sequence must equal the frozen padded-ASCII external-key sequence.",
+    "frozen_ordered_external_keys": [
+      "F3-W046",
+      "F3-W047",
+      "F3-W048",
+      "F3-W043",
+      "F3-W044",
+      "F3-W045",
+      "F3-W040",
+      "F3-W041",
+      "F3-W042",
+      "F3-W037",
+      "F3-W038",
+      "F3-W039",
+      "F3-W034",
+      "F3-W035",
+      "F3-W036",
+      "F3-W031",
+      "F3-W032",
+      "F3-W033",
+      "F3-W028",
+      "F3-W029",
+      "F3-W030",
+      "F3-W025",
+      "F3-W026",
+      "F3-W027",
+      "F3-W022",
+      "F3-W023",
+      "F3-W024",
+      "F3-W019",
+      "F3-W020",
+      "F3-W021",
+      "F3-W016",
+      "F3-W017",
+      "F3-W018",
+      "F3-W013",
+      "F3-W014",
+      "F3-W015",
+      "F3-W010",
+      "F3-W011",
+      "F3-W012",
+      "F3-W007",
+      "F3-W008",
+      "F3-W009",
+      "F3-W004",
+      "F3-W005",
+      "F3-W006",
+      "F3-W001",
+      "F3-W002",
+      "F3-W003"
+    ]
+  },
+  "rows": [
+    {
+      "external_key": "F3-W001",
+      "insertion_rank": 1,
+      "title": "F3 Study 16",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "29",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "29"
+        },
+        {
+          "type": "CNW",
+          "value": "CNW 29"
+        }
+      ],
+      "composition_year": 1881,
+      "composition_date": "1881",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 01",
+        "F3 literal 100% text"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W001.xml",
+      "source_identifier": "F3-W001"
+    },
+    {
+      "external_key": "F3-W002",
+      "insertion_rank": 2,
+      "title": "F3 Study 16",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "29",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "29"
+        }
+      ],
+      "composition_year": 1882,
+      "composition_date": "1882",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 16",
+        "F3 alternate lunar 02",
+        "F3 literal key_under text"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W002.xml",
+      "source_identifier": "F3-W002"
+    },
+    {
+      "external_key": "F3-W003",
+      "insertion_rank": 3,
+      "title": "F3 Study 16",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "29",
+      "catalogue_identifiers": [],
+      "composition_year": 1883,
+      "composition_date": "1883",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 03",
+        "F3 literal path\\name"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W003.xml",
+      "source_identifier": "F3-W003"
+    },
+    {
+      "external_key": "F3-W004",
+      "insertion_rank": 4,
+      "title": "F3 Study 15",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "129",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "129"
+        }
+      ],
+      "composition_year": 1884,
+      "composition_date": "1884",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 15",
+        "F3 alternate solar 04",
+        "F3 literal O'Brien"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W004.xml",
+      "source_identifier": "F3-W004"
+    },
+    {
+      "external_key": "F3-W005",
+      "insertion_rank": 5,
+      "title": "F3 Study 15",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "29a",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "29a"
+        }
+      ],
+      "composition_year": 1885,
+      "composition_date": "1885",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 05"
+      ],
+      "retained_classifications": [
+        "Chamber",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W005.xml",
+      "source_identifier": "F3-W005"
+    },
+    {
+      "external_key": "F3-W006",
+      "insertion_rank": 6,
+      "title": "F3 Study 15",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "CNW 29",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "CNW 29"
+        }
+      ],
+      "composition_year": 1886,
+      "composition_date": "1886",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 15",
+        "F3 alternate lunar 06"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W006.xml",
+      "source_identifier": "F3-W006"
+    },
+    {
+      "external_key": "F3-W007",
+      "insertion_rank": 7,
+      "title": "F3 Study 14",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "0029",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "0029"
+        }
+      ],
+      "composition_year": 1887,
+      "composition_date": "1887",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 07"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W007.xml",
+      "source_identifier": "F3-W007"
+    },
+    {
+      "external_key": "F3-W008",
+      "insertion_rank": 8,
+      "title": "F3 Study 14",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "29",
+      "catalogue_identifiers": [
+        {
+          "type": "cNw",
+          "value": " 29 "
+        }
+      ],
+      "composition_year": null,
+      "composition_date": null,
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 14",
+        "F3 alternate solar 08",
+        "F3 duplicate-search amber",
+        "F3 duplicate-search amber again"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W008.xml",
+      "source_identifier": "F3-W008"
+    },
+    {
+      "external_key": "F3-W009",
+      "insertion_rank": 9,
+      "title": "F3 Study 14",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "50% fragment",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "50% fragment"
+        }
+      ],
+      "composition_year": 1889,
+      "composition_date": "1889",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 09"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W009.xml",
+      "source_identifier": "F3-W009"
+    },
+    {
+      "external_key": "F3-W010",
+      "insertion_rank": 10,
+      "title": "F3 Study 13",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "under_score",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "under_score"
+        }
+      ],
+      "composition_year": 1890,
+      "composition_date": "1890",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 13",
+        "F3 alternate lunar 10"
+      ],
+      "retained_classifications": [
+        "Vocal",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W010.xml",
+      "source_identifier": "F3-W010"
+    },
+    {
+      "external_key": "F3-W011",
+      "insertion_rank": 11,
+      "title": "F3 Study 13",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "path\\name",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "path\\name"
+        }
+      ],
+      "composition_year": 1891,
+      "composition_date": "1891",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 11"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W011.xml",
+      "source_identifier": "F3-W011"
+    },
+    {
+      "external_key": "F3-W012",
+      "insertion_rank": 12,
+      "title": "F3 Study 13",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "O'Brien",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "O'Brien"
+        }
+      ],
+      "composition_year": 1892,
+      "composition_date": "1892",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 13",
+        "F3 alternate solar 12"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W012.xml",
+      "source_identifier": "F3-W012"
+    },
+    {
+      "external_key": "F3-W013",
+      "insertion_rank": 13,
+      "title": "F3 Study 12",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "413",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "413"
+        }
+      ],
+      "composition_year": 1893,
+      "composition_date": "1893",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 13"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W013.xml",
+      "source_identifier": "F3-W013"
+    },
+    {
+      "external_key": "F3-W014",
+      "insertion_rank": 14,
+      "title": "F3 Study 12",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "414",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "414"
+        }
+      ],
+      "composition_year": 1894,
+      "composition_date": "1894",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 12",
+        "F3 alternate lunar 14"
+      ],
+      "retained_classifications": [
+        "Vocal",
+        "F3 literal 30%_classification"
+      ],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W014.xml",
+      "source_identifier": "F3-W014"
+    },
+    {
+      "external_key": "F3-W015",
+      "insertion_rank": 15,
+      "title": "F3 Study 12",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "415",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "415"
+        }
+      ],
+      "composition_year": 1895,
+      "composition_date": "1895",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 15"
+      ],
+      "retained_classifications": [
+        "Orchestral",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 pf.; 1 vl.",
+        "literal 20%_instrument\\"
+      ],
+      "source_file": "synthetic/f3/F3-W015.xml",
+      "source_identifier": "F3-W015"
+    },
+    {
+      "external_key": "F3-W016",
+      "insertion_rank": 16,
+      "title": "F3 Study 11",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "416",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "416"
+        }
+      ],
+      "composition_year": null,
+      "composition_date": null,
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 11",
+        "F3 alternate solar 16"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W016.xml",
+      "source_identifier": "F3-W016"
+    },
+    {
+      "external_key": "F3-W017",
+      "insertion_rank": 17,
+      "title": "F3 Study 11",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "417",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "417"
+        }
+      ],
+      "composition_year": 1897,
+      "composition_date": "1897",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 17"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W017.xml",
+      "source_identifier": "F3-W017"
+    },
+    {
+      "external_key": "F3-W018",
+      "insertion_rank": 18,
+      "title": "F3 Study 11",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "418",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "418"
+        }
+      ],
+      "composition_year": 1898,
+      "composition_date": "1898",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 11",
+        "F3 alternate lunar 18"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W018.xml",
+      "source_identifier": "F3-W018"
+    },
+    {
+      "external_key": "F3-W019",
+      "insertion_rank": 19,
+      "title": "F3 Study 10",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "419",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "419"
+        }
+      ],
+      "composition_year": 1899,
+      "composition_date": "1899",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 19"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W019.xml",
+      "source_identifier": "F3-W019"
+    },
+    {
+      "external_key": "F3-W020",
+      "insertion_rank": 20,
+      "title": "F3 Study 10",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": null,
+      "catalogue_identifiers": [],
+      "composition_year": 1900,
+      "composition_date": "1900",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 10",
+        "F3 alternate solar 20"
+      ],
+      "retained_classifications": [
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W020.xml",
+      "source_identifier": "F3-W020"
+    },
+    {
+      "external_key": "F3-W021",
+      "insertion_rank": 21,
+      "title": "F3 Study 10",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "421",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "421"
+        }
+      ],
+      "composition_year": 1901,
+      "composition_date": "1901",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 21"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W021.xml",
+      "source_identifier": "F3-W021"
+    },
+    {
+      "external_key": "F3-W022",
+      "insertion_rank": 22,
+      "title": "F3 Study 09",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "422",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "422"
+        }
+      ],
+      "composition_year": 1902,
+      "composition_date": "1902",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 09",
+        "F3 alternate lunar 22"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W022.xml",
+      "source_identifier": "F3-W022"
+    },
+    {
+      "external_key": "F3-W023",
+      "insertion_rank": 23,
+      "title": "F3 Study 09",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "423",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "423"
+        }
+      ],
+      "composition_year": 1903,
+      "composition_date": "1903",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 23"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W023.xml",
+      "source_identifier": "F3-W023"
+    },
+    {
+      "external_key": "F3-W024",
+      "insertion_rank": 24,
+      "title": "F3 Study 09",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "424",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "424"
+        }
+      ],
+      "composition_year": null,
+      "composition_date": null,
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 09",
+        "F3 alternate solar 24"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W024.xml",
+      "source_identifier": "F3-W024"
+    },
+    {
+      "external_key": "F3-W025",
+      "insertion_rank": 25,
+      "title": "F3 Study 08",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "425",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "425"
+        }
+      ],
+      "composition_year": 1905,
+      "composition_date": "1905",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 25"
+      ],
+      "retained_classifications": [
+        "Chamber",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W025.xml",
+      "source_identifier": "F3-W025"
+    },
+    {
+      "external_key": "F3-W026",
+      "insertion_rank": 26,
+      "title": "F3 Study 08",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "426",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "426"
+        }
+      ],
+      "composition_year": 1906,
+      "composition_date": "1906",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 08",
+        "F3 alternate lunar 26"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W026.xml",
+      "source_identifier": "F3-W026"
+    },
+    {
+      "external_key": "F3-W027",
+      "insertion_rank": 27,
+      "title": "F3 Study 08",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "427",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "427"
+        }
+      ],
+      "composition_year": 1907,
+      "composition_date": "1907",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 27"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W027.xml",
+      "source_identifier": "F3-W027"
+    },
+    {
+      "external_key": "F3-W028",
+      "insertion_rank": 28,
+      "title": "F3 Study 07",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "428",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "428"
+        }
+      ],
+      "composition_year": 1908,
+      "composition_date": "1908",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 07",
+        "F3 alternate solar 28"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W028.xml",
+      "source_identifier": "F3-W028"
+    },
+    {
+      "external_key": "F3-W029",
+      "insertion_rank": 29,
+      "title": "F3 Study 07",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "429",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "429"
+        }
+      ],
+      "composition_year": 1909,
+      "composition_date": "1909",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 29"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W029.xml",
+      "source_identifier": "F3-W029"
+    },
+    {
+      "external_key": "F3-W030",
+      "insertion_rank": 30,
+      "title": "F3 Study 07",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": null,
+      "catalogue_identifiers": [],
+      "composition_year": 1910,
+      "composition_date": "1910",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 07",
+        "F3 alternate lunar 30"
+      ],
+      "retained_classifications": [
+        "Vocal",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W030.xml",
+      "source_identifier": "F3-W030"
+    },
+    {
+      "external_key": "F3-W031",
+      "insertion_rank": 31,
+      "title": "F3 Study 06",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "431",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "431"
+        }
+      ],
+      "composition_year": 1911,
+      "composition_date": "1911",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 31"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W031.xml",
+      "source_identifier": "F3-W031"
+    },
+    {
+      "external_key": "F3-W032",
+      "insertion_rank": 32,
+      "title": "F3 Study 06",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "432",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "432"
+        }
+      ],
+      "composition_year": null,
+      "composition_date": null,
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 06",
+        "F3 alternate solar 32"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W032.xml",
+      "source_identifier": "F3-W032"
+    },
+    {
+      "external_key": "F3-W033",
+      "insertion_rank": 33,
+      "title": "F3 Study 06",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "433",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "433"
+        }
+      ],
+      "composition_year": 1913,
+      "composition_date": "1913",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 33"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W033.xml",
+      "source_identifier": "F3-W033"
+    },
+    {
+      "external_key": "F3-W034",
+      "insertion_rank": 34,
+      "title": "F3 Study 05",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "434",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "434"
+        }
+      ],
+      "composition_year": 1914,
+      "composition_date": "1914",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 05",
+        "F3 alternate lunar 34"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W034.xml",
+      "source_identifier": "F3-W034"
+    },
+    {
+      "external_key": "F3-W035",
+      "insertion_rank": 35,
+      "title": "F3 Study 05",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "435",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "435"
+        }
+      ],
+      "composition_year": 1915,
+      "composition_date": "1915",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 35"
+      ],
+      "retained_classifications": [
+        "Orchestral",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W035.xml",
+      "source_identifier": "F3-W035"
+    },
+    {
+      "external_key": "F3-W036",
+      "insertion_rank": 36,
+      "title": "F3 Study 05",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "436",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "436"
+        }
+      ],
+      "composition_year": 1916,
+      "composition_date": "1916",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 05",
+        "F3 alternate solar 36"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W036.xml",
+      "source_identifier": "F3-W036"
+    },
+    {
+      "external_key": "F3-W037",
+      "insertion_rank": 37,
+      "title": "F3 Study 04",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "437",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "437"
+        }
+      ],
+      "composition_year": 1917,
+      "composition_date": "1917",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 37"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W037.xml",
+      "source_identifier": "F3-W037"
+    },
+    {
+      "external_key": "F3-W038",
+      "insertion_rank": 38,
+      "title": "F3 Study 04",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "438",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "438"
+        }
+      ],
+      "composition_year": 1918,
+      "composition_date": "1918",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 04",
+        "F3 alternate lunar 38"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W038.xml",
+      "source_identifier": "F3-W038"
+    },
+    {
+      "external_key": "F3-W039",
+      "insertion_rank": 39,
+      "title": "F3 Study 04",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "439",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "439"
+        }
+      ],
+      "composition_year": 1919,
+      "composition_date": "1919",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 39"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W039.xml",
+      "source_identifier": "F3-W039"
+    },
+    {
+      "external_key": "F3-W040",
+      "insertion_rank": 40,
+      "title": "F3 Study 03",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": null,
+      "catalogue_identifiers": [],
+      "composition_year": null,
+      "composition_date": null,
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 03",
+        "F3 alternate solar 40"
+      ],
+      "retained_classifications": [
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W040.xml",
+      "source_identifier": "F3-W040"
+    },
+    {
+      "external_key": "F3-W041",
+      "insertion_rank": 41,
+      "title": "F3 Study 03",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "441",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "441"
+        }
+      ],
+      "composition_year": 1921,
+      "composition_date": "1921",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 41"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W041.xml",
+      "source_identifier": "F3-W041"
+    },
+    {
+      "external_key": "F3-W042",
+      "insertion_rank": 42,
+      "title": "F3 Study 03",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "442",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "442"
+        }
+      ],
+      "composition_year": 1922,
+      "composition_date": "1922",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 03",
+        "F3 alternate lunar 42"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W042.xml",
+      "source_identifier": "F3-W042"
+    },
+    {
+      "external_key": "F3-W043",
+      "insertion_rank": 43,
+      "title": "F3 Study 02",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "443",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "443"
+        }
+      ],
+      "composition_year": 1923,
+      "composition_date": "1923",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 43"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W043.xml",
+      "source_identifier": "F3-W043"
+    },
+    {
+      "external_key": "F3-W044",
+      "insertion_rank": 44,
+      "title": "F3 Study 02",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "444",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "444"
+        }
+      ],
+      "composition_year": 1924,
+      "composition_date": "1924",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 02",
+        "F3 alternate solar 44"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W044.xml",
+      "source_identifier": "F3-W044"
+    },
+    {
+      "external_key": "F3-W045",
+      "insertion_rank": 45,
+      "title": "F3 Study 02",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "445",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "445"
+        }
+      ],
+      "composition_year": 1,
+      "composition_date": "1",
+      "genre": "Chamber",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 45"
+      ],
+      "retained_classifications": [
+        "Chamber",
+        "F3 retained sacred"
+      ],
+      "instrumentation": [
+        "1 pf.; 1 vl."
+      ],
+      "source_file": "synthetic/f3/F3-W045.xml",
+      "source_identifier": "F3-W045"
+    },
+    {
+      "external_key": "F3-W046",
+      "insertion_rank": 46,
+      "title": "F3 Study 01",
+      "composer": "F3 Composer Ada",
+      "catalogue_number": "446",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "446"
+        }
+      ],
+      "composition_year": 9999,
+      "composition_date": "9999",
+      "genre": "Vocal",
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 01",
+        "F3 alternate lunar 46"
+      ],
+      "retained_classifications": [
+        "Vocal"
+      ],
+      "instrumentation": [
+        "solo zz."
+      ],
+      "source_file": "synthetic/f3/F3-W046.xml",
+      "source_identifier": "F3-W046"
+    },
+    {
+      "external_key": "F3-W047",
+      "insertion_rank": 47,
+      "title": "F3 Study 01",
+      "composer": "F3 Composer Benoit",
+      "catalogue_number": "447",
+      "catalogue_identifiers": [
+        {
+          "type": "CNW",
+          "value": "447"
+        }
+      ],
+      "composition_year": 1900,
+      "composition_date": "1900",
+      "genre": "Orchestral",
+      "projected_demo": false,
+      "retained_titles": [
+        "F3 alternate lunar 47"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [
+        "1 pf.",
+        "2 pf."
+      ],
+      "source_file": "synthetic/f3/F3-W047.xml",
+      "source_identifier": "F3-W047"
+    },
+    {
+      "external_key": "F3-W048",
+      "insertion_rank": 48,
+      "title": "F3 Study 01",
+      "composer": "F3 Composer Cora",
+      "catalogue_number": "448",
+      "catalogue_identifiers": [
+        {
+          "type": "FS",
+          "value": "448"
+        }
+      ],
+      "composition_year": 1900,
+      "composition_date": "1900",
+      "genre": null,
+      "projected_demo": true,
+      "retained_titles": [
+        "F3 Study 01",
+        "F3 alternate solar 48"
+      ],
+      "retained_classifications": [],
+      "instrumentation": [],
+      "source_file": "synthetic/f3/F3-W048.xml",
+      "source_identifier": "F3-W048"
+    }
+  ]
+}
